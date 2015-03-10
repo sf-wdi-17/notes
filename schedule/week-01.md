@@ -15,7 +15,7 @@
     <td>Sublime, z-shell and intro to HTML</td>
     <td>JS control flow</td>
     <td>JS scopes and context</td>
-    <td>Intro to DOM</td>
+    <td>Intro to DOM and DOM events</td>
   </tr>
   <tr>
     <td>Dusk</td>
@@ -23,7 +23,7 @@
     <td>Intro to JavaScript and primitives</td>
     <td>Introduction to JS functions</td>
     <td>Intro to CSS</td>
-    <td></td>
+    <td>Tic Tac Toe lab</td>
   </tr>
   <tr>
     <td></td>
@@ -31,6 +31,6 @@
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
+    <td>Tic Tac Toe lab</td>
   </tr>
 </table>
