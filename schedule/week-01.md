@@ -11,18 +11,18 @@
   </tr>
   <tr>
     <td>Dawn</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>Ice breaker</td>
+    <td>Sublime, z-shell and intro to HTML</td>
+    <td>JS control flow</td>
+    <td>JS scopes and context</td>
+    <td>Intro to DOM</td>
   </tr>
   <tr>
     <td>Dusk</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>Schedule overview</td>
+    <td>Intro to JavaScript and primitives</td>
+    <td>Introduction to JS functions</td>
+    <td>Intro to CSS</td>
     <td></td>
   </tr>
   <tr>
