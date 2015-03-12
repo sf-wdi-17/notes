@@ -31,14 +31,14 @@
     <td>Object Orientation</td>
     <td>Prototypical inheritance</td>
     <td>TDD</td>
-    <td>Refactor Tic Tac Toe OOP</td>
+    <td>Intro refactor Tic Tac Toe OOP & TDD</td>
   </tr>
   <tr>
     <td></td>
     <td>jQuery Tic Tac Toe</td>
     <td>Methods and properties</td>
     <td>OOP</td>
-    <td>Refactor Tic Tac Toe OOP</td>
-    <td>Calculator lab</td>
+    <td>Refactor Tic Tac Toe OOP & TDD</td>
+    <td>Refactor Tic Tac Toe OOP & TDD</td>
   </tr>
 </table>
