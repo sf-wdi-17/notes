@@ -10,6 +10,14 @@
     <th>Friday</th>
   </tr>
   <tr>
+    <td>Challenge</td>
+    <td></td>
+    <td>Intro</td>
+    <td>Variable swapping</td>
+    <td>Reverse string</td>
+    <td>Stacks and queues</td>
+  </tr>
+  <tr>
     <td>Dawn</td>
     <td>Ice breaker and schedule overview (all)</td>
     <td>Sublime and intro to HTML (Brett)</td>
