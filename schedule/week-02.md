@@ -13,9 +13,9 @@
     <td>CS</td>
     <td>Intro</td>
     <td>Factorial using recursion</td>
-    <td>Permutations (choose 2)</td>
-    <td>Magic matrix (n = 3)</td>
     <td>Palindrome</td>
+    <td>Magic matrix (n = 3)</td>
+    <td>Permutations (choose 2)</td>
   </tr>
   <tr>
     <td>Dawn</td>
