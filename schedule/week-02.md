@@ -31,7 +31,7 @@
     <td>Object Orientation</td>
     <td>Prototypical inheritance</td>
     <td>TDD</td>
-    <td>Calculator lab</td>
+    <td>Refactor Tic Tac Toe OOP</td>
   </tr>
   <tr>
     <td>jQuery Tic Tac Toe</td>
