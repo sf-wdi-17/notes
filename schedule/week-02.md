@@ -19,19 +19,19 @@
   </tr>
   <tr>
     <td>Dawn</td>
-    <td>Intro to jQuery</td>
-    <td>Node and NPM</td>
-    <td>Prototypes</td>
-    <td>Iterators</td>
-    <td>Review</td>
+    <td>Intro to jQuery (Mike)</td>
+    <td>Node and NPM (Mike)</td>
+    <td>Constructors and prototypes (Mike)</td>
+    <td>Iterators (Dennis)</td>
+    <td>Review (Brett)</td>
   </tr>
   <tr>
     <td>Dusk</td>
-    <td>Intro to jQuery</td>
-    <td>Object Orientation</td>
-    <td>Prototypical inheritance</td>
-    <td>TDD</td>
-    <td>Intro refactor Tic Tac Toe OOP & TDD</td>
+    <td>Refactor Tic Tac Toe with jQuery (Brett)</td>
+    <td>Object Orientation (Dennis)</td>
+    <td>Prototypical inheritance (Brett)</td>
+    <td>TDD methodology and Jasmine browser testing (Mike)</td>
+    <td>Intro refactor Tic Tac Toe OOP & TDD (Mike)</td>
   </tr>
   <tr>
     <td></td>
