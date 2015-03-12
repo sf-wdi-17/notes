@@ -26,7 +26,7 @@
     <td>Tic Tac Toe lab</td>
   </tr>
   <tr>
-    <td></td>
+    <td>Command line mystery</td>
     <td></td>
     <td></td>
     <td></td>
