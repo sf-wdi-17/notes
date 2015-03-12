@@ -31,7 +31,7 @@
     <td>Object Orientation (Dennis)</td>
     <td>Prototypical inheritance (Brett)</td>
     <td>TDD methodology and Jasmine browser testing (Mike)</td>
-    <td>Intro refactor Tic Tac Toe OOP & TDD (Mike)</td>
+    <td>Intro refactor Tic Tac Toe OOP & TDD</td>
   </tr>
   <tr>
     <td></td>
