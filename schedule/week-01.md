@@ -29,7 +29,7 @@
     <td></td>
     <td>Command line mystery</td>
     <td>Reading and review</td>
-    <td></td>
+    <td>Control flow and functions</td>
     <td></td>
     <td>Tic Tac Toe lab</td>
   </tr>
