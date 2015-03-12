@@ -22,14 +22,14 @@
     <td>Intro to jQuery</td>
     <td>Node and NPM</td>
     <td>Object Orientation</td>
-    <td>Prototypical inheritance</td>
+    <td>Iterators</td>
     <td>Review</td>
   </tr>
   <tr>
     <td>Dusk</td>
     <td>Intro to jQuery</td>
     <td>Prototypical inheritance</td>
-    <td>Iterators</td>
+    <td>Prototypical inheritance</td>
     <td>Review</td>
     <td>Calculator lab</td>
   </tr>
