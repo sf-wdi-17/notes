@@ -11,18 +11,18 @@
   </tr>
   <tr>
     <td>Dawn</td>
-    <td>Ice breaker and schedule overview</td>
-    <td>Sublime and intro to HTML</td>
-    <td>JS control flow</td>
-    <td>JS scopes and context</td>
-    <td>Intro to CSS</td>
+    <td>Ice breaker and schedule overview (all)</td>
+    <td>Sublime and intro to HTML (Brett)</td>
+    <td>JS control flow (Dennis)</td>
+    <td>JS scopes and context (Dennis)</td>
+    <td>Intro to CSS (Dennis)</td>
   </tr>
   <tr>
     <td>Dusk</td>
-    <td>Basic computer and terminal knowledge</td>
-    <td>Intro to JavaScript and primitives</td>
-    <td>Introduction to JS functions</td>
-    <td>Intro to DOM and DOM events</td>
+    <td>Basic computer and terminal knowledge (Dennis & Brett)</td>
+    <td>Intro to JavaScript and primitives (Mike)</td>
+    <td>Introduction to JS functions (Brett)</td>
+    <td>Intro to DOM and DOM events (Mike)</td>
     <td>Tic Tac Toe lab</td>
   </tr>
   <tr>
