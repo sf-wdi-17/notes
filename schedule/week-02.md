@@ -21,7 +21,7 @@
     <td>Dawn</td>
     <td>Intro to jQuery</td>
     <td>Node and NPM</td>
-    <td>Prototypical inheritance</td>
+    <td>Prototypes</td>
     <td>Iterators</td>
     <td>Review</td>
   </tr>
