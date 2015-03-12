@@ -12,7 +12,7 @@
   <tr>
     <td>Dawn</td>
     <td>Ice breaker and schedule overview</td>
-    <td>Sublime, z-shell and intro to HTML</td>
+    <td>Sublime and intro to HTML</td>
     <td>JS control flow</td>
     <td>JS scopes and context</td>
     <td>Intro to DOM and DOM events</td>
