@@ -34,11 +34,11 @@
     <td>Refactor Tic Tac Toe OOP</td>
   </tr>
   <tr>
+    <td></td>
     <td>jQuery Tic Tac Toe</td>
     <td>Methods and properties</td>
     <td>OOP</td>
     <td>Refactor Tic Tac Toe OOP</td>
-    <td></td>
     <td>Calculator lab</td>
   </tr>
 </table>
