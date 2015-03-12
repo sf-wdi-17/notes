@@ -11,9 +11,9 @@
   </tr>
   <tr>
     <td>CS</td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>Intro</td>
+    <td>Factorial using recursion</td>
+    <td>Permutations (choose 2)</td>
     <td></td>
     <td></td>
   </tr>
