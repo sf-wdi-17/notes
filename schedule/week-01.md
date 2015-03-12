@@ -11,7 +11,7 @@
   </tr>
   <tr>
     <td>Dawn</td>
-    <td>Ice breaker</td>
+    <td>Ice breaker and schedule overview</td>
     <td>Sublime, z-shell and intro to HTML</td>
     <td>JS control flow</td>
     <td>JS scopes and context</td>
@@ -19,7 +19,7 @@
   </tr>
   <tr>
     <td>Dusk</td>
-    <td>Schedule overview</td>
+    <td>Basic computer and terminal knowledge</td>
     <td>Intro to JavaScript and primitives</td>
     <td>Introduction to JS functions</td>
     <td>Intro to CSS</td>
