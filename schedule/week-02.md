@@ -14,8 +14,8 @@
     <td>Intro</td>
     <td>Factorial using recursion</td>
     <td>Permutations (choose 2)</td>
-    <td></td>
-    <td></td>
+    <td>Magic matrix (n = 3)</td>
+    <td>Palindrome</td>
   </tr>
   <tr>
     <td>Dawn</td>
