@@ -10,6 +10,14 @@
     <th>Friday</th>
   </tr>
   <tr>
+    <td>CS</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Dawn</td>
     <td>Intro to jQuery</td>
     <td>Node and NPM</td>
