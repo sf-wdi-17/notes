@@ -30,7 +30,7 @@
     <td>Intro to jQuery</td>
     <td>Object Orientation</td>
     <td>Prototypical inheritance</td>
-    <td>Review</td>
+    <td>TDD</td>
     <td>Calculator lab</td>
   </tr>
   <tr>
