@@ -10,7 +10,7 @@
     <th>Friday</th>
   </tr>
   <tr>
-    <td>Challenge</td>
+    <td>CS</td>
     <td></td>
     <td>Intro</td>
     <td>Variable swapping</td>
