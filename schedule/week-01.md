@@ -19,7 +19,7 @@
   </tr>
   <tr>
     <td>Dawn</td>
-    <td>Ice breaker and schedule overview (all)</td>
+    <td>Ice breaker and <a href="https://github.com/sf-wdi-17/notes/blob/master/lectures/week-01/_1_monday/dawn/schedule-overview.png".schedule overview</a> (all)</td>
     <td>Sublime and intro to HTML (Brett)</td>
     <td>JS control flow (Dennis)</td>
     <td>JS scopes and context (Dennis)</td>
@@ -27,7 +27,7 @@
   </tr>
   <tr>
     <td>Dusk</td>
-    <td>Basic computer and terminal knowledge (Dennis & Brett)</td>
+    <td><a href="https://github.com/sf-wdi-17/notes/blob/master/lectures/week-01/_1_monday/dusk/command-line.md">Basic computer and terminal knowledge</a> (Dennis & Brett)</td>
     <td>Intro to JavaScript and primitives (Mike)</td>
     <td>Introduction to JS functions (Brett)</td>
     <td>Intro to DOM and DOM events (Mike)</td>
