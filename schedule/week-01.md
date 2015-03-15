@@ -19,7 +19,7 @@
   </tr>
   <tr>
     <td>Dawn</td>
-    <td>Ice breaker and <a href="https://github.com/sf-wdi-17/notes/blob/master/lectures/week-01/_1_monday/dawn/schedule-overview.png".schedule overview</a> (all)</td>
+    <td>Ice breaker and <a href="https://github.com/sf-wdi-17/notes/blob/master/lectures/week-01/_1_monday/dawn/schedule-overview.png">schedule overview</a> (all)</td>
     <td>Sublime and intro to HTML (Brett)</td>
     <td>JS control flow (Dennis)</td>
     <td>JS scopes and context (Dennis)</td>
