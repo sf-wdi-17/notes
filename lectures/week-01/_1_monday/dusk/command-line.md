@@ -40,8 +40,5 @@ To host the code we write together, create a directory called 'code' in your hom
 # Now and Then
 You will need the basic knowledge you just acquired later on with other software and development tools.
 
-Read:
-
-- http://www.spacecowboyrocketcompany.com/2015/02/know-your-tools/
-
-And do the command line mystery for tonight!
+- Read http://www.spacecowboyrocketcompany.com/2015/02/know-your-tools/
+- Do the command line mystery for tonight
