@@ -35,7 +35,7 @@
   </tr>
   <tr>
     <td></td>
-    <td>Command line mystery</td>
+    <td><a href="https://github.com/sf-wdi-17/notes/tree/master/assignments/week-01/_1_monday">Command line mystery</a></td>
     <td>Reading and review</td>
     <td>Control flow and functions</td>
     <td>Intro Tic Tac Toe</td>
