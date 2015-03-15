@@ -1,0 +1,3 @@
+#Javascrip Primitives Lab
+
+##Reading
