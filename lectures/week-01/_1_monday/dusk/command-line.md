@@ -45,4 +45,4 @@ To host the code we write together, create a directory called 'code' in your hom
 You will need the basic knowledge you just acquired later on with other software and development tools.
 
 - Read http://www.spacecowboyrocketcompany.com/2015/02/know-your-tools/
-- Do the command line mystery for tonight
+- Do the [command line mystery](https://github.com/sf-wdi-17/notes/blob/master/assignments/week-01/_1_monday/README.md) for tonight! :)
