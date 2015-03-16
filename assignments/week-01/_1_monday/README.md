@@ -29,7 +29,7 @@ There's been a murder in Terminal City, and TCPD needs your help.
 
 To figure out whodunit, you need access to a command line.
 
-Once you're ready, clone this repo.
+Once you're ready, clone this repo by typing `git clone git@github.com:sf-wdi-17/notes.git` in your command line.
 
 Open a Terminal, go to the location of the files, and start by reading the file 'instructions'.
 
