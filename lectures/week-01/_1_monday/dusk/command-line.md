@@ -30,6 +30,10 @@ Every Unix operating system, such as on Mac computers, has a directory file stru
 - Absolute paths, i.e. from the perspective of your root directory
 - Relative paths to the present working directory
 
+
+## Permissions
+- sudo
+
 # Reflect
 As you just saw, the Terminal is a powerful tool that, for now, allows you to manipulate files and directories.
 
