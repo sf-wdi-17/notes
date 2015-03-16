@@ -33,6 +33,8 @@ Once you're ready, clone this repo by typing `git clone git@github.com:sf-wdi-17
 
 Open a Terminal, go to the location of the files, and start by reading the file 'instructions'.
 
+*Hint*: `cd notes/assignments/week-01/_1_monday/`
+
 One way you can do this is with the command:
 
 	cat instructions
