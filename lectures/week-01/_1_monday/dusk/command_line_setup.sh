@@ -6,7 +6,7 @@
 # Be sure to run this script with the command 'sudo command_line_setup.sh'
 
 ROOTLEVEL=''
-HOMEDIR='~'
+HOMEDIR=$HOME
 
 if [ ! -d $ROOTLEVEL/usr/local ]; then
 	echo "Creating /usr/local dir"
