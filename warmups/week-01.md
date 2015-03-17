@@ -1,4 +1,4 @@
-#Week 1 Warmpups
+#Week 1 Warmups
 
 ##Problem 1: Swapping varialbles
 Write a program that will swap the values of two variables. That is, if we start with
