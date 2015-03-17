@@ -1,0 +1,6 @@
+# The following command produced this file: cat vehicles_owners | sed -e 's/.*Owner: \(.*\)/\1/' > owners
+
+Erika Owens
+Joe Germuska
+Jeremy Bowers
+Jacqui Maher
