@@ -13,6 +13,8 @@
 | :----- |
 | To manipulate datatypes and create expressions in JS |
 
+##Before we get started...
+...everyone open up a browser and open up your developer console. You can do this by either using the keyboard shortcut `OPTION-COMMAND-J`, or clicking on View, then Developer, then JS Console in your browsers menu bar.
 
 ## Agenda
 * Brainstorm (Ruby v. Javascript)
