@@ -1,6 +1,12 @@
 # Javascript Primitives
 ## Intro to Programming fundamentals
 
+##Think-Pair-Share
+1. What is programming?
+2. How do we express programs?
+3. What sort of constructs do programs have?
+4. What kind of problems do we use programs to solve?
+5. Where does Javascript fit in to HTML and CSS?
 
 ## Objectives
 
@@ -8,6 +14,8 @@
 | :----- |
 | To manipulate datatypes and create expressions in JS |
 
+##Before we get started...
+...everyone open up a browser and open up your developer console. You can do this by either using the keyboard shortcut `OPTION-COMMAND-J`, or clicking on View, then Developer, then JS Console in your browsers menu bar.
 
 ## Agenda
 * Brainstorm (Ruby v. Javascript)
