@@ -1,3 +1,2 @@
 #Javascrip Primitives Lab
-
-##Reading
+Finish all the exercises from the dusk lecture
