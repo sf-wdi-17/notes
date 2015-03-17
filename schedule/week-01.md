@@ -29,7 +29,7 @@
     <td>Dusk</td>
     <td><a href="https://github.com/sf-wdi-17/notes/blob/master/lectures/week-01/_1_monday/dusk/command-line.md">Basic computer and terminal knowledge</a> (Dennis & Brett)</td>
     <td><a href="https://github.com/sf-wdi-17/notes/tree/master/lectures/week-01/_2_tuesday/dusk">Intro to JavaScript primitives and reference types</a> (Mike)</td>
-    <td>Introduction to JS functions (Brett)</td>
+    <td><a href="https://github.com/sf-wdi-17/notes/blob/master/lectures/week-01/_3_wednesday/dusk/README.md">Introduction to JS functions</a> (Brett)</td>
     <td>Intro to DOM and DOM events (Mike)</td>
     <td>Tic Tac Toe lab</td>
   </tr>
