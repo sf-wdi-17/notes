@@ -36,7 +36,7 @@
   <tr>
     <td></td>
     <td><a href="https://github.com/sf-wdi-17/notes/tree/master/assignments/week-01/_1_monday">Command line mystery</a></td>
-    <td>Reading and review</td>
+    <td>< href="https://github.com/sf-wdi-17/notes/blob/master/assignments/week-01/_2_tuesday/README.md">Review</a></td>
     <td>Control flow and functions</td>
     <td>Intro Tic Tac Toe</td>
     <td>Tic Tac Toe lab</td>
