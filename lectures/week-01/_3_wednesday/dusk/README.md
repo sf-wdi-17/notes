@@ -12,7 +12,7 @@
 ##Defining a function
 ```js
 var greeting = function() {
-console.log("Hello World");
+  console.log("Hello World");
 };
 
 greeting();
