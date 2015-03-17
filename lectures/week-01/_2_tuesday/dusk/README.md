@@ -6,6 +6,7 @@
 2. How do we express programs?
 3. What sort of constructs do programs have?
 4. What kind of problems do we use programs to solve?
+5. Where does Javascript fit in to HTML and CSS?
 
 ## Objectives
 
