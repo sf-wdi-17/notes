@@ -36,9 +36,12 @@ It's essential to have a good understanding of your text editor so that you can 
 
 The most important thing you can install right after getting Sublime Text 3 is Package Manager. This will enable you to install external packages and make your life as a developer much nicer :)
 
+If the package manager is not already installed, we can find the instructions for getting it set up here:
+https://packagecontrol.io/installation
+
 #### Subl symbolic link
 
-See [this](http://stackoverflow.com/questions/16199581/opening-sublime-text-on-command-line-as-subl-on-mac-os) Stack Overflow post to get the subl binary working for Sublime Text 3 
+See [this Stack Overflow post](http://stackoverflow.com/questions/16199581/opening-sublime-text-on-command-line-as-subl-on-mac-os) to get the subl binary working for Sublime Text 3 
 
 #### Important User settings
 
