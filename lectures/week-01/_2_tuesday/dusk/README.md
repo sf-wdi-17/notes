@@ -1,6 +1,11 @@
 # Javascript Primitives
 ## Intro to Programming fundamentals
 
+##Think-Pair-Share
+1. What is programming?
+2. How do we express programs?
+3. What sort of constructs do programs have?
+4. What kind of problems do we use programs to solve?
 
 ## Objectives
 
