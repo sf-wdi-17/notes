@@ -1,3 +1,5 @@
+#*Note:* This Lab is Hard. We do not expect you to finish the entire thing.
+
 #Part 1 - JS Control flow
 Use looping structures we learned in class to solve the problems. Each problem should be in it's own file.
 
@@ -18,7 +20,7 @@ count = "5"
 ```
 and output the pluralized form of the word like "5 cats" or "1 dog"..
 
-##Problem 3: tempConvert.js
+##Problem 4: tempConvert.js
 Convert a temperature from F to C.
 
 Convert it to fahrenheit and output "NN°C is NN°F".
