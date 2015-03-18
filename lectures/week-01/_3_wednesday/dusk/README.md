@@ -25,7 +25,7 @@ var greeting = function (taco) {
   console.log("Good morning", taco);
 };
 
-var name = "Delmer";
+var name = "Dennis";
 var name2 = "Brett";
 greeting(name);
 greeting(name2);
@@ -42,17 +42,17 @@ greeting(name2);
 var instructor = "Brett";
 console.log("Hello", instructor); // Hello Brett
 
-instructor = "Delmer";
-console.log("Hello", instructor); // Hello Delmer
+instructor = "Dennis";
+console.log("Hello", instructor); // Hello Dennis
 ```
 
 ####Let's greet some students
 ```js
-var student = "Alexandra";
-console.log("Hello", student);  // Hello Alexandra
+var student = "David";
+console.log("Hello", student);  // Hello David
 
-student = "Emmanuel";
-console.log("Hello", student); // Hello Emmanuel
+student = "Christina";
+console.log("Hello", student); // Hello Christina
 ```
 
 ###So what does this have to do with functions?
@@ -70,11 +70,11 @@ var greeter = function(person) {
 
 // Now let's greet some instructors...
 greeter("Brett");
-greeter("Delmer");
+greeter("Dennis");
 
 // ... and some students.
-greeter("Alexandra");
-greeter("Emmanuel");
+greeter("David");
+greeter("Christina");
 
 ```
 
@@ -88,11 +88,11 @@ var greeter = function(person) {
 
 // Now let's greet some instructors...
 greeter("Brett");
-greeter("Delmer");
+greeter("Dennis");
 
 // ... and some students.
-greeter("Alexandra");
-greeter("Emmanuel");
+greeter("David");
+greeter("Christina");
 
 ```
 
@@ -106,7 +106,7 @@ var greeting = function (taco, stuff) {
   console.log("stuff:", stuff);
 };
 
-var name = "Delmer";
+var name = "Dennis";
 var name2 = "Brett";
 greeting(name, name2);
 greeting(name2, name);
