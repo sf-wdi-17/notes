@@ -315,9 +315,3 @@ for (var i = 0; i > 0; i++) {
           35, 33, 11, 52];
   
   ```
-  
-## Basic JavaScript Calculator Lab
-
-- Create a calculator in JavaScript.
-- Prompt the user to enter an operator and two operands.
-- Support the following operations: addition, subtraction, multiplication, and division. Output may appear in the console or in an alert.

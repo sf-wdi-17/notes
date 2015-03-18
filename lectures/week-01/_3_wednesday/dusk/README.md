@@ -12,7 +12,7 @@
 ##Defining a function
 ```js
 var greeting = function() {
-console.log("Hello World");
+  console.log("Hello World");
 };
 
 greeting();
@@ -197,8 +197,19 @@ console.log(greeting); // What will the output of this line be?
 
 
 ###Exercise
-Write a function that reverses a string.
 
-Write a function to solve [FizzBuzz](http://en.wikipedia.org/wiki/Fizz_buzz)
+Write a function to solve [FizzBuzz](http://en.wikipedia.org/wiki/Fizz_buzz).
 
-Rewrite all the exercises from the previous days homework as functions instead of files.
+```js
+var fizzBuzz = function() {
+	// Code goes here
+};
+```
+
+Write a function that square's all of the numbers in an array. So that `squares([1,2,3])` returns `[1,4,9]`.
+
+```js
+var squares = function(arr) {
+	// Code Goes here
+}
+```
