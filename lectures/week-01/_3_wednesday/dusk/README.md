@@ -205,3 +205,11 @@ var fizzBuzz = function() {
 	// Code goes here
 };
 ```
+
+Write a function that square's all of the numbers in an array. So that `squares([1,2,3])` returns `[1,4,9]`.
+
+```js
+var squares = function(arr) {
+	// Code Goes here
+}
+```
