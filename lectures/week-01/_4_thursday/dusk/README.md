@@ -101,7 +101,7 @@ Some common events:
 ```
 
 ```javascript
-function showPopUp() {
+var showPopUp = function () {
   alert("the button was clicked");
 }
 
@@ -112,7 +112,7 @@ taco.addEventListener("click", showPopUp);
 Alternative event listener syntax:
 
 ```javascript
-function showPopUp() {
+var showPopUp = function () {
   alert("the button was clicked");
 }
 
