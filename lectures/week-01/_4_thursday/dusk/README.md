@@ -59,9 +59,9 @@ title.setAttribute("id", "yourTitle"); // don't do this. unusual to change ID.
 
 ## Exercises
 
-In the [dom_exercises](https://github.com/wdi-sf-jan/dom_exercises)
+In the [dom_exercises](https://github.com/sf-wdi-17/dom_exercises)
 repository, we have some in-class examples to work through. Clone the
-repository to your computer using the `git clone` command.
+repository to your computer using the `git clone` command. Please work on the sections for IDs, Forms, and Collections first.  
 
 ## References
 
@@ -123,7 +123,7 @@ taco.onclick = showPopUp;
 ## Exercises
 
 We will continue to do the exercises in the
-[dom_exercises](https://github.com/wdi-sf-jan/dom_exercises)
+[dom_exercises](https://github.com/sf-wdi-17/dom_exercises)
 repository from this morning.
 
 - Work through the Parts 1-3 in the `events` exercises.
