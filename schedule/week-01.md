@@ -30,7 +30,7 @@
     <td><a href="https://github.com/sf-wdi-17/notes/blob/master/lectures/week-01/_1_monday/dusk/command-line.md">Basic computer and terminal knowledge</a> (Dennis & Brett)</td>
     <td><a href="https://github.com/sf-wdi-17/notes/tree/master/lectures/week-01/_2_tuesday/dusk">Intro to JavaScript primitives and reference types</a> (Mike)</td>
     <td><a href="https://github.com/sf-wdi-17/notes/blob/master/lectures/week-01/_3_wednesday/dusk/javascript_functions.md">Introduction to JS functions and scopes</a> (Brett)</td>
-    <td>Intro to DOM and DOM events (Mike)</td>
+    <td><a href="https://github.com/sf-wdi-17/notes/blob/master/lectures/week-01/_4_thursday/dusk/README.md">Intro to DOM and DOM events</a> (Mike)</td>
     <td>Tic Tac Toe lab</td>
   </tr>
   <tr>
@@ -38,7 +38,7 @@
     <td><a href="https://github.com/sf-wdi-17/notes/tree/master/assignments/week-01/_1_monday">Command line mystery</a></td>
     <td><a href="https://github.com/sf-wdi-17/notes/blob/master/assignments/week-01/_2_tuesday/README.md">Rreview</a></td>
     <td><a href="https://github.com/sf-wdi-17/notes/tree/master/assignments/week-01/_3_wednesday">Control flow and functions</a></td>
-    <td>Intro Tic Tac Toe</td>
+    <td><a href="https://github.com/sf-wdi-17/notes/tree/master/assignments/week-01/_4_thursday">Intro Tic Tac Toe</a></td>
     <td>Tic Tac Toe lab</td>
   </tr>
 </table>
