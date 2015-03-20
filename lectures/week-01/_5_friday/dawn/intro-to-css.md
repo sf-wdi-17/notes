@@ -6,10 +6,10 @@ Students will be able to...
 
 - Write basic CSS expressions
 - Add classes and ids to HTML tags
-- Improve their about me pages with styling
+- Create about me pages with styling
 
 # Link
-The about me pages we built earlier this week look pretty dull and boring. They need some styling! We can do that with CSS.
+Let's build some about me pages and style them.
 
 # Educate and Engage
 "CSS" stands for cascading style sheets. Styles define how to display HTML elements. HTML elements are identified either by `tag`, `id` or `class`.
@@ -74,13 +74,26 @@ CSS style rules are stored in a `.css` file and required in an HTML head like so
 ```
 
 # Active Learning
+## Part 1 - Code an about me page
+Build an about me page with the following components:
+
+- A heading (h1)
+- A subheading (h2)
+- At least one paragraph with some text about you
+- One image of you
+- One image of your hometown
+- A list of your hobbies (ul and li)
+- A list of your three favorite technologies
+- Links to your LinkedIn or GitHub or some similar link
+
+## Part 2 - Style the page
 Research how to do the following and apply these styles to your elements on your about me page:
 
 - Make your h1 30px big and green
 - Make your h2 20px big and green
 - Make all your paragraphs dark gray and 15px big
 - Make both your images have a border that's 10px wide
-- Make your first image have a red border, and your sedond image have a blue border
+- Make your first image have a red border, and your second image have a blue border
 - Increase the margin between all list items
 - Make all links turn red when you hover over them with your mouse
 - Center your h1
