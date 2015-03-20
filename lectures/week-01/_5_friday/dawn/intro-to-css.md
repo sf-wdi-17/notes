@@ -98,7 +98,6 @@ Research how to do the following and apply these styles to your elements on your
 - Make all links turn red when you hover over them with your mouse
 - Center your h1
 - Right-align your list of three favorite technologies
-- move the width and height attributes from your images into your stylesheet
 
 # Reflect
 *Go over assignment with students*
