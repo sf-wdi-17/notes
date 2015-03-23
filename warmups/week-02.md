@@ -37,7 +37,28 @@ var isPalindrome = function(str) {
 ```
 
 
-##Problem 3: Determine if an array has any duplicates
+##Problem 3: [Magic Square](http://en.wikipedia.org/wiki/Magic_square)
+Write a function `isMagic` that takes in a matrix, represented as an array of arrays of length N and returns true if the matrix is a magic square and false otherwise. For Example:
+
+```
+isMagic[[1,2,3], => false
+        [4,5,6],
+        [7,8,9]]
+        
+isMagic[[2,7,6], => true
+        [9,5,1],
+        [4,3,8]]
+```
+
+Here is some starter code:
+
+```js
+var isMagic = function(mat) {
+  // code goes here
+};
+```
+
+##Problem 4: Determine if an array has any duplicates
 Write a function `hasDupes` that takes in an array of primitive data-types and returns true, if there are duplicates and false otherwise. For example
 
 ```
@@ -53,7 +74,7 @@ var hasDupes = function(arr) {
 };
 ```
 
-##Problem 4: Choose-2
+##Problem 5: Choose-2
 Write a function `chooseTwo` that takes in an array and returns an array of all of the possible pairs of elements in the array. For example
 
 ```
