@@ -54,5 +54,15 @@ $('#outerContainer').append($newDiv);
 
 See this in action (and play around with it) [on JSBin](http://jsbin.com/gupade/3/edit?html,js,output)
 
-*Updates to come...*
+## Bind events using jQuery
+
+Let's talk through this example of events and jQuery UI effects on [JSBin](http://jsbin.com/hukeba/1/edit?html,js,output)
+
+### Can I use other events?
+
+So let's talk about how you might go about figuring out something new when it comes to jQuery. We'll do a live walkthrough of the documentation to bind a click event to an element:
+
+[General jQuery API Documentation](https://api.jquery.com/)
+
+[jQuery API Events Documentation](https://api.jquery.com/category/events/)
 

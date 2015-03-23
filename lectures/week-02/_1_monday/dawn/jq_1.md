@@ -260,4 +260,6 @@ That should have brought all the images back. Make sense so far?
 Now try some of the other examples we've gone over in the Chrome REPL and see what happens to the Reddit.com website. Remember, this is your laboratory — your chance to experiment and learn. Make use of it.
 
 
-### Part II of jQuery Lesson Available in Week 4 > Day 4 > Dusk
+### If you're feeling funky...
+
+[Check out Part II of the jQuery introduction](jq_2.md)
