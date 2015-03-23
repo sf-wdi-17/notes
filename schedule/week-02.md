@@ -14,7 +14,7 @@
     <td>Intro</td>
     <td>Factorial using recursion</td>
     <td>Palindrome</td>
-    <td>Magic matrix (n = 3)</td>
+    <td>Finding Duplicates in an Array</td>
     <td>Permutations (choose 2)</td>
   </tr>
   <tr>
