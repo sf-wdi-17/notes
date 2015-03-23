@@ -163,9 +163,7 @@ var car2 = new Car('black', 'Porsche');
 ## Active Learning
 Partner up with your buddy!
 
-Write your own `Person` constructor. It can take a first name and last name as parameters that it can store, and it can print out its full name.
-
-Once you're done, write a `Course` constructor resembling a course at GA. It has a size (number of enrolled people) and can enroll people. Achieve this by combining both the `Course` and `Person` constructor.
+Implement a stack. It can store an array of objects, and it can `push()` objects onto the stack, and `pop()` methods out of the stack. Use an array internally to store the objects.
 
 ## Reflect
 Reiterate over core OOP concepts with your buddy. Test each other! Help each other out with any questions you might have.
