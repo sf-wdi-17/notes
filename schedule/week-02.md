@@ -28,7 +28,7 @@
   <tr>
     <td>Dusk</td>
     <td><a href="https://github.com/sf-wdi-17/notes/tree/master/lectures/week-02/_1_monday/dusk">Refactor Tic Tac Toe with jQuery</a> (Mike)</td>
-    <td>Object Orientation (Dennis)</td>
+    <td><a href="https://github.com/sf-wdi-17/notes/blob/master/lectures/week-02/_2_tuesday/dusk/README.md">Object Orientation</a> (Dennis)</td>
     <td>Prototypical inheritance (Brett)</td>
     <td>TDD methodology, assert statements, try/catch (Mike)</td>
     <td>Intro refactor Tic Tac Toe OOP & TDD</td>
