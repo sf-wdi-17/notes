@@ -19,7 +19,7 @@
   </tr>
   <tr>
     <td>Dawn</td>
-    <td>Intro to jQuery (Brett)</td>
+    <td><a href="../lectures/week-02/_1_monday/dawn/README.md">Intro to jQuery (Brett)</a></td>
     <td><a href="https://github.com/sf-wdi-17/notes/tree/master/lectures/week-02/_2_tuesday/dawn">Node and NPM</a> (Mike)</td>
     <td><a href="https://github.com/sf-wdi-17/notes/tree/master/lectures/week-02/_3_wednesday/dawn">Constructors and prototypes</a> (Mike)</td>
     <td>Iterators (Dennis)</td>
