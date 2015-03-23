@@ -1,7 +1,4 @@
-intro_node.js
-# Intro Node 
 ## File Separation 
-
 
 ### Running A `.js` File With Node
 
