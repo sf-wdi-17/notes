@@ -19,15 +19,15 @@
   </tr>
   <tr>
     <td>Dawn</td>
-    <td>Intro to jQuery (Mike)</td>
-    <td>Node and NPM (Mike)</td>
-    <td>Constructors and prototypes (Mike)</td>
+    <td>Intro to jQuery (Brett)</td>
+    <td><a href="https://github.com/sf-wdi-17/notes/tree/master/lectures/week-02/_2_tuesday/dawn">Node and NPM</a> (Mike)</td>
+    <td><a href="https://github.com/sf-wdi-17/notes/tree/master/lectures/week-02/_3_wednesday/dawn">Constructors and prototypes</a> (Mike)</td>
     <td>Iterators (Dennis)</td>
     <td>Review (Brett)</td>
   </tr>
   <tr>
     <td>Dusk</td>
-    <td>Refactor Tic Tac Toe with jQuery (Brett)</td>
+    <td><a href="https://github.com/sf-wdi-17/notes/tree/master/lectures/week-02/_1_monday/dusk">Refactor Tic Tac Toe with jQuery</a> (Mike)</td>
     <td>Object Orientation (Dennis)</td>
     <td>Prototypical inheritance (Brett)</td>
     <td>TDD methodology, assert statements, try/catch (Mike)</td>
