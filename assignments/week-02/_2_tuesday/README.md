@@ -43,7 +43,7 @@ var ogd = {
 };
 
 var act = {
-  name: "Swoem Ris Tola",
+  eman: "Swoem Ris Tola",
   ega: 2
 };
 
