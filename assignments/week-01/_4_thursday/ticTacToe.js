@@ -35,16 +35,29 @@ $(function() {
 
 
 	var doScore = (function() {
+		var totalMoves = 0; // Tracks total moves to report a tie, when that occurs.
 
 		return function(space, player) {
+			console.log(totalMoves);
 
 			$board = $('#board'); // Grab the board element in case its needed
+			if (totalMoves < 8) {
+				totalMoves = totalMoves + 1;
+			} else {
+				alert("The game has ended in a tie.");
+				totalMoves = 0;
+				$board.off().click(function(event) {
+					alert("The game was a tie. Click reset to start again.");
 
-			if (player === "X") {
+				});
+			};
+
+			if (player === "X") { // Tracks player X score to check for wins.
 				scoreX += Math.pow(2, space);
 
 				if (checkWins(scoreX)) {
 					alert("Player X has won.");
+					totalMoves = 0;
 					$board.off().click(function(event) {
 						alert("Player X has won. Click reset to start the game again.");
 					});
@@ -52,12 +65,12 @@ $(function() {
 
 			};
 			
-			if (player === "O") {
+			if (player === "O") { // Tracks player O score to check for wins.
 				scoreO += Math.pow(2, space);
 
 				if (checkWins(scoreO)) {
 					alert("Player O has won.");
-					
+					totalMoves = 0;
 					$board.off().click(function(event) {
 						alert("Player O has won. Click reset to start the game again.");
 					});
