@@ -18,7 +18,7 @@ cat.purr = function(times) {
 ```
 
 ## Part 2
-In the following example what does the keyword `this` refer to and what does the bark method do:
+In the following example what does the keyword `this` refer to and what does the whimper method do:
 
 ```js
 var dog = {
