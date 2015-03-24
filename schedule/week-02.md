@@ -14,7 +14,7 @@
     <td><a href="https://github.com/sf-wdi-17/notes/blob/master/warmups/week-02.md">Intro</a></td>
     <td>Factorial using recursion</td>
     <td>Palindrome</td>
-    <td>Finding Duplicates in an Array</td>
+    <td>Finding duplicates in an Array</td>
     <td>Permutations (choose 2)</td>
   </tr>
   <tr>
