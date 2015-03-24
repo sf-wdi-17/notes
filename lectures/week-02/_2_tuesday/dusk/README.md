@@ -1,5 +1,5 @@
 # Object Orientation
-Lecture on object oriented programming (OOP).
+Lesson on object oriented programming (OOP).
 
 ## Objectives
 Students will be able to...
