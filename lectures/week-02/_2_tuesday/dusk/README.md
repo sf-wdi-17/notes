@@ -5,7 +5,7 @@ Lecture on object oriented programming (OOP).
 Students will be able to...
 
 - understand the core principles of OOP
-- create custom objects
+- create custom objects, including their own stack
 - write custom constructors
 
 ## Introduction to OOP
@@ -26,13 +26,19 @@ Let's summarize some of those ideas/principles!
 A plain object in JavaScript can be created like this:
 
 ```javascript
-var object = {};
+var object = {}; // literal syntax
+
+// or
+
+var object = new Object(); // constructor syntax
 ```
+
+We'll get to what the `new` keyword does in a moment. The literal syntax is preferred.
 
 We could then assign properties and methods to the object. For example, think of a car:
 
 ```javascript
-var car = new Object();
+var car = {};
 
 // Assign some properties
 car.speed = 0;
