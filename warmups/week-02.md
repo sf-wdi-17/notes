@@ -1,4 +1,4 @@
-#Week 1 Warmups
+#Week 2 Warmups
 
 ##Problem 1: Factorial using recursion
 Write a function `factorial` that takes a single parameter `n`, and computes the [factorial](http://en.wikipedia.org/wiki/Factorial) of `n`. For example
