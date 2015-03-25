@@ -4,5 +4,5 @@
 |------|------|-------|--------|---------|-------|
 | CS   | Intro to CS problems for the week | Event loop |  |  |  |
 | Dawn | Sequelize associations | Authentication using passport | Twitter Bootstrap | Review | Wireframing & Trello, project intro |
-| Dusk | Authentication from Scratch | Authorization | APIs | Review | Project start |
-| Lab  |  |  |  |  |  |
+| Dusk | Authentication from scratch | Authorization | APIs | Review | Project start |
+| Lab  | Daily planner w/ authentication from scratch | Daily planner w/ passport |  |  |  |
