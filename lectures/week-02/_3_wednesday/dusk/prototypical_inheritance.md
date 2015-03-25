@@ -1,73 +1,37 @@
-# Prototypical Inheritance
-## Tips
+## Prototypes Revisited + Prototypal Inheritance
 
-| Objectives |
-| :---- |
-| Apply constructors and prototypes together to implement inheritance between objects in Javascript |
-| To examine lookup in the prototype chain and articulate certain advantages via diagrams |
+## Review
 
-![Darth Prototype](https://38.media.tumblr.com/tumblr_m1wwr3Bvyj1qgbp1jo1_500.gif)
-## Related Topics
-
-* Prototypal Inheritance
-* Javascript Prototypes
-* Special Functions:
-	* Apply
-	* Call
+We mentioned in the last lesson that a prototype was the building block of an object and that when we create a new class, we can attach attributes and methods to the prototype (as a better alternative to adding them in the constructor function to save memory).
 
 
-## Overall Goal
+### Review of a Constructor and Prototype In JS
 
-* Reduce code complexity
-* Encourage code reuse
-* Model the world around us 
+In javascript we don't have classes, so we use constructor functions and prototypes to create them.
 
-
-## Classical Inheritance
-
-In many other languages, we use *classes* to model the world around us. Each class then represents a type of object. For example, we might define a `class Car` in Ruby to help us model different types of cars. Javascript, however, uses a different type of inheritance called _prototypical inheritance_
-
-### A Prototype In JS Review
-
-In javascript we don't have classes. We have prototypes
-
-	function Person(name){
-		this.name = name
-	}
-	
-	Person.prototype.greet = function(){
-		return "Hello, my name is " + this.name;
-	};
-
-* Why do we use the prototype?
-* What is a `hasOwnProperty`?
-* What is a `prototypeProperty`?
-* How do we create a new `Person`?
-
-
-### Static Method/Property Review
-
-Here is a static method and property
-
-```js
-function Person(name){
+```
+jsfunction Person(name){
 	this.name = name
-	Person.all.push(name);
 }
-
-Person.all = [];
-Person.count = function(){
-	return Person.all.length;
-};
 
 Person.prototype.greet = function(){
 	return "Hello, my name is " + this.name;
 };
 ```
 
-### Inheriting Via Prototypes -- Classical Pattern
+## Inheritance
 
-Given the following prototype let's create a student.
+### Inheriting Via Prototypes
+
+We have previously mentioned briefly, that objects can inherit properties and methods from other objects. In JavaScript we use prototypes to do this and this process is called inheritance. The formal term for this inheritance via prototypes is called prototypal inheritance.
+
+#### Inheritance is done in two steps ####
+
+1. Set the prototype of the subclass (the class that will get methods and properties from it's parent, which is also known as the superclass) to a new instance of the superclass (also known as parent class)
+
+2. Set the constructor of the subclass equal to it's constructor function (which was overwritten when the prototype was set to the superclass)
+
+Given the following example let's create a Student class that inherits from Person.
 
 ```js
 function Person(name){
@@ -83,34 +47,19 @@ function Student(name, course){
 	this.course = course;
 };
 
-Student.prototype = new Person();
+Student.prototype = new Person
 Student.prototype.constructor = Student;
 ```
 
-Play with the above example. Create a new `Student`.
 
-* What's inherited?
-	* the `greet` method
-* Why set the `Student.prototype.constructor`?
-	* when we say `Student.prototype = new Person();` it breaks the constructor property.
+Why do we reset the constructor? See [this](http://stackoverflow.com/questions/8453887/why-is-it-necessary-to-set-the-prototype-constructor) answer.
 
-
-### Exercises:
-
-* Try adding study method on the `Student` prototype that returns "Maybe later".
-* Try creating a `Table` constructor that takes `numberOfLegs` and `shape`.
-	* Add a `putOn` method that takes a string and pushes it into an array of `items`. For example I could say `table.putOn("plates")` for a new table, and the `table.items` would be `["plates"]`.
-* Try creating a `LawnTable` also takes `numberOfLegs` and `shap`, and inherits from `Table`.
-	* Add a `unfold` method to the `LawnTable` prototype that sets a property `ready` to `true`.
-	* Add a `foldup` method to the `LawnTable` prototype that sets a property `ready` to be `false`.
- 
-
-
-### Pitfals--Side Effects
+### Pitfalls/Side Effects - different properties for different classes
 
 When we inherit in JS we have to watch out for in the wild.
 
-```js	
+	
+```js
 function Person(name){
 	this.name = name;
 	this.friends = [];
@@ -121,42 +70,17 @@ Person.prototype.addFriend = function(name){
 };
 
 function Student(name){
-	this.name = name;
+	Person.call(this, name)
 };
 
 Student.prototype = new Person()
 Student.prototype.constructor = Student;
 ```
 
-Now:
-  * Create two students and add different friends for each one of them. 
-  * What happens after adding a friend?
-
-One quick solution or best practice to avoid problems like these is to always avoid initializing properties with array and object values in the constructor if possible. The alternative is to just add a quick check to each method to see if the value is defined.
-
-The above example might become:
-
-```js	
-function Person (name) {
-	this.name = name;
-}
-
-Person.prototype.addFriend = function (name) {
-	this.friends = this.friends || [];
-	this.friends.push(new Person(name));
-};
-
-function Student(name){
-	this.name = name;
-};
-
-Student.prototype = new Person()
-Student.prototype.constructor = Student;
-```
+* Create a person and a student and add different friends to each. Can you see the persons' friends from the student object? What about the other way around?
 
 
-
-### Using `call` and `apply` ###
+### `call` and `apply`
 
 Example 1:
 
@@ -166,7 +90,11 @@ var getAge = function(friend) {
 }
 
 var john = { name: "john", age: 21 };
+var tom = { name: "tom", age: 31 };
+var bob = { name: "bob", age: 41 };
 getAge(john)
+getAge(tom)
+getAge(bob)
 
 ```
 
@@ -178,8 +106,11 @@ var getAge = function() {
 }
 
 var john = { name: "john", age: 21 };
-getAge(john); // This will not work!
-getAge.call(john); // Using 'call' sets the context of 'this'
+var tom = { name: "tom", age: 31 };
+var bob = { name: "bob", age: 41 };
+getAge.call(tom)
+getAge.call(john)
+getAge.call(bob)
 
 ```
 
@@ -205,8 +136,9 @@ var setAge = function(newAge) {
 var john = { name: "john", age: 21 };
 setAge.call(john, 12)
 
-// Question: What will happen if we do setAge(john, 12)?
 ```
+
+Apply works just like call, but your second parameter is an array of objects instead of a comma separated list.
 	
 ### Calling on a solution
 
@@ -223,18 +155,142 @@ Person.prototype.addFriend = function(name){
 };
 
 function Student(name){
-	// masks all the constructor properties
-	Person.call(this);
-	this.name = name;
+	// masks all the constructor properties including name (as the second parameter)
+	Person.call(this, name);
 };
 
 Student.prototype = new Person()
 Student.prototype.constructor = Student;
 ```
 
-
-Unfortunately, this breaks the **Law of Demeter** or **Priniciple of Least Knowledge**, which is that modular units should have a very limited knowledge of the other units they are tied to.
-
+Unfortunately, this breaks the **Law of Demeter** (AKA **Priniciple of Least Knowledge**), which state that modular units should only have limited knowledge of the other units they are tied to.
 
 
+### Useful methods when working with inheritance
 
+### hasOwnProperty ### 
+
+Object.hasOwnProperty('nameOfProperty') - always make sure the name of the property is in quotes. Classes that inherit from other classes will also return true if the property is checked.
+
+Example 1 
+
+```js
+var taco = {
+	food: "taco"
+}
+
+taco.hasOwnProperty(food) // returns an error
+taco.hasOwnProperty("food") // returns true
+```
+
+Example 2 with inheritance
+
+```js
+
+function Person(name){
+	this.name = name
+}
+
+Person.prototype.greet = function(){
+	return "Hello, my name is " + this.name;
+};
+
+function Student(name, course){
+	this.name = name;
+	this.course = course;
+};
+
+Student.prototype = new Person
+Student.prototype.constructor = Student;
+
+p = new Person("bob")
+s = new Student("tom")
+
+p.hasOwnProperty("name") //returns true
+s.hasOwnProperty("course") //returns true
+s.hasOwnProperty("name") //returns true
+	
+```
+
+### instanceOf
+
+This method is a bit more common  and the syntax looks like this:
+
+`object instanceOf Class`
+
+Example 1:
+
+```js
+var color = "green";
+color1 instanceof String; // returns true
+
+```
+
+Example 2 with inheritance
+
+```js
+
+function Person(name){
+	this.name = name
+}
+
+Person.prototype.greet = function(){
+	return "Hello, my name is " + this.name;
+};
+
+function Student(name, course){
+	this.name = name;
+	this.course = course;
+};
+
+Student.prototype = new Person
+Student.prototype.constructor = Student;
+
+p = new Person("bob")
+s = new Student("tom")
+
+s instanceof Person //returns true
+p instanceof Student //returns false
+Person instanceof Object //returns true
+String instanceof Object //returns true
+Object isntanceof Boolean //returns false
+	
+```
+
+#### Quirk with instanceOf
+
+Like we mentioned in the previous lecture, adding the word `new` when creating an object is essential. Let's look at these two examples
+
+```js
+var color1 = new String("green");
+color1 instanceof String; // returns true
+
+var color2 = String("green");
+color2 instanceof String; // returns false
+```
+
+Let's examine these two using console.dir, what do you see?
+
+
+### isPrototypeOf
+
+This method is used a bit less prequently, but the syntax looks like this:
+
+`Object.hasOwnProperty('nameOfProperty')`
+
+Example:
+
+```js
+Object.prototype.isPrototypeOf(Function) // returns true
+Boolean.prototype.isPrototypeOf(Number) // returns false
+```
+
+
+You can read more about the difference between isPrototypeOf and isInstanceOf [here](http://stackoverflow.com/questions/2464426/whats-the-difference-between-isprototypeof-and-instanceof-in-javascript)
+
+
+#### Some good additional reading
+
+[http://geekabyte.blogspot.com/2013/03/difference-between-protoype-and-proto.html](http://geekabyte.blogspot.com/2013/03/difference-between-protoype-and-proto.html)
+
+[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript#Inheritance](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript#Inheritance)
