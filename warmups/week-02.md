@@ -85,7 +85,7 @@ chooseTwo(['a','b','c','d']) => [['a','b'],['a','c'],['a','d'],['b','a'],['b','c
 Here is some starter code:
 
 ```js
-var hasDupes = function(arr) {
+var chooseTwo = function(arr) {
 
 };
 ```
