@@ -94,10 +94,9 @@ reduce([1,2,3,4], function(total, product) {
 Let's use the functions we built to complete the following tasks. Feel free to pair up with your buddy!
 
 - Return all uniq items in `[1,2,3,5,6,4,3,2,1]`
-- Loop over `[1,2,3,4]` and console.log() each item
+- Loop over `[1,2,3,4]` and `console.log()` each item
 - Print out each letter of a string
 - Square each element in an array and return an array with the results
-- Return all even numbers numbers in the array `[1,2,3,4]`
 - Return an array of all letters in the string `'hey fellas!'`
 - Multiply all numbers in the array `[4,5,2,41,3]`
 - Multiply all squares of the numbers in the array `[1,2,3,4]`
@@ -120,3 +119,17 @@ There are two iterators available in JavaScript called `forEach()` and `reduce()
 	// write, e.g., an expression for each element num
 });
 ```
+
+## Bonus
+Write a function called `partition()` that returns an array of two items. The first contains the items for which the callback returns true, the second contains the items for which the callback returns false.
+
+For example:
+
+```javascript
+partition([1,2,3,4], function(a) {
+	return a % 2 === 0;
+});
+// => [[2,4], [1,3]]
+```
+
+In the above example, all even numbers are on the left, and all odd numbers on the right of the returned array.
