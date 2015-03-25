@@ -108,7 +108,7 @@ Explain to your buddy:
 - The difference between `each()` and `map()`
 
 ## Tips
-There are two iterators available in JavaScript called `forEach()` and `reduce()` that you can call directly on arrays:
+There are some iterators available in JavaScript, including `forEach()`, `reduce()`, `map()`, etc. that you can call directly on arrays:
 
 ```javascript
 [1,2,3].forEach(function(a) {
@@ -118,6 +118,8 @@ There are two iterators available in JavaScript called `forEach()` and `reduce()
 [1,2,3].reduce(function(total, num) {
 	// write, e.g., an expression for each element num
 });
+
+// ... etc
 ```
 
 ## Bonus
