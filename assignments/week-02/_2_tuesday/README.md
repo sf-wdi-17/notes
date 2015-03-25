@@ -64,4 +64,4 @@ odg.bar();
 Using objects, construct a model for a person that has attributes `firstName` and `lastName` with a method `greet` that takes a single parameter `name`, and prints out the string "Hi 'name', Im 'firstName' 'lastName'". For example: "Hi Brett, I'm Michael Desa".
 
 ## Part 5 (This one is hard)
-Implement a Queue. The queue should have pop and push methods.
+Implement a Queue constructor. The queue should have the methods `enqueue` and `dequeue`.

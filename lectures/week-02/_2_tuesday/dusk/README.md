@@ -1,5 +1,5 @@
 # Object Orientation
-Lecture on object oriented programming (OOP).
+Lesson on object oriented programming (OOP).
 
 ## Objectives
 Students will be able to...
@@ -189,7 +189,7 @@ var car2 = new Car('black', 'Porsche');
 ## Active Learning
 Partner up with your buddy!
 
-Implement a stack. It can store an array of objects, and it can `push()` objects onto the stack, and `pop()` objects out of the stack. Use an array to store the objects internally.
+Implement a stack constructor. It can store an array of objects, and it can `push()` objects onto the stack, and `pop()` objects out of the stack. Use an array to store the objects internally.
 
 ## Reflect
 Reiterate over core OOP concepts with your buddy. Test each other! Help each other out with any questions you might have.
