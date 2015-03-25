@@ -119,3 +119,17 @@ There are two iterators available in JavaScript called `forEach()` and `reduce()
 	// write, e.g., an expression for each element num
 });
 ```
+
+## Bonus
+Write a function called `partition()` that returns an array of two items. The first contains the items for which the callback returns true, the second contains the items for which the callback returns false.
+
+For example:
+
+```javascript
+partition([1,2,3,4], function(a) {
+	return a % 2 === 0;
+});
+// => [[2,4], [1,3]]
+```
+
+In the above example, all even numbers are on the left, and all odd numbers on the right of the returned array.
