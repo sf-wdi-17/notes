@@ -1,0 +1,4 @@
+# Command: grep '\tF\t' people_named_annabel > women_named_annabel
+
+Annabel Sun	F	26	Hart Place, line 40
+Annabel Church	F	38	Buckingham Place, line 179
