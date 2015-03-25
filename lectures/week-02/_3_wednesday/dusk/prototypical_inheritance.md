@@ -9,8 +9,8 @@ We mentioned in the last lesson that a prototype was the building block of an ob
 
 In javascript we don't have classes, so we use constructor functions and prototypes to create them.
 
-```
-jsfunction Person(name){
+```js
+function Person(name){
 	this.name = name
 }
 
