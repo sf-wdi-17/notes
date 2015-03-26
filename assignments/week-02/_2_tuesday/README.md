@@ -57,7 +57,7 @@ ogd.bar = foo;
 act.zaz = foo;
 
 act.zaz();
-odg.bar();
+ogd.bar();
 ```
 
 ## Part 4
