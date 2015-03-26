@@ -9,12 +9,12 @@ var uniq = function(array) {
 	var uniqueArray = [];
 
 	for (var i = 0; i < array.length; i++) {
-		if (uniqeArray.indexOf(array[i]) === -1) {
-			uniqeArray.push(array[i]);
+		if (uniqueArray.indexOf(array[i]) === -1) {
+			uniqueArray.push(array[i]);
 		}
 	}
 
-	return uniqeArray;
+	return uniqueArray;
 }
 ```
 
