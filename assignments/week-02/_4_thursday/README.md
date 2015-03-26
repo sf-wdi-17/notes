@@ -15,4 +15,5 @@ Today we will be making a Tic Tac Toe game using all of this.
 * A cell should not be able able to replayed once marked.
 * Add a reset button that will clear the contents of the board.
 
+**Bonus:** Try to add some asserts to test that your code behaves as you expect.
 
