@@ -38,7 +38,7 @@
     <td><a href="https://github.com/sf-wdi-17/notes/tree/master/assignments/week-02/_1_monday">jQuery Tic Tac Toe</a></td>
     <td><a href="https://github.com/sf-wdi-17/notes/tree/master/assignments/week-02/_2_tuesday">Methods and properties</a></td>
     <td><a href="https://github.com/sf-wdi-17/notes/tree/master/assignments/week-02/_3_wednesday">OOP</a></td>
-    <td>Refactor Tic Tac Toe OOP & TDD</td>
+    <td><a href="https://github.com/sf-wdi-17/notes/tree/master/assignments/week-02/_4_thursday">Refactor Tic Tac Toe OOP & TDD</a></td>
     <td>Refactor Tic Tac Toe OOP & TDD</td>
   </tr>
 </table>
