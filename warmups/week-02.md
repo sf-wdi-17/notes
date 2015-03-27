@@ -78,7 +78,7 @@ var hasDupes = function(arr) {
 Write a function `chooseTwo` that takes in an array and returns an array of all of the possible pairs of elements in the array. For example
 
 ```
-chooseTwo([1,2,3]) => [[1,2],[1,3],[2,1],[2,3],[3,1]]
+chooseTwo([1,2,3]) => [[1,2],[1,3],[2,1],[2,3],[3,1],[3,2]]
 chooseTwo(['a','b','c','d']) => [['a','b'],['a','c'],['a','d'],['b','a'],['b','c'],['b','d'],['c','a'],['c','b'],['c','d'],['d','a'],['d','b'],['d','c']]
 ```
 
