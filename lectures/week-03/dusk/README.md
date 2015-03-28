@@ -230,3 +230,7 @@ This will give you a url like `http://localhost:3000/add/5/3/3/2/3` and give you
 
 ###Running your Project
 If `"main": "index.js"` is in your `package.json`, then running `nodemon` will automatically start your project and serving your file.
+
+
+
+ADD EJS NOTES HERE
