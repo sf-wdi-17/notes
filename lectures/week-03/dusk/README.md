@@ -65,9 +65,9 @@ Or alternatively, we can run the `curl` command with the `-i` options flag for `
 curl -i localhost:3000
 ```
 
-**Exercise 1:** With your buddy, modify our server file to send back a string of html that has an h1 that says 'Hello World!'. Clone [this](PUTLINK HERE) repo and change into the directory you just cloned.
+**Exercise 1:** With your buddy, modify our server file to send back a string of html that has an h1 that says 'Hello World!'. Clone [this](https://github.com/sf-wdi-17/simple-server) repo and change into the directory.
 
-**Think About:** Right now our entire website is a single page. No matter what url we try to go to, we always get the exact same thing. It doesn't matter if we go to (http://localhost:3000/)[http://localhost:3000/] or (http://localhost:3000/abcdefg)[http://localhost:3000/abcdefg], we always send back the same exact thing. **How could we solve this problem?**
+**Think About:** Right now our entire website is a single page. No matter what url we try to go to, we always get the exact same thing. It doesn't matter if we go to [http://localhost:3000/](http://localhost:3000/) or [http://localhost:3000/abcdefg](http://localhost:3000/abcdefg), we always send back the same exact thing. **How could we solve this problem?**
 
 While we could build a web app entirely from scratch, we'd only be making more work for ourselves; we'd be reinventing the wheel and we don't want to do that.
 
@@ -160,9 +160,9 @@ app.listen(3000);
 **Excercise 4:** Reflecting on **Exercise 3**, how would we add routes for every one in this class? Continuing on that thought, how would we add routes for arbitrarily many people?
 
 ####Restarting the Server sucks
-One thing I'm sure that you've discovered that restarting your server each time you save your file sucks. Luckily there's a solution. Instead of doing `node index.js` we can do `nodemon index.js`. This will watch our file and resart the server each time we save.
+I'm sure that you've discovered that restarting your server each time you save a file sucks. Luckily there's a solution. Instead of doing `node index.js` we can do `nodemon index.js`. This will watch our file and resart the server each time we save.
 
-####There has to be a better way to do routeing
+####There has to be a better way to do routing
 If we wanted to have a route for each person in the class, we would have to manually add each route. Maybe if we were a clever we could have a function do it for us, but there has to be a better way.
 
 ###Url Parameters
