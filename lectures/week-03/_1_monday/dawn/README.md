@@ -99,7 +99,7 @@ Follow the path of a client/server request through the Internet:
 
 **netcat -> chat server out of the box**
 
-*man netcat* to see what it does. Let's connect two computers and exchange packets! 
+Type *man nc* into your terminal to see what it does. Let's connect two computers and exchange packets! 
 
 Get into pairs, one person is A (the Server), the other person is B (the Client)
 
@@ -107,13 +107,18 @@ Person A: find out your IP address and share it with Person B.
 Now:
 
 Person A (Server), in your shell, create server that listens for data:
->  nc -l 3333 <enter> 
+```bash
+nc -l 3333
+```
+Then press enter. 
 
 Person B (Client), in your shell, create a client connecting to the server:
-> nc <server ip address> 3333 <enter>
+```bash
+nc <server ip address> 3333
+```
+Then press enter.
 
 Now start typing … packets of information are exchanged between client and server using the tcp protocol.
-
 
 ## Hypertext Transfer Protocol
 
@@ -153,7 +158,6 @@ REQUEST HEADER FORMAT:
     Host: www.google.com
     User-Agent: chrome
     There's more ...
-
 
 RESPONSE HEADER FORMAT: 
 
