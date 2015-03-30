@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  </head>
+  <body>
+
+    <% bookList.forEach(function (book) { %>
+      <div>
+        <%= book.title.toUpperCase() %>
+        <div>
+          <%= book.author %>
+        </div>
+      </div>
+    <% })%>
+  </body>
+</html>
