@@ -3,14 +3,14 @@
 ##Before we get started
 
 ###Install nodemon
-run the command `npm install -g nodemon` anywhere in your terminal. See one of the TA's or Brett if you have any issues.
+Run the command `npm install -g nodemon` anywhere in your terminal. See one of the TA's or Brett if you have any issues.
 
 
 #Back to the start of our Lecture!
 So we've been talking about HTTP, and we've built a simple HTTP Server.
 
 ##Review: Simple web server with Node
-The below is to demonstrate how Node can be used to create network applications. You can specify exactly how the behavior is.
+The code below demonstrates how Node can be used to create network applications.
 
 **server.js**
 ```js
@@ -57,7 +57,7 @@ Now if we run the file
 ```bash
 $ node server.js
 ```
-And go to ``http://localhost:3000/`` in our web browser, well see a page that says 'Hello World'.
+And go to <http://localhost:3000/> in our web browser, well see a page that says 'Hello World'.
 
 Or alternatively, we can run the `curl` command with the `-i` options flag for `localhost:3000` and see the whole HTTP response.
 
@@ -65,14 +65,14 @@ Or alternatively, we can run the `curl` command with the `-i` options flag for `
 curl -i localhost:3000
 ```
 
-**Exercise 1:** With your buddy, modify our server file to send back a string of html that has an h1 that says 'Hello World!'. Clone [this](https://github.com/sf-wdi-17/simple-server) repo and change into the directory.
+**Exercise 1:** With your buddy, modify our server file to send back a string of HTML that has an `h1` heading that says 'Hello World!'. Clone [this](https://github.com/sf-wdi-17/simple-server) repo and change into the directory.
 
-**Think About:** Right now our entire website is a single page. No matter what url we try to go to, we always get the exact same thing. It doesn't matter if we go to [http://localhost:3000/](http://localhost:3000/) or [http://localhost:3000/abcdefg](http://localhost:3000/abcdefg), we always send back the same exact thing. **How could we solve this problem?**
+**Think About:** Right now our entire website is a single page. No matter what url we try to go to, we always get the exact same thing. It doesn't matter if we go to [http://localhost:3000/](http://localhost:3000/) or [http://localhost:3000/abcdefg](http://localhost:3000/abcdefg), our server always sends back the same exact thing. **How could we solve this problem?**
 
-While we could build a web app entirely from scratch, we'd only be making more work for ourselves; we'd be reinventing the wheel and we don't want to do that.
+One way to do that would be to build all the components for a web app entirely from scratch. But we'd only be making more work for ourselves; we'd be reinventing the wheel and we don't want to do that!
 
 ###Queue in Web Frameworks
-A web framework a peice of software that is designed to support the development of dynamic websites, web applications, and other web services. The goal of a framework is to reduce the overhead associated with common activities performed when building a web app.
+A web framework a piece of software designed to support the development of dynamic websites, web applications, and other web services. The goal of a framework is to reduce the overhead associated with common activities performed when building a web app.
 
 In short, a framework is a bunch of code that makes developing web apps dramatically easier.
 
@@ -84,12 +84,12 @@ In short, a framework is a bunch of code that makes developing web apps dramatic
 
 2. Initialize a `package.json` file by running `npm init`.
 
-Follow the instructions, clicking `enter` through the statements. you many want to specify a version number, but most default options should 
-be fine. It will also specify an initial file, usually index.js to use
+Follow the instructions, clicking `enter` through the statements. You many want to specify a version number, but most default options should 
+be fine. It will also specify an initial file, usually `index.js` is a good one to use.
 
 2. Install the express package and add it to our `package.json` by running `npm install --save express`.
 
-Simply running `npm install expess` would add express to our node_modules folder. Everything would work fine, but we wouldn't have a record of which packages that we need for our program to compile. That is if for some reason we deleted our node_modules folder, everything would be alright, because we would have had a record of what was installed in our `package.json`.
+Simply running `npm install express` would add express to our node_modules folder. Everything would work fine, but we wouldn't have a record of which packages that we needed for our program to compile. That is, if for some reason we deleted our node_modules folder, it'd be alright: we could easily reinstall anything we need, because we would have a record of what we had previously installed in our `package.json`.
 
 3. Touch an `index.js` file that we'll put our code in.
 
@@ -99,7 +99,7 @@ $ touch index.js
 
 4. **Now this step is key:** Open the folder where `index.js` lives in vim by typing `vim .`.
 
-Of course, I'm just kidding, don't actually open the folder in vim. Open the folder in what ever text editor your prefer. If you're unsure of how, give the command `subl .` a try in your terminal.
+Of course, I'm just kidding, don't actually open the folder in vim. Open the folder in whatever text editor your prefer. If you're unsure of how, give the command `subl .` a try in your terminal.
 
 **Note:** If you fell victim to my prank and are stuck in vim you can exit by hitting the `ESC` key and then typing `:q` and then hitting `ENTER`.
 
@@ -120,12 +120,12 @@ var express = require('express');
 // Next we declare a variable that instantiates
 // the express server. Common names for this
 // variable include `app` or `server`. We're
-// going to call it `app` because thats what
+// going to call it `app` because that's what
 // they do in the express documentation.
 
 var app = express();
 
-// Now that we have an app to build off of
+// Now that we have an app to build off of,
 // we should set up some routes.
 
 // The pattern for setting up routes in express is as follows
@@ -151,9 +151,9 @@ app.listen(3000);
 ```
 
 ###A Couple Quick Exercises
-**NOTE:** Each time you make changes to your `index.js` file you'll have to resert your server. Any changes made will not work until your server has been restarted.
+**NOTE:** Each time you make changes to your `index.js` file you'll have to resart your server to see those changes. Can you think of why this is?
 
-**Exercise 2:** Add a new route `GET /hey` that sends back an html string that has an h1 tag that says 'Hey! Look at me!' and a p tag that says 'I made a server!'.
+**Exercise 2:** Add a new route `GET /hey` that sends back an html string that has an `h1` tag that says 'Hey! Look at me!' and a `p` tag that says 'I made a server!'.
 
 **Exercise 3:** Add a new route `GET /hi/YOURNAME` that sends back an html string that has an h1 tag that says 'Hi, I'm YOURNAME'. Do this for each member of your group.
 
@@ -201,7 +201,7 @@ app.get('/hi/:name', function(req,res) {
   // All of the Url parameters that we use
   // in our route are accessible through
   // the `req.params` object. Since we called
-  // our Url parameter, its value can be
+  // our Url parameter `name`, its value can be
   // accessed by using `req.params.name`.
 
   res.send("Hi, I'm " + req.params.name);
@@ -216,7 +216,7 @@ app.get('/hi/:name', function(req,res) {
 
 ###If we have time...
 
-In addition to having routes where diffrent portions of the url are diffrent paramaters. We can use the generic string of the url in our route logic.
+In addition to having routes where different portions of the url are different paramaters, we can use the generic string of the url in our route logic.
 
 ```js
 app.get("/add/*", function(req, res) {
