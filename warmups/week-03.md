@@ -27,18 +27,7 @@ If the value is found in the array, the function returns true. Otherwise it retu
 
 There are a few key requirements for binary searching. But in essence, a binary search takes advantage of the fact that a sorted set of data can be subdivided into smaller problems over and over again. Because of this, a binary search can be extremely fast, but it also requires that a set of data be sorted before the search begins.
 
-Here is some starter code:
-
-```js
-var binarySearch = function(arr, val) {
-
-};
-```
-
-
-##Problem 3: Recursive Binary Search - [Recursion](http://en.wikipedia.org/wiki/Recursion)
-
-Re-implement your `binarySearch` function so that it uses recursion. 
+Also, you'll probably want to implement your `binarySearch` function so that it uses recursion (you can do it without recursion, but it will be **much** more difficult.) 
 
 As a reminder, a recursive algorithm calls itself to complete its task.
 
@@ -59,7 +48,7 @@ var factorial = function(n) {
 
 In the `factorial` function, the recursion condition states that as long as n is greater than 0, we continue to recurse and we reduce the value of n by 1 with each iteration. Once n == 0, we stop and return 1.
 
-We can also illustrate recursion with the simple idea of spiraling down, and then back up again.
+We can also illustrate recursion with the simple idea of spiraling down, and then back up again. We'll explain further.
 
 Anyway, here's some starter code for your new `binarySearch` function
 
@@ -69,7 +58,8 @@ var binarySearch = function(arr, val) {
 }
 ```
 
-##Problem 4: Merge two sorted arrays
+
+##Problem 3: Merge two sorted arrays
 Write a function `merge` that takes in two sorted arrays and merges them together such that the resulting array remains sorted.
 
 Some starter code for ya:
@@ -80,4 +70,8 @@ var merge = function(arr, arr2) {
     return <something> // This should return a new sorted array that represents the union of both arr, and arr2
 }
 ```
+
+##Problem 4: TicTacToe Refactoring, OOP and TDD (What did Mike do?) -- BONUS!!
+
+Mike has implemented an elegant and complex solution to TicTacToe this weekend. Take a look at it, and try to explain it to the rest of the class.
 
