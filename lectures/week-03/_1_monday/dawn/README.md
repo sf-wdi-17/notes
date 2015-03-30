@@ -1,52 +1,184 @@
 # HTTP Basics (or how the internet works)
-Lecture on http and the basic structure of the internet.
 
-## Learning objectives
-By the time this lesson is finished, we should all be able to:
-- Understand the basic architecture of the HTTP protocol
-- Apply CURL to use HTTP headers and bodies
-- Distinguish HTTP action verbs
-- Understand the difference between a server and a client
-    + And understand how the HTTP protocol is used to allow a client and server to interact
-- Replicate the basic structure of the internet
+##Learning Objectives
+When we're done here, we should all be able to:
+  - Understand what the internet is (and is not) and how it works (on a basic level)
+  - Understand the differences between a client and a server
+  - Distinguish between different components of a URL
+  - Explain what IP and HTTP are
+  - Explain the request response cycle and why we use it.
 
-## Link
-We are starting our adventure into the land of clients and servers, HTTP requests and responses. This lesson covers the basics of what you need to know about the internet in general and how it works.
+## Background
 
-## Architecture Of The Internet
-Whenever you check your email, watch a video on YouTube, or chat with your friends, it seems like there is one wire connecting you to what you want. It may seem this way, but in fact, the internet is a massive network of networks connecting us all to the things we're looking for. Computers, phones, printers and many other devices are all hooked up to each other as part of "the internet." In fact, when people talk about "the internet", it feels like they are talking about some tangible thing when in fact the internet is truly quite transient. It only exists as long as at least two devices are connected through IP protocols.
+OK, the internet is a worldwide network of connected computers. Machines can connect to each other and exchange information.
 
-Speaking of "IP", every device on the internet has its own, unique address, called its IP address (Internet Protocol address). This address is used to receive and send content to and from a device.
+Let's look at the main components of a computer network
 
-When you open up a website, e.g. Google, you reach it by typing its IP address. For Google, as of March 30, 2015, one of Google's IP addresses is 74.125.239.100. If you go ahead and paste this address into your browser's URL bar, it should take you to Google's website.
+**Server**
 
-### DNS
+  * machine on the internet in an 'always on' state
+  * represent a 'service' of some type (like facebook or google search)
+  * some servers just route traffic
+  * server (software): process responsible for handling requests
+  * server (hardware): machine which runs server software
+    
+**Application**
 
-However, since IP addresses are hard to remember and only just barely readable by human beings, domain names, like "google.com" are used as synonyms.
+A useful system of services (databases, email, web), we are mainly concerned with web applications on the **World Wide Web**
 
-Let's use google.com as an example to get a somewhat simplified idea of how the internet works:
+**Client**
 
-Your computer is connected to a router -> you open up a browser and open google.com -> your computer sends that address to your router -> your router connects to a DNS server to find the IP address corresponding to google.com -> the DNS server sends you the matching IP address for google.com -> you connect to that IP address -> Google then sends you back information (i.e. the webpage as HTML) -> your browser reads the HTML, parses it, and displays it in a human readable format as a webpage
+A program that you use to run applications and access services, usually a web browser.
+  
+##World Wide Web
 
-### Example of connection to google using `traceroute`
+The World Wide Web is a collection of documents, made up of HTML, that lives on servers of the Internet. In this lesson, I'm not going to talk about the structure of HTML pages: syntax / forms / css / meta data. That's a different lesson for another day.
 
-To see the networked nature of the internet in action, let's all go into our terminal now, and type in:
+HTML is the basis for almost every web page, it can contain text, images, video - html is what glues everything together - links between the pages makes the web *web-like*. 
 
-`traceroute www.google.com`
+The World Wide Web emerged in the early nineties. The first web page was build at CERN (European Organization for Nuclear Research) by Time Berners Lee, he is credited with the invention of the web - he implemented the first successful communication between a Hypertext Transfer Protocol (HTTP) client and server via the Internet. Why am I telling you this? Because he build the World Wide Web on a Next computer - and I'm a big Next fan. So here's a pic of the first web server (note the sticker on the box):
 
-Press enter. What response did you get?
+    http://en.wikipedia.org/wiki/File:First_Web_Server.jpg 
 
-### The HTTP Protocol
-"HTTP" stands for "Hypertext Transfer Protocol". We've all heard the word "hypertext" as it relates to HTML (which stands for: "hypertext markup language"). But have we ever stopped to consider why its called "hypertext"?
+And here is the first ever web page:
 
-Is it because a bunch of geeks came up with it? Well kind of actually.
+    http://info.cern.ch/hypertext/WWW/TheProject.html**
 
-But in reality, what makes it "hypertext" instead of just text is the fact that hypertext is intended to have references, which we often call "hyperlinks" or just "links" to other pieces of hypertext. And when you consider the nature of the internet—an interconnected network of networks—it starts to make a lot of sense to use some form of hypertext to display information.
+Now let's talk about the major pieces of the web:
 
-#### Quick quiz:
-So if Hypertext is just another way of saying "webpages", then a protocol like HTTP that sends hypertext is what?
+**URLs**
 
-Which step in the request flow we described above for `google.com` is HTTP?
+A URL is a path to a specific server and a certain document on that server. We are all familiar with URLs.
+
+The main parts of an URL are:
+
+- protocol  (http means the web .. there are others like ftp)
+- host (name of the server, translated to an IP address)
+- path (document that that is being requested)
+- query params (aka GET parameters) - extra info that the server gets. 
+
+Example:
+
+http://www.chase.com/account/history?num=112122&page=3
+PROTOCOL HOST      PATH            QUERY PARAMETERS
+
+Another piece of the URL is the port. A port is a specific door in the server. By default, the web port is 80 - other ports are used for other services: email, file transfer, more … The port number is tagged on to the server name, separated with ':', for example *www.example.com:8080*
+
+##What are protocols?
+
+We already mentioned protocols. A computer communication protocol is a description of the rules computers must follow to communicate with each other. The main protocol on the Internet is TCP/IP
+
+**TCP/IP**
+
+TCP/IP is the communication protocol for communication between computers on the Internet.  
+
+It stands for *Transmission Control Protocol / Internet Protocol*.  
+
+TCP/IP defines how computers should be connected to the Internet, and how data should be transmitted between them. Web browsers, for example, use TCP/IP to communicate with Web servers. TCP takes care of:
+
+- Packet Switching
+- Guaranteed Delivery
+- Routing
+
+Each server on the internet has an IP address that uniquely identifies the server in the network.
+
+Find out your ip address (Mac only):
+
+    ipconfig getifaddr en1
+
+TCP/IP is the basis of all internet communication: web, phone, email, video conferencing, movie streaming - one the lowest level, everything is handled by TCP/IP.  
+
+#### TCP/IP activity: traceroute & netcat
+
+**traceroute**
+
+Follow the path of a client/server request through the Internet:
+
+- traceroute www.whitehouse.gov 
+- traceroute www.taz.de
+
+**netcat -> chat server out of the box**
+
+*man netcat* to see what it does. Let's connect two computers and exchange packets! 
+
+Get into pairs, one person is A (the Server), the other person is B (the Client)
+
+Person A: find out your IP address and share it with Person B. 
+Now:
+
+Person A (Server), in your shell, create server that listens for data:
+>  nc -l 3333 <enter> 
+
+Person B (Client), in your shell, create a client connecting to the server:
+> nc <server ip address> 3333 <enter>
+
+Now start typing … packets of information are exchanged between client and server using the tcp protocol.
+
+
+## Hypertext Transfer Protocol
+
+HTTP is a layer above TCP. 
+
+It specifically handles the exchange of documents -> HTML documents / web pages.
+
+**HTTP REQUEST AND HTTP RESPONSE**
+
+So by typing in a url and hitting GO in your browser, what happens …
+
+In order to get a document, a browser needs to send a request to a server - that's an HTTP request. The request is routed through the internet to the server handling the request. The server executes a program and responds with an HTTP response, usually the web page that was requested.
+
+There are different types of HTTP Requests - they are expressed as verbs - quick overview: We get into more detail when we talk about APIs and how to consume services on the Internet.
+
+* `GET` - request a document/resource, the most common request type
+* `POST` - create a resource on the server, for example creating a facebook update
+* `PUT` OR `PATCH` - update a resource, for example updating your bank account
+* `DELETE` - destroy a resource, for example deleting a todo list item
+
+more info: http://www.tutorialspoint.com/http/http_methods.htm
+
+HTTP request have status codes, You may know:
+
+- 404 - page not found
+- 500 - internal server error
+- 200 - OK, all is good
+
+Here's a list of all status codes: http://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+
+**HTTP requests/responses have a header and a body**
+
+Headers are made up of key/value pairs and conatin meta data about the request/response. Example:
+
+REQUEST HEADER FORMAT:
+
+    Host: www.google.com
+    User-Agent: chrome
+    There's more ...
+
+
+RESPONSE HEADER FORMAT: 
+
+    Status: -> HTTP/1.1 200 OK 
+    Headers - like request
+    Date: 
+    Server: apache
+    Content-type: type of document being returned, so browser knows what to do
+    Content-length: how long is the document (not required?
+
+**The BODY of the response contains the actual document, usually that's HTML**
+
+So the purpose of a web server is to respond to HTTP requests. And we are going to learn how to write applications running on web servers that respond to HTTP requests … web applications!
+
+
+#### HTTP activity: 
+
+**telnet**
+
+In your shell:
+
+    telnet www.google.com 80
+    GET / HTTP/1.1
+
+Talk http to google. Request google.com home page, see what you get back. Inspect the HTTP Response header on top.
 
 ### The Request-Response Cycle
 What exactly are we referring to when developers talk about the "request-response cycle?" Where is it happening? Who, or what, is taking part in this "cycle?"
@@ -56,27 +188,8 @@ The "request-response-cycle" can be illustrated as follows:
 ![Client to server flow](http://www.tenouk.com/visualcplusmfc/setupiisnweb_files/image001.png)
 
 
-### Components of an HTTP response:
-
-An HTTP response contains:
-  - A header
-  - And a body
-
-The header contains, among other things, two very important pieces of information: 
-  - the response status
-  - the HTTP verb.  
-
-Most commonly, the response status will be "OK" (code 200), and the HTTP verbs will be "GET" (to retrieve data) and "POST" (to create data).
-
-So what does the body contain?
-  - If the response status is 200 (AKA, "OK")
-      + The body is expected to contain the data you (or the client) requested
-  - If the response status is 404, or another error
-      + The body may (or may not) contain additional information about the error, why it happened, etc.
-
+### CURL: Your new swiss army knife
 The chain from client (your computer) to server can be replicated using [Curl](http://curl.haxx.se/). So let's get some CURL practice in together:
-
-### Interactive Learning with CURL and Google
 
 Let's all open a new window in terminal. At the prompt, type:
 
