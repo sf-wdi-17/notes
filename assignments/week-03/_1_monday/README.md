@@ -2,7 +2,7 @@
 
 Using what we learned today about Express and routes, create a calculator.
 
-To get started, you'll want to use git to clone our [Express server repo](https://github.com/sf-wdi-17/simple-server) (the same one we used in class today).
+To get started, you'll want to use GitHub to fork our [Express server repo](https://github.com/sf-wdi-17/simple-server) (the same one we used in class today). Once forked to your own GitHub account, then you'll clone it to your computer.
 
 To clone a repo, you'll want to go to a bash prompt in your terminal (you'll know you're there if you see a '$' at the end of the prompt string). Make sure you `cd` into whatever directory you've been using to do your homework. (Note that if you already cloned this repo in class, and you try to clone again in the same directory, git will give you an error).
 
