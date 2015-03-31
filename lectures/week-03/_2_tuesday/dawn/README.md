@@ -86,21 +86,21 @@ var app = express();
 
 // So let's define some routes to use:
 
-app.get('/', function(request, result) {
-    result.send("");
+app.get('/', function(request, response) {
+    response.send("");
 })
 
 // This route catches URLs that have a path that matches http://localhost:3000/person/:name
-app.get('/person/:name', function(request, result) {
-    result.send("");
+app.get('/person/:name', function(request, response) {
+    response.send("");
 });
 
 // This route will help us see how query parameters are passed in:
 // We'll use JSON.stringify to convert a JS object into a string that we can display in our HTML
-app.get('/queries', function(request, result) {
+app.get('/queries', function(request, response) {
     // JSON.stringify will help us convert a Javascript Object to a JSON text string
     var queriesAsString = JSON.stringify(request.query);
-    result.send("");
+    response.send("");
 });
 
 
