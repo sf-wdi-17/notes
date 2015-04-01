@@ -59,13 +59,13 @@ The primary key of a relational database table will uniquely identifies each rec
 #####First, we have to create a foreign key on one table
 
 ```sql
-create table person (
+create table persons (
   id serial primary key,
   name text,
   age integer
 );
 
-create table pet (
+create table pets (
   id serial primary key,
   name text,
   age integer,
@@ -73,22 +73,22 @@ create table pet (
   person_id integer
 );
 
-INSERT INTO person ( name, age)
+INSERT INTO persons ( name, age)
 VALUES ('Zed', 37);
 
-INSERT INTO person ( name, age)
+INSERT INTO persons ( name, age)
 VALUES ('Bobby', 7);
 
-INSERT INTO pet (name, breed, age, person_id)
+INSERT INTO pets (name, breed, age, person_id)
 VALUES ( 'Fluffy', 'Unicorn', 1000, 1);
 
-INSERT INTO pet (name, breed, age, person_id)
+INSERT INTO pets (name, breed, age, person_id)
 VALUES ('Rocko', 'Dog', 4, 2);
 
-INSERT INTO pet (name, breed, age, person_id)
+INSERT INTO pets (name, breed, age, person_id)
 VALUES ('Gigantor', 'Robot', 25, 1);
 
-INSERT INTO pet (name, breed, age, person_id)
+INSERT INTO pets (name, breed, age, person_id)
 VALUES ('Goldy', 'Fish', 1, 2);
 
 ```
@@ -96,13 +96,13 @@ VALUES ('Goldy', 'Fish', 1, 2);
 #####Now we can perform our first join
 
 ```sql
-SELECT * FROM person
-INNER JOIN pet
-ON person.id = pet.person_id;
+SELECT * FROM persons
+INNER JOIN pets
+ON persons.id = pets.person_id;
 
-SELECT person.name, pet.name from person
-INNER JOIN pet 
-ON person.id = pet.person_id;
+SELECT persons.name, pets.name from persons
+INNER JOIN pets 
+ON persons.id = pets.person_id;
 ```
 
 **Other Types of Joins**  
@@ -112,18 +112,18 @@ ON person.id = pet.person_id;
 Full Outer Join  
 
 ```sql
-SELECT * FROM person 
-  FULL OUTER JOIN pet
-  ON person.id = pet.person_id;
+SELECT * FROM persons 
+  FULL OUTER JOIN pets
+  ON persons.id = pets.person_id;
 ```
 
 Left Outer Join  
 
 ```sql
 
-SELECT * FROM person 
-  LEFT OUTER JOIN pet
-  ON person.id = pet.person_id;
+SELECT * FROM persons 
+  LEFT OUTER JOIN pets
+  ON persons.id = pets.person_id;
 
 ```
 
@@ -131,27 +131,27 @@ Right Outer Join
 
 ```sql
 
-SELECT * FROM person 
-  RIGHT OUTER JOIN pet
-  ON person.id = pet.person_id;
+SELECT * FROM persons 
+  RIGHT OUTER JOIN pets
+  ON persons.id = pets.person_id;
 
 ```  
 
 Left Outer Join with Where  
 
 ```sql
-SELECT * FROM person
-  LEFT OUTER JOIN pet
-  ON person.id = pet.person_id
-  WHERE pet.breed = "unicorn";
+SELECT * FROM persons
+  LEFT OUTER JOIN pets
+  ON persons.id = pets.person_id
+  WHERE pets.breed = "unicorn";
 ```
 
 Cross Join  
 
 ```sql
-SELECT * FROM person
-  CROSS JOIN pet
-  WHERE person.id = 1;
+SELECT * FROM persons
+  CROSS JOIN pets
+  WHERE persons.id = 1;
 ```
 
 ####Join Tables
@@ -164,13 +164,13 @@ But what if the data in two separate tables can have a __many to many__ relation
 Now that we understand this type of relationship, we'll need something to make this happen. We call this something a __join table__.
 
 ```sql
-create table person (
+create table persons (
   id integer primary key,
   name text,
   age integer
 );
 
-create table pet (
+create table pets (
   id integer primary key,
   name text,
   age integer,
@@ -178,7 +178,7 @@ create table pet (
   dead integer
 );
 
-create table person_pet (
+create table persons_pets (
   person_id integer,
   pet_id integer 
 );
@@ -187,11 +187,11 @@ create table person_pet (
 Now we execute the following statement to join the two tables together and select data.
 
 ```sql
-SELECT * FROM person 
-    INNER JOIN person_pet
-    ON person.id = person_pet.person_id
-    INNER JOIN pet
-    ON person_pet.pet_id = pet.id;
+SELECT * FROM persons 
+    INNER JOIN persons_pets
+    ON persons.id = persons_pets.person_id
+    INNER JOIN pets
+    ON persons_pets.pet_id = pets.id;
 ```
 
 ####Exercise
@@ -201,13 +201,13 @@ Using the following code to get started, practice selecting data from your relat
 ___First Create Your Tables__
 
 ```sql
-create table person (
+create table persons (
   id integer primary key,
   name text,
   age integer
 );
 
-create table pet (
+create table pets (
   id integer primary key,
   name text,
   age integer,
@@ -215,7 +215,7 @@ create table pet (
   dead integer
 );
 
-create table person_pet (
+create table persons_pets (
   person_id integer,
   pet_id integer 
 );
