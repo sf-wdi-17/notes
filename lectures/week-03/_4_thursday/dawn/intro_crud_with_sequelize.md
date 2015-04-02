@@ -9,8 +9,8 @@ var db = require('./models');
 ## Create
 
 ```js
-> db.user.create({ first_name: 'jane', last_name: 'doe', age: 26 })
-  .then(function(user) {
+> db.Classmate.create({ first_name: 'jane', last_name: 'doe', age: 26 })
+  .then(function(mate) {
   // you can now access the newly created task via the variable data
   });
 ```
@@ -18,8 +18,8 @@ var db = require('./models');
 ## Read
 
 ```js
-db.user.find(1)
-  .then(function(user) {
+db.Classmate.find(1)
+  .then(function(mate) {
   // user will be an instance of User and stores the content of the table entry with id 1. if such an entry is not defined you will get null
 });
 ```
@@ -29,7 +29,7 @@ db.user.find(1)
 The methodfindOrCreate can be used to check if a certain element is already existing in the database. If that is the case the method will result in a respective instance. If the element does not yet exist, it will be created.
 µ
 ```js
-db.user.findOrCreate({ where: { first_name: 'jane' }})
+db.Classmate.findOrCreate({ where: { first_name: 'jane' }})
   .then(function(result) {
     console.log("User is: ", result[0]);
     console.log("Was created: ", result[1]); // returns true if the user was created
@@ -40,18 +40,18 @@ If you don't like that `user#findOrCreate` returns an array you can use `spread`
 
 
 ```js
-db.user
+db.Classmate
   .findOrCreate({ where: { first_name: 'jane' }})
-  .spread(function(user, creatd) {
-    console.log("User is: ", user);
+  .spread(function(mate, creatd) {
+    console.log("Classmate is: ", mate);
     console.log("Was created: ", created); // returns true if the user was created
   });
 ```
 
 ```js
-db.user
+db.Classmate
   .findAll()
-  .then(function(users) {
+  .then(function(mates) {
   // users will be an array of all User instances
 });
 ```
@@ -61,18 +61,17 @@ db.user
 ```js
 // way 1
 
-User.find({ where: { first_name: 'jane' } })
-  .then(function(user){
-    user.first_name = 'Taco'
-    task.save()
-      .then(function() {});
+db.Classmate.find({ where: { first_name: 'jane' } })
+  .then(function(mate){
+    mate.first_name = 'Taco'
+    mate.save();
 })
 
 // way 2
-db.user
+db.Classmate
   .find({ where: { first_name: 'jane' } })
-  .then(function(user){
-    user.updateAttributes({
+  .then(function(mate){
+    mate.updateAttributes({
       first_name: 'Taco'
     }).then(function() {})
   })
@@ -84,10 +83,10 @@ db.user
 [destroy](http://sequelizejs.com/docs/latest/instances#destroy)
 
 ```js
-db.user
+db.Classmate
   .find({ where: { first_name: 'jane' } })
-  .then(function(user){
-    user.destroy().then(function() {})
+  .then(function(mate){
+    mate.destroy().then(function() {})
   })
 ```
 
