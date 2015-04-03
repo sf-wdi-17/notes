@@ -53,9 +53,9 @@ Instead, they are arbitrary strings that your server will direct to a function. 
 
 File paths to your views should look like this (with the example of a `users` resource):
 
-views/users/index.html
-views/users/show.html
-views/users/edit.html
+- views/users/index.html
+- views/users/show.html
+- views/users/edit.html
 
 These are just files rendered by your server.
 
