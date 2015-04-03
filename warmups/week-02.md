@@ -89,4 +89,3 @@ var chooseTwo = function(arr) {
 
 };
 ```
-
