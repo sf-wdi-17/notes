@@ -1,7 +1,7 @@
 # Restful Routing
 Lecture on restful routing.
 
-# Objectivs
+# Objectives
 Students will be able to...
 
 - Understand the key concepts behind restful routing
