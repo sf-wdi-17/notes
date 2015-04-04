@@ -1,9 +1,12 @@
 # Starting a New Node/Express.js Application: Step-By-Step Instructions
-If you've been having trouble remembering the steps to take to get up and running with Node/Express.js, follow this guide. Let me know if you encounter any issues. Thanks! 
 
+## What is this thing?
+it can be difficult to remember the steps to take to set up a new ExpressJS application—so I decided to write this guide. Please let me know if you encounter any issues so I can improve this document over time.
+
+Enjoy!
 -Brett
 
-## Option 1: Start a New Application From Scratch
+## Option 1: Starting a New Application From Scratch
 Follow the steps below to start a new application from scratch. If you're supposed to be starting by forking/cloning an existing git repository (on GitHub or another git server), please see the relevant instructions below instead.
 
 ### QuickStart Directions
@@ -13,9 +16,10 @@ In the code block below, I've listed all the commands you'll need to set up a ne
 
  - Anything surrounded by `< >` markers is intended to be a placeholder.
 	 - `<app_name>` is a placeholder for the name of the app you'll be creating.
- - This version of the guide is intentionally brief. If you'd prefer more details, skip to the "Full Details" section below.
+ - This "QuickStart Directions" section is intentionally brief  and is intended for those who just need a list of commands to follow. 
+ - The "Complete Directions" section below lists all these steps again, but explains each step in detail and provides ways to know if you've done each step correctly along the way. If you'd prefer that, just skip to that section.
 
-#### Commands to Enter
+#### QuickStart: Commands to Enter
 Enter the following commands at a `bash` prompt one-by-one (unless otherwise indicated in the comments).
 ```bash
 # Before starting setup, you have to navigate to the directory where you keep ExpressJS applications
@@ -47,7 +51,7 @@ subl .
 
 Don't forget to edit your sequelize configuration by modifying the `dialect` and `database` fields in the `config.json` file!
 
-### Full Details
+### Complete Directions
 
 #### Step 1: Creating a New Directory
 First, you have to navigate to the directory where you want to keep your Node/Express.js projects. I can't tell you exactly where this is on your computer, but I recommend you pick a particular location, and stick with it. For me, this location is `~/code/` which means it's a folder called `code` in my *home directory* (because, as we've said, `~` means the **current user's home folder**).
