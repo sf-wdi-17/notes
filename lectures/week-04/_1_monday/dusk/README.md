@@ -181,7 +181,7 @@ Then the usual nonsense for sequelize
 
 ```bash
 $ sequelize init
-$ sequelize model:create --name user --attributes "email:STRING, password_digest:STRING"
+$ sequelize model:create --name User --attributes "email:STRING, password_digest:STRING"
 ```
 
 Update config/config.json to look like
@@ -211,7 +211,7 @@ Adjust migration to look like this
 "use strict";
 module.exports = {
   up: function(migration, DataTypes, done) {
-    migration.createTable("users", {
+    migration.createTable("Users", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -236,7 +236,7 @@ module.exports = {
     }).done(done);
   },
   down: function(migration, DataTypes, done) {
-    migration.dropTable("users").done(done);
+    migration.dropTable("Users").done(done);
   }
 };
 ```
