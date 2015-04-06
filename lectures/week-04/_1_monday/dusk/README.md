@@ -1,6 +1,6 @@
 #Authentication & Authorization Part I
 
-##Think-Pair-Share (15-20 min)
+##Think-Pair-Share
 
 * How should we model people using our app? (Let's call them users for simplicity's sake).
 * What sort of information do we need to store about them?
