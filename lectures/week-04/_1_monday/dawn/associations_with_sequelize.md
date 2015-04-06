@@ -90,7 +90,7 @@ First, let's create two different models. One for `Student` and one for `Course`
 ```
 $ createdb <db_name>
 $ sequelize init
-$ sequelize model:create --name Student --attributes "name:string, age:integer"
+$ sequelize model:create --name Student --attributes "name:string,age:integer"
 $ sequelize model:create --name Course --attributes "name:string,description:text"
 ```
 
