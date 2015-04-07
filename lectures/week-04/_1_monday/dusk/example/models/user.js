@@ -3,21 +3,6 @@
 var bcrypt = require("bcrypt");
 var salt = bcrypt.genSaltSync(10);
 
-////module.exports = function(sequelize, DataTypes) {
-//  var user = sequelize.define("user", {
-//    email: DataTypes.STRING,
-//    password_digest: DataTypes.STRING
-//  }, {
-//    classMethods: {
-//      associate: function(models) {
-//        // associations can be defined here
-//      }
-//    }
-//  });
-//
-//  return user;
-//};
-
 
 module.exports = function (sequelize, DataTypes){
   var User = sequelize.define('User', {
