@@ -39,6 +39,7 @@ Explain in your own way -- using pictures, diagrams, words, dance, etc...
 
 ### Getting Setup (7mins)
 
+[Let's share some code](https://code.stypi.com/delmer/WDI_SF_17/simple_login).
 Set yourself up with a project folder.
 
 ```bash
@@ -244,7 +245,7 @@ createdb simple_login_development
 
 Let's get back into terminal
 
-```
+```bash
 sequelize model:create --name="User" --attributes="email:string, passwordDigest:string"
 ```
 
@@ -257,7 +258,7 @@ sequelize db:migrate
 
 Let's edit our `User` model to have the following code from Yesterday:
 
-```js
+```javascript
 
 module.exports = function (sequelize, DataTypes){
   var User = sequelize.define('User', {
@@ -342,7 +343,7 @@ module.exports = function (sequelize, DataTypes){
 
 Be sure to install bcrypt
 
-```js
+```bash
 npm install --save bcrypt
 ```
 
@@ -351,7 +352,7 @@ npm install --save bcrypt
 
 Let's go into the node terminal to play with our model.
 
-```js
+```javascript
 var db = require("./models");
 db.User.
   createSecure("foobar", "foobar",
@@ -381,7 +382,7 @@ var express = require('express'),
 
 Let's add a `POST /users` route to accept user signup requests.
 
-```
+```javascript
 // where the user submits the sign-up form
 app.post("/users", function (req, res) {
 
@@ -408,7 +409,7 @@ The complete code is just the following:
 `simple_login/app.js`
 
 
-```
+```javascript
 var express = require('express'),
     bodyParser = require('body-parser'),
     db = require("./models"),
@@ -447,13 +448,13 @@ curl --data "user[email]=foobar&user[password]=foobar" localhost:3000/users
 
 ```
 
-## Logging In
+## Logging In: Part 1 -- Setup
 
 Let's add some routes to be able to login.
 
 `simple_login/app.js`
 
-```
+```javascript
 
 app.post("/login", function (req, res) {
   var user = req.body.user;
@@ -492,7 +493,7 @@ Then we add it to the list of require statements
 
 `simple_login/app.js`
 
-```
+```javascript
 var express = require('express'),
     bodyParser = require('body-parser'),
     db = require("./models"),
@@ -517,8 +518,215 @@ curl --data "user[email]=foobar&user[password]=foobar" -i localhost:3000/login
 ```
 
 
+Notice the headers have a `set-cookie` key and value. Now we can create some special login functionality to save a user's data in the session.
+
+`simple_login/app.js`
+
+```javascript
+
+app.use("/", function (req, res, next) {
+
+  req.login = function (user) {
+    req.session.userId = user.id;
+  };
+
+  req.currentUser = function () {
+    return db.User.
+      find({
+        where: {
+          id: req.session.userId
+       }
+      }).
+      then(function (user) {
+        req.user = user;
+        return user;
+      })
+  };
+
+  req.logout = function () {
+    req.session.userId = null;
+    req.user = null;
+  }
+
+  next(); 
+});
+
+```
+
+## Logging In: Part 2 -- Routing
+
+In our app.js we want to make sure we have the correct routing for logging in a user so let's update our login route.
+
+`simple_login/app.js`
+
+```javascript
+
+app.post("/login", function (req, res) {
+  var user = req.body.user;
+
+  db.User
+    .authenticate(user.email, user.password,
+      function (msg) {
+          res.send(msg);
+        },
+      function (user) {
+          // note here the super step
+          req.login(user);
+          res.send(user.dataValues);
+      });
+});
+
+```
+
+Technically after you log someone in you want to redirect them to somewhere meaningful.
+
+
+`simple_login/app.js`
+
+```javascript
+
+app.post("/login", function (req, res) {
+  var user = req.body.user;
+
+  db.User
+    .authenticate(user.email, user.password,
+      function (msg) {
+          res.send(msg);
+        },
+      function (user) {
+          // note here the super step
+          req.login(user);
+          // We need to create this route
+          res.redirectTo("/profile"); // redirect to user profile
+      });
+});
+
+```
+
+The user show path will be the following.
+
+
+`simple_login/app.js`
+
+```javascript
+
+app.get("/profile", function (req, res) {
+  req.currentUser()
+      .then(function (user) {
+        res.send(user.dataValues);
+      })
+});
+
+```
+
+However we need to play with this in the browser to verify this is working, so it's time to add some views.
+
+## Adding Views
+
+First we need to add `ejs`.
+
+```bash
+npm install --save ejs
+
+```
+
+Then we need to configure our middleware
+
+`simple_login/app.js`
+
+```javascript
+
+var express = require('express'),
+    bodyParser = require('body-parser'),
+    db = require("./models"),
+    session = require("express-session"),
+    app = express();
 
 
 
+app.set("view engine", "ejs"); // <--- throw in ejs
+
+app.use(bodyParser.urlencoded({extended: true}));
+
+app.use(session({
+  secret: 'super secret',
+  resave: false,
+  saveUninitialized: true
+}));
 
 
+```
+
+Then `mkdir` for views
+
+
+
+### Adding A Login Path
+
+
+We need a `GET /login` view and route.
+
+
+`simple_login/app.js`
+
+```javascript
+
+app.get("/login", function (req, res) {
+  res.render("/login");
+});
+
+```
+
+Then create the login view
+
+
+`simple_login/views/login.ejs`
+
+```html
+
+<form method="post" action="/login">
+  <div>
+    <input type="text" name="user[email]">
+  </div>
+  <div>
+    <input type="text" name="user[password]">
+  </div>
+  <button>Login</button>
+</form>
+
+```
+
+### Adding A Profile
+
+While we are at it let's add a real profile page.
+
+`simple_login/views/profile.ejs`
+
+```html
+
+  Welcome, <%= user.email %>!
+
+```
+
+Let's update the route to render this.
+
+
+`simple_login/app.js`
+
+```javascript
+
+app.get("/profile", function (req, res) {
+  req.currentUser()
+      .then(function (user) {
+        res.render("profile.ejs", {user: user});
+      });
+});
+
+```
+
+
+
+## Exercises
+
+1. Add a `GET /signup` route and view.
+2. Login a user after `signup` and redirect to `/profile`.
