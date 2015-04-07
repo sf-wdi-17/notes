@@ -260,6 +260,9 @@ Let's edit our `User` model to have the following code from Yesterday:
 
 ```javascript
 
+var bcrypt = require("bcrypt");
+var salt = bcrypt.genSaltSync(10);
+
 module.exports = function (sequelize, DataTypes){
   var User = sequelize.define('User', {
     email: { 
@@ -288,49 +291,31 @@ module.exports = function (sequelize, DataTypes){
         var hash = bcrypt.hashSync(password, salt);
         return hash;
       },
-      createSecure: function(email, password, err, success ) {
+      createSecure: function(email, password) {
         if(password.length < 6) {
-          err({message: "Password should be more than six characters"});
+          throw new Error("Password too short");
         }
-        else{
-          this.create({
-            email: email,
-            passwordDigest: this.encryptPassword(password)
-          }).error(function(error) {
-            console.log(error);
-            if(error.email){
-              err({message: 'Your username should be at least 6 characters long', email: email});
-            }
-            else{
-              err({message: 'An account with that username already exists', email: email});
-            }
-          }).success(function(user) {
-            success({message: 'Account created, please log in now'});
-          });
-        }
+        return this.create({
+          email: email,
+          passwordDigest: this.encryptPassword(password)
+        });
+      
       },
-      authenticate: function(email, password, err, success) {
+      authenticate: function(email, password) {
         // find a user in the DB
-        this.find({
+        return this.find({
           where: {
             email: email
           }
-        })
-        // when that's done, 
-        .done(function(error,user){
-          if(error){
-            console.log(error);
-            err({message: "Oops! Something went wrong"});
-          }
-          else if (user === null){
-            err({message: "Username does not exist"});
+        }) 
+        .then(function(user){
+          if (user === null){
+            throw new Error("Username does not exist");
           }
           else if ((User.comparePass(password, user.passwordDigest)) === true){
-            success(user);
+            return user;
           }
-          else {
-            err({message: "Invalid password"});
-          }
+
         });
       }
 
@@ -355,13 +340,10 @@ Let's go into the node terminal to play with our model.
 ```javascript
 var db = require("./models");
 db.User.
-  createSecure("foobar", "foobar",
-    function (msg){
-      console.log(msg);
-    }, 
-    function(){
-      console.log("success!");
-    });
+  createSecure("foobar", "foobar").
+  then(function(){
+    console.log("success!");
+  });
 ```
 
 
@@ -391,11 +373,8 @@ app.post("/users", function (req, res) {
 
   // create the new user
   db.User.
-    createSecure(user.email, user.password,
-      function (msg){
-        res.send(msg);
-      }, 
-      function(){
+    createSecure(user.email, user.password).
+    then(function(){
         res.send("SIGNED UP!");
       });
 });
@@ -429,11 +408,8 @@ app.post("/users", function (req, res) {
 
   // create the new user
   db.User.
-    createSecure(user.email, user.password,
-      function (msg){
-        res.send(msg);
-      }, 
-      function(){
+    createSecure(user.email, user.password).
+    then(function(){
         res.send("SIGNED UP!");
       });
 });
@@ -460,13 +436,10 @@ app.post("/login", function (req, res) {
   var user = req.body.user;
 
   db.User
-    .authenticate(user.email, user.password,
-      function (msg) {
-          res.send(msg);
-        },
-      function (user) {
+    .authenticate(user.email, user.password)
+    .then(function (user) {
           res.send(user);
-      });
+    });
 });
 
 ```
@@ -565,15 +538,10 @@ app.post("/login", function (req, res) {
   var user = req.body.user;
 
   db.User
-    .authenticate(user.email, user.password,
-      function (msg) {
-          res.send(msg);
-        },
-      function (user) {
-          // note here the super step
-          req.login(user);
-          res.send(user.dataValues);
-      });
+    .authenticate(user.email, user.password)
+    .then(function (user) {
+          res.send(user);
+    });
 });
 
 ```
@@ -589,11 +557,8 @@ app.post("/login", function (req, res) {
   var user = req.body.user;
 
   db.User
-    .authenticate(user.email, user.password,
-      function (msg) {
-          res.send(msg);
-        },
-      function (user) {
+    .authenticate(user.email, user.password)
+    .then(function (user) {
           // note here the super step
           req.login(user);
           // We need to create this route
