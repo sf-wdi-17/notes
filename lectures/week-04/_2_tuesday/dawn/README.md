@@ -312,7 +312,7 @@ module.exports = function (sequelize, DataTypes){
           if (user === null){
             throw new Error("Username does not exist");
           }
-          else if ((User.comparePass(password, user.passwordDigest)) === true){
+          else if (user.checkPassword(password)){
             return user;
           }
 
@@ -637,7 +637,7 @@ We need a `GET /login` view and route.
 ```javascript
 
 app.get("/login", function (req, res) {
-  res.render("/login");
+  res.render("login");
 });
 
 ```
