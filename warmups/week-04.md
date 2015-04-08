@@ -31,6 +31,42 @@ For help, check out these videos:
 - https://www.youtube.com/watch?v=e5ik2UGjHBk
 - https://www.youtube.com/watch?v=EeQ8pwjQxTM
 
+### Merge Sort: Solution
+
+```js
+
+// Completing mergeSort is easier if we just use the "merge" function we already built
+var merge = function(left, right) {
+    var merged = [];
+    var l = 0, r = 0; // These are our left and right array index counters.
+
+    while(l < left.length && r < right.length) {
+        if(left[l] < right[r]) {
+            merged.push(left[l++]);
+        } else {
+            merged.push(right[r++]);
+        }
+    }
+    
+    return merged.concat(left.slice(l)).concat(right.slice(r));
+}
+
+// Here's the actual mergeSort function that breaks 1 array down into smaller arrays. 
+// Once an array has only 1 element, it is passed to merge() so everything can be built back up again.
+var mergeSort = function(arr) {
+    if(arr.length < 2) {
+        // Arrays that have 0 or 1 items don't need to be sorted
+        return arr;
+    }
+    // Now we find the middle of the array and split it into two pieces. 
+    var middle  =   Math.floor(arr.length / 2);
+    var left    =   arr.slice(0, middle);
+    var right   =   arr.slice(middle);
+
+    return merge(mergeSort(left), mergeSort(right));
+}
+```
+
 ## Quick Sort
 In most cases, quick sort is faster than bubble sort or merge sort.
 
