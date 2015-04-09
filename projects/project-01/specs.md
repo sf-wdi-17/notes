@@ -50,7 +50,7 @@ We will a schedule for 1:1s all throughout the week. We will also do mini lesson
 
 ## TIMELINE
 
-* __Sunday, April 12th__ - Communicate your app idea to an instructor. Be ready to talk about the scope of your project. Before beginning work on your project, your project idea and the scope of your project must be checked-off by an instructor.  You will need the following for an instructor check-off:
+* __Sunday, April 12th__ - Communicate your app idea to an instructor and put it in a card on [Trello](https://trello.com/b/Wg1himr0/project-1). Be ready to talk about the scope of your project. Before beginning work on your project, your project idea and the scope of your project must be checked-off by an instructor.  You will need the following for an instructor check-off:
     - A plan for your pages
     - A well-defined and written out feature list
     - A written Minimum Viable Product (MVP)
