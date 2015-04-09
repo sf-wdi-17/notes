@@ -50,12 +50,12 @@ We will a schedule for 1:1s all throughout the week. We will also do mini lesson
 
 ## TIMELINE
 
-* __Sunday, December 14th__ - Communicate your app idea to an instructor. Be ready to talk about the scope of your project. Before beginning work on your project, your project idea and the scope of your project must be checked-off by an instructor.  You will need the following for an instructor check-off:
+* __Sunday, April 12th__ - Communicate your app idea to an instructor. Be ready to talk about the scope of your project. Before beginning work on your project, your project idea and the scope of your project must be checked-off by an instructor.  You will need the following for an instructor check-off:
     - A plan for your pages
     - A well-defined and written out feature list
     - A written Minimum Viable Product (MVP)
-* __Thursday, December 18th__ - Deploy your code to Heroku by the end of the day.  It is not important how much coding you have done at this point; deploy whatever you have.  Deploy to Heroku frequently to make your life easier.
-* __Friday, December 19th at 9:30am__ - Project #1 due and presentations
+* __Thursday, April 16th__ - Deploy your code to Heroku by the end of the day.  It is not important how much coding you have done at this point; deploy whatever you have.  Deploy to Heroku frequently to make your life easier.
+* __Friday, April 17th at 9:30am__ - Project #1 due and presentations
 
 ## WHAT WE ARE LOOKING FOR
 __Code Quality__ Make sure that your code is:
