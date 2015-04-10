@@ -2,7 +2,7 @@
 
 |      | Monday | Tuesday | Wednesday | Thursday | Friday |
 |------|------|-------|--------|---------|-------|
-| CS   | Intro                    | Simple search                                 | Binary search     | Recursive search          | Merging two sorted arrays |
-| Dawn | HTTP + building a server | Express review, method override & body-parser | SQL               | ORMs & intro to Sequelize | Restful routing + review  |
-| Dusk | Intro to Express         | CRUD with fake array                          | SQL + joins       | CRUD w/ Sequelize         | Daily planner             |
-| Lab  | Daily planner            | Daily planner                                 | Apartment SQL lab | Daily planner             |                           |
+| CS   | Intro to CS problems for the week                   | Blocks, procs and lambdas vs JS functions                                 | Stack and queue with RSpec     | Linked list with RSpec          | Doubly linked list with RSpec |
+| Dawn | Intro to Ruby | File separation and how to build a project | Intro to Rails               | Rails models (ActiveRecord) | Review  |
+| Dusk | Ruby classes, modules and OOP         | Intro to RSpec                          | Routes, controllers and views       | Review         |              |
+| Lab  |             |                                  |  |              |                           |
