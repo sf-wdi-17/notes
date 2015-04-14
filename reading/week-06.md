@@ -1,6 +1,7 @@
 # Reading Week 6
 
 - [Intro to Ruby and its benefits](https://www.ruby-lang.org/en/about/)
+- [Practicing Ruby](http://weijieworld.com/2015/04/09/the-importance-of-practice/)
 - [OOP and classical inheritance](http://ruby.bastardsbook.com/chapters/oops/)
 - [Blocks, procs and lambdas](http://awaxman11.github.io/blog/2013/08/05/what-is-the-difference-between-a-block/)
 - [Ideal Ruby project structure](http://stackoverflow.com/questions/614309/ideal-ruby-project-structure)
