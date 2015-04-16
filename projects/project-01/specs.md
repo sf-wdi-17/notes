@@ -20,7 +20,7 @@ Make sure to do all of the following with your app.
 * **Authorization** Where appropriate, you should implement an authorization scheme.  For example, if you make a blog app, other users should not be able to delete the posts that you create.
 * * **Testing** You should test your code.  At the very least have request specs that verify that your pages return a 200 response.
 * **Heroku.** Deploy your code to Heroku. We will be covering this early next week.
-	* A requirement for the Heroku deployment is to ensure you do not expose secrets in your app.  __Do not check secret keys into Github!__ A repo on how to that can be found [here](https://github.com/sf-wdi-17/env_notes).
+	* A requirement for the Heroku deployment is to ensure you do not expose secrets in your app.  __Do not check secret keys into Github!__ [Notes on how to do that here](https://github.com/sf-wdi-17/notes/blob/master/projects/project-01/hiding_secrets.md).
 
 ## CHALLENGE ADD-ONS
 If you want to push yourself and learn something new, optionally consider doing some of the following with your app:
