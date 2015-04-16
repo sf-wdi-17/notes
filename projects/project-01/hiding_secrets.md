@@ -1,6 +1,7 @@
 **Create .env file vars like these**
 
 FB_API_KEY=thisistheapikeythinggoeshere
+
 FB_API_ID=thisissomeidagwehqrwligu23liug24kbjfwe
 
 **In bash, run**
