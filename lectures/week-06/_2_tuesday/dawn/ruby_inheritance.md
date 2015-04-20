@@ -1,12 +1,12 @@
-# Inheritance in Ruby
+# Inheritance in Ruby #
 
-##Quick Review:
+## Quick Review: ##
 
   * What is a method? What is a class?
   * What is an instance method? 
   * Why do we use a class?
 
-## Learning Objectives
+## Learning Objectives ##
 
 **By the end of the lesson, we'll:**
 
@@ -16,31 +16,41 @@
   * Know when to separate files
     + And how to do so using `require`, `require_relative`, `load`
 
-## So what's Inheritance, and why do we use it?
+## Active Learning: Inheritance ##
 
-Inheritance is used when one class will get some, most, or all of its methods and properties from a parent class. 
+**Group Discussion (10 mins)**
 
-In truth, when you think about it,  begin to realize that more often than not, one class of objects often inherits its features from a larger, parent class of objects.
+In groups of 3 or 4, spend 10 minutes discussing what you already know about inheritance, and answering the following questions *(you're welcome to use Google together to research and gather information)*:
 
-### A overly simplistic example:
+  * What is inheritance?
+  * What do we mean when we say 'classical inheritance?'
+  * How does classical inheritance differ from prototypical inheritance?
+  * How do we know when to use inheritance in our applications?
+  * What are some unique features of inheritance in Ruby?
 
-__A motor vehicle (motor_vehicle) intended for roads:__
+## Code Along ##
 
-Properties | Methods
----- | ----
-Has some number of wheels | Is capable of accelerating
-Has a length, width, and height | Is capable of braking (or stopping)
-Has a mass (weight)
+### A somewhat trivial example: ###
 
-__A sportscar__ < Extends "motor_vehicle"
+**A motor vehicle (motor_vehicle) intended for roads:**
+
+| Properties                        | Methods                             |
+| :-------------------------------  | :----------------------------       |
+| Has some number of wheels         | Is capable of accelerating          |
+| Has a length, width, and height   | Is capable of braking (or stopping) |
+| Has a mass (weight)               | Is capable of turning               |
+
+__A car__ < Extends "motor_vehicle"
 
 Includes all the properties and methods of "motor_vehicle", plus:
 
-Properties | Methods
----- | ----
-May be a convertible | Open convertible top
-May have 2, or 4 doors | Automatic door unlock/lock
-Engine type (gas, diesel, electric, etc) | 
+| Properties                               | Methods                          |
+| ---------------------------------------  | -------------------------------- |
+| May be a convertible                     | Open convertible                 |
+| Number of doors (usu. 2, 4, 5)           | Lock doors                       |
+| Type of engine (gas, diesel, electric)   | Start engine                     |
+| Type of transmission (auto, manual)      | Change gears                     |
+| Color                                    | Change temperature
 
 __A tractor trailer__ < Extends "motor_vehicle"
 
