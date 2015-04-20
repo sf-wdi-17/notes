@@ -32,36 +32,45 @@ In groups of 3 or 4, spend 10 minutes discussing what you already know about inh
 
 ### A somewhat trivial example: ###
 
-**A motor vehicle (motor_vehicle) intended for roads:**
+**A motor vehicle (Class motor_vehicle) intended for roads:**
 
 | Properties                        | Methods                             |
-| :-------------------------------  | :----------------------------       |
-| Has some number of wheels         | Is capable of accelerating          |
-| Has a length, width, and height   | Is capable of braking (or stopping) |
-| Has a mass (weight)               | Is capable of turning               |
+| --------------------------------  | -----------------------------       |
+| Has a length, width, and height   | Is capable of accelerating          |
+| Has a mass (weight)               | Is capable of slowing down (+ stopping) |
+|                                   | Is capable of turning               |
 
 __A car__ < Extends "motor_vehicle"
 
-Includes all the properties and methods of "motor_vehicle", plus:
+*Includes all the properties and methods of "motor_vehicle", plus:*
 
-| Properties                               | Methods                          |
-| ---------------------------------------  | -------------------------------- |
-| May be a convertible                     | Open convertible                 |
-| Number of doors (usu. 2, 4, 5)           | Lock doors                       |
-| Type of engine (gas, diesel, electric)   | Start engine                     |
-| Type of transmission (auto, manual)      | Change gears                     |
-| Color                                    | Change temperature
+| Properties                              | Methods                          |  
+| --------------------------------------- | -------------------------------- |  
+| May be a convertible                    | Open/Close convertible top       |  
+| Number of doors (usu. 2, 4, 5)          | Lock doors                       |  
+| Type of engine (gas, diesel, electric)  | Start engine                     |  
+| Type of transmission (auto, manual)     | Change gears                     |  
+| Color                                   | Adjust climate control           |  
+| Make                                    | Play music                       |  
+| Model                                   | Open/close windows               |  
+| Has car phone (yes...it's 1988)         | Answer phone                     |  
+|                                         | Provide navigation to address    |  
 
-__A tractor trailer__ < Extends "motor_vehicle"
 
-Includes all the properties and methods of "motor_vehicle", plus:
+**A boat** *< Extends "motor_vehicle"*
 
-Properties | Methods
----- | ----
-Cargo capacity (volume) | Slide up cargo door
-Cargo capacity (weight) | Attach to trailer
-Number of axles | Use CB Radio
-Engine type (gas/diesel) | Beep when backing up
+*Includes all the properties and methods of "motor_vehicle", plus:*
+
+| Properties                                        | Methods                             |
+| :-------------------------                        | :---------------------------------  |
+| Draft (minimum water depth)                       | Float                               |
+| Maximum weight capacity                           | Tow waterskier                      |
+| Callsign/name (i.e. "Ruby Sky")                   | Call coast guard on CB radio        |
+| Engine type (gas/diesel)                          | Turn rudder                         |
+| Propulsion type (outboard, inboard, jet impeller) | Raise/Lower sails                   |
+| Number of sails                                   |                                     |
+| Number of propellers                              |                                     |
+| Angle of propellers                               |                                     |
 
 Questions?
 
