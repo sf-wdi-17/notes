@@ -1,6 +1,6 @@
 # Schedule Week 6
 
-|| Monday | Tuesday | Wednesday | Thursday | Friday |
+| Section | Monday | Tuesday | Wednesday | Thursday | Friday |
 |------|------|-------|--------|---------|-------|
 | CS | Intro to CS problems for the week (in Ruby from now on) | Binary search | Merge sort | [Linked list with RSpec](https://github.com/sf-wdi-17/singly_linked_list) | [Stack](https://github.com/sf-wdi-17/stack) and [queue](https://github.com/sf-wdi-17/queue) with RSpec |
 | Dawn | [Intro to Ruby](https://github.com/sf-wdi-17/notes/tree/master/lectures/week-06/_1_monday/dawn) (Mike) | Classical inheritance (Brett) | File separation and how to build a project (Mike) | [Rails intro](../lectures/week-06/_4_thursday/dawn/README.md) (Dennis) | [Rails models](../lectures/week-06/_5_friday/dawn/README.md) (ActiveRecord) (Dennis) |
