@@ -81,7 +81,7 @@ Let's recall some of our JS Data Types
   * `||=`, `*=`, `/=`
   * `==`, `.equal?`, 
   * `!`, `not`, `||`, `&&`
-  * **`**`**, `+`, `-`, `/`, `*`, 
+  * `**`, `+`, `-`, `/`, `*`
 * General Delimited Input
 	* `%w`, `%r` 
 * Console Methods
