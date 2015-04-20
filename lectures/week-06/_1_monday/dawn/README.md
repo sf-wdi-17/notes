@@ -73,7 +73,7 @@ Let's recall some of our JS Data Types
 * Arrays
   * `[x..y]`, `[x...y]`, `index`
 * Hashes
-  * `{ key => value }`
+  * `{ :key => value }`
   * `{ key: value }` which is the same as `{:key =>value }`
   * `[some_key]` and `[some_key]=` 
   * `key`,`.keys`, `.each`
