@@ -1,6 +1,6 @@
 ## Intro to Rails
 
-###Learning Objetives
+###Learning Objectives
 By the end of this lecture you should be able to...
 
 - Distinguish between Express, Sinatra and Rails
@@ -21,11 +21,11 @@ Rails values...
 
 ### Separation of Concerns
 
-In writing a large application it is important to establish something known as **Separation of Concerns**, *writing modular code that focuses on one aspect within the application.* The benefit of this is similar to idea of **compartementalization** with respect to a production line, which allows for *more rapid development* by being able to **divide and conquer** the construction of a product. Comparments can focus on one task and optmize functional concerns far outside the scope of other compartments, but still work together to acheive the same product.  Ultimately it reduces the headache of debugging and controlling a large application that can ultimately grow to a level of complexity that no one person could ever fully comprehend (nor want or need to). 
+In writing a large application it is important to establish something known as **Separation of Concerns**, *writing modular code that focuses on one aspect within the application.* The benefit of this is similar to idea of **compartmentalization** with respect to a production line, which allows for *more rapid development* by being able to **divide and conquer** the construction of a product. Compartments can focus on one task and optimize functional concerns far outside the scope of other compartments, but still work together to achieve the same product.  Ultimately it reduces the headache of debugging and controlling a large application that can ultimately grow to a level of complexity that no one person could ever fully comprehend (nor want or need to). 
 
 ### Organizational Principles
 
-In order to manage the development of emerging aspects within a project it is important to construct a guideline that will shape how things are separated, a **design pattern**, which everyone can use to maintain **consistent** organization of different aspects. This is a *conventional* choice that helps to understandably scale a project. Part of the role of a developer is to become familiar with using design patterns, but this takes time (and trust), as different patterns emphaize an array of qualities: scalability, modularity, security, performance, et cetera.
+In order to manage the development of emerging aspects within a project it is important to construct a guideline that will shape how things are separated, a **design pattern**, which everyone can use to maintain **consistent** organization of different aspects. This is a *conventional* choice that helps to understandably scale a project. Part of the role of a developer is to become familiar with using design patterns, but this takes time (and trust), as different patterns emphasize an array of qualities: scalability, modularity, security, performance, et cetera.
 
 ##MVC
 
@@ -129,7 +129,7 @@ Gems are like NPMs. You have to put any gem you want to use in your Gemfile. You
 - gemfile/gemfile lock
 - lib 
 - log
-- public - simple html files here (anything here will be visible to the publuc)
+- public - simple html files here (anything here will be visible to the public)
 - test for testing
 - tmp - temp files for rails to store stuff
 - vendor - much less used because of gems
