@@ -78,7 +78,7 @@ Let's recall some of our JS Data Types
   * `[some_key]` and `[some_key]=` 
   * `key`,`.keys`, `.each`
 * operators
-  * `++`, `--`, `||=`, `*=`, `/=`
+  * `||=`, `*=`, `/=`
   * `==`, `.equal?`, 
   * `!`, `not`, `||`, `&&`
   * **`**`**, `+`, `-`, `/`, `*`, 
