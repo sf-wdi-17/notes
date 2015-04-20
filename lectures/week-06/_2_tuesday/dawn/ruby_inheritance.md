@@ -1,12 +1,18 @@
-# Inheritance in Ruby #
+# Inheritance in Ruby 
 
-## Quick Review: ##
+## Getting Started (10 mins total)
 
-  * What is a method? What is a class?
-  * What is an instance method? 
-  * Why do we use a class?
+### Quick Review:
 
-## Learning Objectives ##
+  * What is a class?
+    - What is a property?
+    - What is a method?
+  * What is the difference between:
+    - an instance method,
+    - a class method
+  * Why do we use classes?
+
+### Classical Inheritance: Learning Objectives
 
 **By the end of the lesson, we'll:**
 
@@ -16,9 +22,11 @@
   * Know when to separate files
     + And how to do so using `require`, `require_relative`, `load`
 
-## Active Learning: Inheritance ##
+## Okay, let's dive in!
 
-**Group Discussion (10 mins)**
+### Think-Pair-Share: Inheritance (10 mins) 
+
+**Break into Small Groups**
 
 In groups of 3 or 4, spend 10 minutes discussing what you already know about inheritance, and answering the following questions *(you're welcome to use Google together to research and gather information)*:
 
@@ -28,11 +36,17 @@ In groups of 3 or 4, spend 10 minutes discussing what you already know about inh
   * How do we know when to use inheritance in our applications?
   * What are some unique features of inheritance in Ruby?
 
-## Code Along ##
+#### Think-Pair-Share: Inheritance Discussion (5 mins)
 
-### A somewhat trivial example: ###
+Let's all come back together and discuss the questions above.
 
-**A motor vehicle (Class motor_vehicle) intended for roads:**
+### Active Learning (Code Along - 20 mins) 
+
+Let's start with a somewhat trivial (but useful) example.
+
+**Class: `Motor_Vehicle`:**
+
+*`Motor_Vehicle` will be our base class.*
 
 | Properties                        | Methods                             |
 | --------------------------------  | -----------------------------       |
@@ -40,9 +54,9 @@ In groups of 3 or 4, spend 10 minutes discussing what you already know about inh
 | Has a mass (weight)               | Is capable of slowing down (+ stopping) |
 |                                   | Is capable of turning               |
 
-__A car__ < Extends "motor_vehicle"
+**`Car`** < Extends "Motor_Vehicle"
 
-*Includes all the properties and methods of "motor_vehicle", plus:*
+*Includes all the properties and methods of "Motor_Vehicle", plus:*
 
 | Properties                              | Methods                          |  
 | --------------------------------------- | -------------------------------- |  
@@ -56,191 +70,95 @@ __A car__ < Extends "motor_vehicle"
 | Has car phone (yes...it's 1988)         | Answer phone                     |  
 |                                         | Provide navigation to address    |  
 
+#### Questions? (10 mins)
 
-**A boat** *< Extends "motor_vehicle"*
+Have questions? Call-em-out! We'll answer them together.
 
-*Includes all the properties and methods of "motor_vehicle", plus:*
+#### Pair Programming (15 mins) !!
 
-| Properties                                        | Methods                             |
-| :-------------------------                        | :---------------------------------  |
-| Draft (minimum water depth)                       | Float                               |
-| Maximum weight capacity                           | Tow waterskier                      |
-| Callsign/name (i.e. "Ruby Sky")                   | Call coast guard on CB radio        |
-| Engine type (gas/diesel)                          | Turn rudder                         |
-| Propulsion type (outboard, inboard, jet impeller) | Raise/Lower sails                   |
-| Number of sails                                   |                                     |
-| Number of propellers                              |                                     |
-| Angle of propellers                               |                                     |
+Ok, now it's your turn. Based on the steps we took to build a `car` class by extending the `Motor_Vehicle` class, work together to build a `boat` class. The definition of a boat follows (but feel free to add additional methods and properties if you think they are needed!):
 
-Questions?
+**`Boat`** *< Extends "Motor_Vehicle"*
 
-Ok... moving on to our objectives.
+*Includes all the properties and methods of "Motor_Vehicle", plus:*
 
-##Goal #1 - Inheritance:
+| Properties                          | Methods                           |  
+| -------------------------           | --------------------------------- |  
+| Draft (minimum water depth)         | Float                             |  
+| Maximum weight capacity             | Tow waterskier                    |  
+| Callsign/name (i.e. "Ruby Sky")     | Call coast guard on CB radio      |  
+| Engine type (gas/diesel)            | Turn rudder                       |  
+| Propulsion type (out/in-board, jet) | Raise/lower sails                 |  
+| Number of sails                     | Raise/lower propeller             |  
+| Number of propellers                |                                   |  
+| Angle of propellers                 |                                   |  
 
-- Inheritance is used to indicate that one class will get most or all of its features from a parent class. 
-    
--When is inheritance useful?
-        a. DRY - Don't Repeat Yourself & reuse code functionality
-        b. Faster implementation time
+<br>
+#### Pair Programming: Present Solution! (5 mins)
 
-        - Example: Suppose you're building an application that helps you ship goods. Many forms of shipping are available, but all forms share some basic functionality (weight calculation, perhaps). We don’t want to duplicate the code that implements this functionality across the implementation of each shipping type. 
+I'm looking for one group who's brave enough to explain their solution to the rest of the class.
 
-### You Try This
+#### Identifying Potential Pitfalls (15 mins)
 
-```rb
-class Box
+Before we move on, we're going to spend 15 minutes discussing what *might* be confusing about this. So before we can continue, I need 3-5 things that you feel one of your fellow classmates could find confusing about **Classical Inheritance**.
 
-  def initialize(w, h)
-    @width = w 
-    @height = h
-  end
+#### Think-Pair-Share: Identifying OOP Design Problems (10 mins)
 
-  def get_area
-    @width - @height
-  end
+I didn't mention it before, but there are actually some potential design problems in the classes described above. 
 
-end
+In your groups (of 3 or 4) discuss what properties (or methods) in the `Motor_Vehicle`, `Car`, or `Boat` classes might be problematic. How might we fix these issues?
 
-class BigBox < Box
+##### Think-Pair-Share: OOP Design Problems - Solution! (5 mins)
 
-  def print_area
-    @area = @width - @height
-  end
+Let's come together and have each group talk about the problems they identified with the classes we just built together.
 
-end
+### File Separation in Ruby (`load`, `require`, and `require_relative`) (10 mins)
 
-# Things to consider:
-# How would I create a box? How could I create a BigBox?
-# How would I print the area of the BigBox?
-```
+Load & require are very similar to the purpose of `require` in Node.js
 
-### Stop
+Before you start using these commands in ruby, it's important to understand what they do and how each one is different:
 
+####`load`
+  - This will reload the ruby file every time it's called.
+  - Load is typically used for checking for small changes and debugging - does not keep track of whether a file or library has been loaded
 
-### A Guide through Animals
+####`require`
 
-```rb
-class Animal
-  
-  def initialize(kind)
-    @kind = kind
-    @state = "awake"
-  end
-  
-  def eat(food)
-    if @state == "awake""
-        puts "NOM-nom!!"
-        puts "(#{kind} has eaten #{food})"
-    else
-        puts "SLEEPING"
-    end
-    self
-  end
-  
-  def sleep
-    @state = "sleeping"
-    self
-  end
-  
-  def wake
-    @state = "awake"
-    self
-  end
-end
+  - This will load a ruby file ONCE and only once. All subsequent require statements will not reload the file.
+  - Doesn't need the .rb file extension, but won't hurt if it's there.
+  - Only used to include ruby `gems` that have been installed with `gem`.
+    + Don't use `require` to include your own `.rb` files (because when you wrote them, you should use `require_relative` to tell the ruby interpreter where to look for your file.)
 
-class Person < Animal
-    def initialize(age, gender, name)
-        @age = age
-        @gender = gender
-        @name = name
-    end
-end
-```
+####`require_relative`
+  - Same as `require`, but will look for the specified `.rb` file *relative* to the file that is making the request.
+    + That is, when you use `require_relative`, ruby will start looking for the file in the same directory as the file where you include the `require_relative` statement
 
-- Single Inheritance vs Multiple Inheritance
-    - In Ruby, a class can only inherit from a single other class. It __cannot__ inherit from multiple classes.
-    
-    ![](https://draftin.com:443/images/13819?token=LgAN2Cjq0VY2E1kC14KkUjazImyXfmOTtc-EiNJbdofQ25kQLkSBtxVpde5pu1y2if0_H6LTEUeTaklH1Yjmimw) 
-    - Benefits and disadvantages to single & multiple inheritance
-    - In Ruby, initialize is an ordinary method and inherited just like another method.
+### Active Learning: Load & Require (10 mins)
 
+Create a class and then include it using both `load` and `require_relative`. Observe the differences in behavior.
 
+  1. Create Person class that has name and age attributes. It will also have a `vote` method. But before the person can `vote`, the method should check to make sure that person is over age 18.
+  2. Open pry and `load` this person class.
+  3. In `pry`, create a person who is 19 years old.
+  4. Try to they vote?
+  5. Now change the `vote` method in the person class so that the voting age is 21.
+  6. `load` the person class. Was this change seen?
 
-####Exercise #1:
-Create a Mammal class, Cat class, and Dog class. Have Cat and Dog inherit from Mammal. Include some attributes for each class and a method for mammal.
+Exit `pry` (type `exit`) and then open a new pry REPL (type `pry` at a bash prompt). Now, repeat the steps above starting at Step 2, but this time use `require_relative` rather than `load`. When you change the voting age and re-require the class, are the changes reflected?
 
+### Discussion: Load & Require (5 mins)
 
-####Exercise #2:
+In small groups, research and discuss the differences between `load` and `require/require_relative`. Try to answer the following:
 
-```rb
-class Dog  
-  def initialize(breed)  
-    @breed = breed  
-  end  
-  
-  def to_s  
-    "(#@breed, #@name)"  
-  end  
-end  
-  
-class Lab < Dog  
-  def initialize(breed, name)  
-    # give the dog a breed efficiently
-    @name = name  
-  end  
-end  
-  
-puts Lab.new("Labrador", "Ben").to_s 
+  - How are `load` and `require` different in practice?
+  - In what situations should you use `load`?
+  - In what situations should you use `require`?
+  - In what situations should you use `require_relative`?
 
- # .to_s is called implicitly with any puts or print or p method call  
+I would like one group to volunteer to explain what they discussed to the rest of the class.
 
-```
+### Exercises:
 
-###Think About The Following
-
-- When you invoke -super- with arguments, Ruby sends a message to the parent of the current object, asking it to invoke a method of the same name as the method invoking super. 
-- Super sends the right number of arguments for the parent's class' argument count
-
-### Discuss in pairs:
-- Do class variables and instance variables get inherited in Ruby??
-
-__Notes:__
-
-  - ​to_s​ is actually defined in class ​Object​. Because ​Object​ is an ancestor of every object in Ruby. In this sense, it is the _parent_ of all objects.
-  - Fixnum: http://www.ruby-doc.org/core-2.1.1/Fixnum.html#method-i-to_s
-  - Hash: http://www.ruby-doc.org/core-2.1.0/Hash.html#method-i-inspect
-  - Array: http://www.ruby-doc.org/core-2.1.1/Array.html#method-i-to_s
-
-####Exercise #2:
-
-There will be situations where certain properties of the superclass should not be inherited by a particular subclass. Though birds generally know how to fly, penguins are a flightless subclass of birds.
-
-Create a Bird class & a Penguin class. Give the Bird class an initialize, preen, and fly methods. Give the Penguin class a new fly method (since it cannot fly).
-
-
-##Goal #3 - load & require
-
-
-###load
-- This will reload the ruby file every time it's called.
-- Load is typically used for checking for small changes and debugging - does not keep track of whether a file or library has been loaded
-
-###require
-- This will load a ruby file ONCE and only once. All subsequent require statements will not reload the file.
-- Doesn't need the .rb file extension, but won't hurt if it's there.
-
-###require_relative
-  - Same as `require`, but will look for the file to require in the same directory as the file that is making the request.
-
-##Exercise
-Change code and see how load and require behave.
-
-  1. Create Person class that has name and age attributes. It will also have a method to determine if person can vote. Initially a person can vote if the are over 18.
-  2. Open pry and "load" this person class.
-  3. Create a person that is age 19.
-  4. Can they vote?
-  5. Now change the person class so that the voting age is now 2  1.
-  6. Load the person class. Was the change seen?
+It's unlikely we'll have time to do [these exercises](ruby_inheritance_exercises.md) in class, but if you can, doing [these exercises](ruby_inheritance_exercises.md) will provide you with some repetition and help you in the long run.
 
 
