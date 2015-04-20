@@ -55,7 +55,7 @@ end
 ```
 
 
-#### Exercise: We're All Animals!
+#### Exercise: We're Just Animals, After All
 
 
 #### Solution
