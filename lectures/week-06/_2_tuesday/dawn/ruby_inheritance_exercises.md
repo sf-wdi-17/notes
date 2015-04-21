@@ -287,7 +287,7 @@ class Lab < Dog
 end
 ```
 
-#### Additional Exercise: Implement File Separation
+## Goal #2: Implement File Separation
 
 Using `load` / `require`, separate the classes you just created into multiple files (if you haven't done so already).
 
