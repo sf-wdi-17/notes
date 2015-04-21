@@ -129,6 +129,9 @@ sub = Proc.new {|a, b| a - b}
 calculate(10, 5, &sub)
 ```
 
+## Exercise 2:
+Write a method `each` that takes in an array `arr` and a block and runs that block on each element of the array.
+
 ###Extra Credit
 
 ##Procs vs Lambdas
