@@ -1,5 +1,7 @@
 ## Classical Inheritance in Ruby: Exercises ##
 
+*Note: For all the exercises below, you can find solutions in the `solutions` branch of this repository.*
+
 ##Goal #1 - Implement Inheritance:
 
 - Inheritance is used to give a child class most, or all of the features of a parent class.
@@ -82,7 +84,7 @@ NOTE: For each of the different mammal sub-classes, think about what instance va
     + Think about what you can preset when you call `super` in the `initialize` method.
 
 
-#### Goal #2: Implement File Separation
+## Goal #2: Implement File Separation
 
 Using `load` / `require`, separate the classes you just created into multiple files (if you haven't done so already).
 
