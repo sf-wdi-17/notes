@@ -140,7 +140,7 @@ Create a class and then include it using both `load` and `require_relative`. Obs
   1. Create Person class that has name and age attributes. It will also have a `vote` method. But before the person can `vote`, the method should check to make sure that person is over age 18.
   2. Open pry and `load` this person class.
   3. In `pry`, create a person who is 19 years old.
-  4. Try to they vote?
+  4. Try to vote. If everything is set up correctly, this shouldn't be a problem.
   5. Now change the `vote` method in the person class so that the voting age is 21.
   6. `load` the person class. Was this change seen?
 
