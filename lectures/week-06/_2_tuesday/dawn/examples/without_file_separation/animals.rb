@@ -9,10 +9,6 @@ class Animal
     @kind = kind
     @state = "awake"
   end
-  
-  def self.greet
-    puts "hello"
-  end
 
   def eat(food)
     if @state == "awake"

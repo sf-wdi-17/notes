@@ -133,7 +133,7 @@ Before you start using these commands in ruby, it's important to understand what
   - Same as `require`, but will look for the specified `.rb` file *relative* to the file that is making the request.
     + That is, when you use `require_relative`, ruby will start looking for the file in the same directory as the file where you include the `require_relative` statement
 
-### Active Learning: Load & Require (10 mins)
+### Active Learning: `load` & `require` (10 mins)
 
 Create a class and then include it using both `load` and `require_relative`. Observe the differences in behavior.
 
@@ -146,7 +146,7 @@ Create a class and then include it using both `load` and `require_relative`. Obs
 
 Exit `pry` (type `exit`) and then open a new pry REPL (type `pry` at a bash prompt). Now, repeat the steps above starting at Step 2, but this time use `require_relative` rather than `load`. When you change the voting age and re-require the class, are the changes reflected?
 
-### Discussion: Load & Require (5 mins)
+### Discussion: `load` & `require` (5 mins)
 
 In small groups, research and discuss the differences between `load` and `require/require_relative`. Try to answer the following:
 

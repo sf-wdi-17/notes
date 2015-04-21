@@ -19,11 +19,4 @@ class Dog < Mammal
 		make_noise("whimper")
 		self
 	end
-
-	# Note the construction of this method, what does including an '=' sign in the method definition do?
-	def make_dog_noise=(noise)
-		make_noise(noise)
-		self
-	end
-
 end
