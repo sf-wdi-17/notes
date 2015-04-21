@@ -44,9 +44,9 @@ Let's all come back together and discuss the questions above.
 
 Let's start with a somewhat trivial (but useful) example.
 
-**Class: `Motor_Vehicle`:**
+**Class: `MotorVehicle`:**
 
-*`Motor_Vehicle` will be our base class.*
+*`MotorVehicle` will be our base class.*
 
 | Properties                        | Methods                             |
 | --------------------------------  | -----------------------------       |
@@ -54,9 +54,9 @@ Let's start with a somewhat trivial (but useful) example.
 | Has a mass (weight)               | Is capable of slowing down (+ stopping) |
 |                                   | Is capable of turning               |
 
-**`Car`** < Extends "Motor_Vehicle"
+**`Car`** < Extends "MotorVehicle"
 
-*Includes all the properties and methods of "Motor_Vehicle", plus:*
+*Includes all the properties and methods of "MotorVehicle", plus:*
 
 | Properties                              | Methods                          |  
 | --------------------------------------- | -------------------------------- |  
@@ -76,11 +76,11 @@ Have questions? Call-em-out! We'll answer them together.
 
 #### Pair Programming (15 mins) !!
 
-Ok, now it's your turn. Based on the steps we took to build a `car` class by extending the `Motor_Vehicle` class, work together to build a `boat` class. The definition of a boat follows (but feel free to add additional methods and properties if you think they are needed!):
+Ok, now it's your turn. Based on the steps we took to build a `car` class by extending the `MotorVehicle` class, work together to build a `boat` class. The definition of a boat follows (but feel free to add additional methods and properties if you think they are needed!):
 
-**`Boat`** *< Extends "Motor_Vehicle"*
+**`Boat`** *< Extends "MotorVehicle"*
 
-*Includes all the properties and methods of "Motor_Vehicle", plus:*
+*Includes all the properties and methods of "MotorVehicle", plus:*
 
 | Properties                          | Methods                           |  
 | -------------------------           | --------------------------------- |  
@@ -106,7 +106,7 @@ Before we move on, we're going to spend 15 minutes discussing what *might* be co
 
 I didn't mention it before, but there are actually some potential design problems in the classes described above. 
 
-In your groups (of 3 or 4) discuss what properties (or methods) in the `Motor_Vehicle`, `Car`, or `Boat` classes might be problematic. How might we fix these issues?
+In your groups (of 3 or 4) discuss what properties (or methods) in the `MotorVehicle`, `Car`, or `Boat` classes might be problematic. How might we fix these issues?
 
 ##### Think-Pair-Share: OOP Design Problems - Solution! (5 mins)
 
