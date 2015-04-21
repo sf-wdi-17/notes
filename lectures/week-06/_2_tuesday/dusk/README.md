@@ -11,9 +11,9 @@
 ##Intro
 In JavaScript we were creating functions which we could pass in as arguments. In Ruby we can do that as well.
 
-```
+```ruby
 def one
-	return 1
+ 1
 end
 ```
 Let's say we want to pass in the above function `one` to another function.
@@ -24,7 +24,7 @@ Clearly we need another way to do this. As a result we have to find a way to pas
 
 ## Block Examples
 
-```
+```ruby
 [1,2,3].each { |x| puts x*2 } # block is in between the curly braces
 
 [1,2,3].each do |x|
@@ -32,31 +32,40 @@ Clearly we need another way to do this. As a result we have to find a way to pas
 end
 ```
 
-What about the calculator we wrote the other day?  It would be nice if
-we could pass two numbers and the operation to perform on them.
+Imagine a `calculate` method that takes in two numbers, and a performs some calculation on those two numbers. It would be nice if we could pass two numbers and the operation to perform on them.
 
-```
+```ruby
 # The & signifies that the third argument will be a block.
-def calculator(num1, num2, &callback)
+def calculate(num1, num2, &callback)
   callback.call(num1, num2)
 end
 
 # Outputs 50
-calculator(5, 10) { |a, b| a * b }
+calculate(5, 10) { |a, b| a * b }
+
+# We could have also written this as
+calculate(5, 10) do |a, b|
+  a * b
+end
 ```
 
-But that `&` syntax is kind of ugly.  I thought Ruby was supposed to
+### Exercise 1:
+Play around with the calculate method. Try passing in various blocks. Maybe Add the numbers together and then multiply that value by 10.
+
+##Continuing on...
+
+The `&` syntax is kind of ugly.  I thought Ruby was supposed to
 be clean? Enter the `yield` statement.
 
-```
+```ruby
 # The block does not need to be specified in the parameter list,
 # but can be called with the `yield` statement.
-def calculator(num1, num2)
+def calculate(num1, num2)
   yield(num1, num2)
 end
 
 # Will also output 50
-calculator(5, 10) { |a, b| a * b }
+calculate(5, 10) { |a, b| a * b }
 ```
 
 ##Blocks vs Procs
@@ -65,22 +74,22 @@ calculator(5, 10) { |a, b| a * b }
 
 ##Procs Examples
 
-```
+```ruby
 fact = Proc.new {|n| n * n }
 multiply = Proc.new {|x, y| x * y }
 ```
 
-```
+```ruby
 p fact.call(3)               #=>This will invoke ‘fact’ Proc and return 9
 p multiply.call(4, 3)        #=>This will invoke ‘multiply’ Proc and return 12
 ```
 
-```
+```ruby
 multiply.call(4, 3)
 multiply[4, 3]
 ```
-   
-```        
+
+```ruby
 p = Proc.new { |x| puts x*2 }
 [1,2,3].each(&p)              # The '&' tells ruby to turn the proc into a block 
 
@@ -88,13 +97,13 @@ proc = Proc.new { puts "Hello World" }
 proc.call                     # The body of the Proc object gets executed when called
 ```
 
-Back to our calculator example.  How would that look with `Proc`s?
+Back to our `calculate` example.  How would that look with `Proc`s?
 
-```
-# Define a calculator function that takes two numbers and a callback.
+```ruby
+# Define a calculate method that takes two numbers and a callback.
 # Note that the callback does not have an `&` in front of it (because
 # it is a Proc, not a block).
-def calculator(num1, num2, callback)
+def calculate(num1, num2, callback)
   callback.call(num1, num2)
 end
 
@@ -102,12 +111,12 @@ end
 sub = Proc.new {|a, b| a - b}
 
 # Returns 5, since sub is called with 10 and 5.
-calculator(10, 5, sub)
+calculate(10, 5, sub)
 ```
 
-```
+```ruby
 # Define a calculator function that takes two numbers.
-def calculator(num1, num2)
+def calculate(num1, num2)
   # yield calls the hidden block argument.
   yield(num1, num2)
 end
@@ -117,7 +126,7 @@ sub = Proc.new {|a, b| a - b}
 
 # Returns 5, since sub is called with 10 and 5.
 # Need to use & to convert Proc to block.
-calculator(10, 5, &sub)
+calculate(10, 5, &sub)
 ```
 
 ###Extra Credit
