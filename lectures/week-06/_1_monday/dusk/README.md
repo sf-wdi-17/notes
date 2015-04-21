@@ -3,7 +3,7 @@
 ## Objectives
 Students will be able to...
 
-- articulte the difference between an object and a class
+- articulate the difference between an object and a class
 - define and instantiate a class
 - use instance methods and instance variables
 - use the `initialize` method
@@ -46,7 +46,7 @@ end
 
 The syntax of an instance method typically includes four components: the reserved word `def`, a method name, a body, and the reserved word `end`.
 
-At this moment, all instances of a `Car` have the same name. Let's make the method `name` dynamic and utilize instance variables.
+At this moment, all instances of a `Car` have the same name. Let's make the method `color` dynamic and utilize instance variables.
 
 An instance variable--which begin with the `@` symbol--has the capability of storing data for each instance of a class. This may seem unclear at this moment, so an example will help: 
 
