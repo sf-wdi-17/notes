@@ -2,7 +2,7 @@
 
 ## Objectives
 
-* Re-examine blocks
+* Examine blocks
 * Write methods that take blocks as arguments
 * Write methods using yield
 * Define Procs
