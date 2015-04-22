@@ -1,8 +1,8 @@
-# Schedule Week x
+# Schedule Week N
 
-|      | Monday | Tuesday | Wednesday | Thursday | Friday |
-|------|------|-------|--------|---------|-------|
-| CS   | Intro to CS problems for the week |  |  |  |  |
-| Dawn |  |  |  |  |  |
-| Dusk |  |  |  |  |  |
-| Lab  |  |  |  |  |  |
+| Section | Monday                            | Tuesday | Wednesday | Thursday  | Friday  |  
+| ------  | ------                            | ------- | --------  | --------- | ------- |  
+| CS      | Intro to CS problems for the week |         |           |           |         |  
+| Dawn    |                                   |         |           |           |         |  
+| Dusk    |                                   |         |           |           |         |  
+| Lab     |                                   |         |           |           |         |
