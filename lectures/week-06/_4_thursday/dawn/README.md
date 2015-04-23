@@ -90,14 +90,9 @@ This will start a server on localhost:3000
 
 ## Experiment
 
-- create a new rails app using the flag `-d postgresql`
+- create a new rails app: `rails new NAME_OF_APP`
 - run `rails server` and see what happens
-
-- we need to edit something in our config file! Go to database.yml
-- see that it is using NAMEOFAPP_development so we need to fix that
-- how do we do that? `createdb NAMEOFAPP_development` or `rake db:create`
-
-- when this is done try rails server again and look at the app
+- open localhost:3000 in your favorite browser
 
 ##Gems
 Gems are like NPMs. You have to put any gem you want to use in your Gemfile. You have to run bundle anytime you change your Gemfile. Your rails server needs to be restarted after any changes to your Gemfile.
@@ -158,25 +153,17 @@ root "demo#index"
 
 ```
 def hello
-  render('hello')
+  # will automatically look for a view in app/views/demo/hello.html.erb and render it
 end
 ```
 Always check out the terminal for request/response!
-
-## Redirect (don't need the controller here)
-
-```
-def other_hello
-  redirect_to(:controller =>'demo', :action => 'index')
-end
-```
 
 ## Template file names
 
 name.html.erb
 
 - Template name: name
-- Process with: ERb
+- Process with: ERB, looks just like EJS
 - Output format: HTML
 
 ## Instance varialbes for data into our views
@@ -188,3 +175,4 @@ name.html.erb
 	@taco = "Hello instance taco!"
 	@array = [1,2,3]
 	```
+- instance variables from controller are available in the view the controller action renders
