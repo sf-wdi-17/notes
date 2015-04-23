@@ -46,7 +46,7 @@ The **client** is a customer eating in the restaurant, the **server** is the wai
 
 ### How to create a rails project
 
-``` rails new NAME_OF_APP```
+`rails new NAME_OF_APP`
 
 But then it says, bundle install at the end, so, it's created all the files, and now it's telling bundler to install all of the gems that might be missing. 
 
@@ -76,7 +76,7 @@ when we created our rails application at the end of the process, it
 ran Bundle Install for us.
 
 
-bundle exec - run this before rake db:migrate if you're having issues
+`bundle exec` - run this before `rake db:migrate` if you're having issues
 
 ### Start a server
 
@@ -94,7 +94,8 @@ This will start a server on localhost:3000
 - run `rails server` and see what happens
 - open localhost:3000 in your favorite browser
 
-##Gems
+## Gems
+
 Gems are like NPMs. You have to put any gem you want to use in your Gemfile. You have to run bundle anytime you change your Gemfile. Your rails server needs to be restarted after any changes to your Gemfile.
 
 ## Create a controller and view
