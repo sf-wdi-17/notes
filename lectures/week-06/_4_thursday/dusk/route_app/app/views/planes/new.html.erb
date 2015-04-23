@@ -1,0 +1,31 @@
+<h1>Create a new plane</h1>
+
+<!-- <form action="/planes" method="POST">
+	<input type="text" name="plane[name]" placeholder="Name">
+	<input type="text" name="plane[kind]" placeholder="Kind">
+	<textarea name="plane[description]" placeholder="Description"></textarea>
+
+	<button type="submit">Save</button>
+</form> -->
+
+<!-- This code creates the above but in ruby -->
+<%= form_for :planes do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :kind %><br>
+    <%= f.text_field :kind %>
+  </p>
+
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
