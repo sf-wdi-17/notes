@@ -95,14 +95,13 @@ We've talked before about the 7 basic CRUD routes. Using the example of a "photo
 
 ### Setup With Rails New
 
-| Motive:                                                                                                            |
-| :----                                                                                                              |
-| Familiarize ourselves with the initial setup of a new application with the intent of making a *planes* application |
+Let's **familiarize ourselves with the initial setup** of a new application so we can start building our *planes* application.
 
-
-* `$ rails new route_app`
-* `$ cd route_app`
-* `$ rails s`
+```console
+$ rails new route_app
+$ cd route_app
+$ rails s
+```
 
 Now our app is up and running, [localhost:3000](http://localhost:3000/). At our `root` route ('/') you should see a "Welcome aboard message". That's because we have yet to create a **controller** and **views** that we can set as our **root**.
 
