@@ -153,25 +153,17 @@ root "demo#index"
 
 ```
 def hello
-  render('hello')
+  # will automatically look for a view in app/views/demo/hello.html.erb and render it
 end
 ```
 Always check out the terminal for request/response!
-
-## Redirect (don't need the controller here)
-
-```
-def other_hello
-  redirect_to(:controller =>'demo', :action => 'index')
-end
-```
 
 ## Template file names
 
 name.html.erb
 
 - Template name: name
-- Process with: ERb
+- Process with: ERB, looks just like EJS
 - Output format: HTML
 
 ## Instance varialbes for data into our views
@@ -183,3 +175,4 @@ name.html.erb
 	@taco = "Hello instance taco!"
 	@array = [1,2,3]
 	```
+- instance variables from controller are available in the view the controller action renders
