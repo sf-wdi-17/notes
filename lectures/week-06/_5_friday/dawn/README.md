@@ -86,15 +86,9 @@ Exit the console.
 Let's also store a user's age along with their names. Generate a new
 migration file named AddAgeToUsers.
 
-`rails generate migration AddAgeToUsers`
+`rails generate migration add_age_to_users age:integer`
 
-Open newly created migration file in db/migrate (the bottom one) and modify the `change` method.
-
-```
-  def change
-    add_column :users, :age, :integer
-  end
-```
+This will automatically create the right migration.
 
 Run the migration so that the column is added to the table.
 
@@ -104,17 +98,15 @@ We can check that the migration ran successfully.
 
 `rake db:migrate:status`
 
-NB: We can also undo the migration if we didn't like it. (Not necessary
-now, but good to know.  If you do this, just simply re-run the
-migration again with `db:migrate`).
+NB: We can also undo the migration if we didn't like it.
 
 `rake db:rollback`
 
 #CRUD the users in the Console
 
 #### Create
-* `user = User.create(:first_name => "Abraham", :last_name => "Lincoln")`
-* `user = User.create(:first_name => "Abraham", :last_name => "Maslow")`
+* `user = User.create(first_name: "Abraham", last_name: "Lincoln")`
+* `user = User.create(first_name: "Abraham", last_name: "Maslow")`
 
 NB: See all your users with `User.all`
 
@@ -128,7 +120,7 @@ NB: See all your users with `User.all`
 **or**
 
 * Find — `user = User.find(1)` 
-*  Update — `user.update_attributes(:first_name => "Taco")`
+* Update — `user.update_attributes(first_name: "Taco")`
 
 #### Delete
 
@@ -139,11 +131,7 @@ NB: See all your users with `User.all`
 
 * `User.all` -> returns an array of allusers
 * `User.find_by_last_name('Lincoln')` -> returns the first user that meets the criteria
-<<<<<<< HEAD
 * `User.where(first_name: 'Abraham')` -> returns an array of users that meet the criteria
-=======
-* `User.where('first_name' => 'Abraham')` -> returns an array of users that meet the criteria
->>>>>>> development
 * `User.first` -> finds first user
 * `User.last` -> finds last user
 
@@ -154,6 +142,7 @@ We set our [validations](http://guides.rubyonrails.org/active_record_validations
 
 Let's make sure each user definitely has a first name and a last name before they're saved.
 
+```ruby
 class User < ActiveRecord::Base
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -162,6 +151,11 @@ end
 
 * Type `reload!` into the console to update your model validations.
 * Try saving a user with no first or last name and see what error is thrown.
+
+## Callbacks
+
+- before_
+- after_
 
 ##Further Reading
 
