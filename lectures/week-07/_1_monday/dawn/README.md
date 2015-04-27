@@ -334,7 +334,7 @@ Let's update our `creatures#new` method
 
 This sets `@creature` to a new instance of a `Creature` which we can now share with or `new.html.erb` and thus our `form_helper`
 	
-`app/views/creatures/index.html.erb`
+`app/views/creatures/new.html.erb`
 	
 	<%= form_for @creature do |f| %>
 		
