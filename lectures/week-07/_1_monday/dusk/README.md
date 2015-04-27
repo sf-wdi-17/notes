@@ -49,7 +49,7 @@ A pet `belongs_to` one owner (this model will have a foreign key [FK] `owner_id`
 ### So to set this up, we'll need two models:
 
 ```console
-$ rails generate model Pet name:string,type:string
+$ rails generate model Pet name:string
 $ rails generate model Owner name:string
 ```
 
@@ -97,6 +97,12 @@ This will do the same thing as `t.references`, but it has the added benefit of b
 
 ### Wading in Deeper: Using our Associations
 
+Before we can use our associations, we have to set up our database tables. Let's all run:
+
+```console
+$ rake db:migrate
+```
+
 Now, let's jump into our rails console by typing `rails c` at a command prompt, and check out how these new associations can help us define relationships between models:
 
 ```ruby
@@ -111,6 +117,9 @@ brett.pets.size
 brett.pets.map(&:name)
 brett.pets.each {|x| puts "My pet is named #{x.name}!"}
 fido.owner
+
+# What's going to be returned when we do this?
+fido.owner.name
 ```
 
 Remember: We just saw that in Rails, we can associate two model **instances** together using the `<<` operator.
@@ -129,7 +138,7 @@ $ rails generate migration NameOfMigrationHere
 
 ```ruby
 change_table :pets do |t|
-  # You ONLY need to add one of these three to your new migration
+  # You ONLY need to add ONE OF THESE THREE to your new migration
   t.integer :owner_id
   # OR...
   t.references :owner
