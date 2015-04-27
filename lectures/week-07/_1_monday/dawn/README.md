@@ -581,10 +581,10 @@ The only difference now is that we will need to use the `id` of the object being
 			
 			def update
 				creature_id = params[:id]
-				creature = Creature.find(Creature_id)
+				creature = Creature.find(creature_id)
 				
 				# get updated data
-				updated_attributes = params.require(:creatue).permit(:name, :description)
+				updated_attributes = params.require(:creature).permit(:name, :description)
 				# update the creature
 				creature.update_attributes(updated_attributes)
 				
