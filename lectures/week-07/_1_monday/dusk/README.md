@@ -9,6 +9,8 @@ Hopefully, you already feel like you have some familiarity with associations (si
    + _Because Ruby is synchronous, working with associations is a snap!_
  - Discussing migrations in **much more detail** than when we worked in Sequelize _(as promised! Yay!)_
 
+---
+
 ## **H**opefully **H**elpful **H**ints
 
 When you are **creating associations** in Rails' ActiveRecord (or most any ORM, for that matter):
@@ -17,6 +19,7 @@ When you are **creating associations** in Rails' ActiveRecord (or most any ORM, 
     + Don't forget to define all sides of the relationship (more on this in a moment)
   - Remember to put the foreign key for a relationship in your migrations
     + If you're not sure which side of the relationship has the foreign key, just use this simple rule: The model with `belongs_to` must include a foreign key.
+
 
 ## Learning Objectives
 
@@ -34,7 +37,12 @@ When you are **creating associations** in Rails' ActiveRecord (or most any ORM, 
 | Relationship type | Abbreviation            | Description                                                       | Example                                                                                        |  
 | :---------------  | :---------------------- | ------------                                                      | ------------                                                                                   |  
 | One-to-Many       | 1:N                     | Parent model is associated with many children from another model  | One owner `has_many` pets.                                                                     |  
-| Many-to-Many      | N:M                     | Two models. Both can be associated with many of the other.        | Libraries and books. One library can have many books, while one book can be in many libraries. |  
+| Many-to-Many      | N:M                     | Two models. Both can be associated with many of the other.        | Libraries and books. One library can have many books, while one book can be in many libraries. |
+
+
+### Active Learning:
+
+Before we move into the actual syntax, let's work together for 10 minutes to come up with some examples of both one-to-one and one-to-many relationships.
 
 ## One to many (1:N) Relationship
 
