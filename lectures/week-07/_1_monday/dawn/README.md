@@ -7,6 +7,7 @@
 | Objectives |
 | :---- |
 | Review **CRUD** in the context of a Rails application, especially **Updating** and **Deleting** a resource. |
+| Use Postgres with a Rails Application |
 
 
 ### Previously
@@ -77,8 +78,9 @@ REST stands for **REpresentational State Transfer**. We will demonstrate these p
 
 Make sure you have your `psql` setup using `which psql` if nothing shows up then do the following:
 
+**NOTE:** You may not have to do this if you can already use `psql`
 ```
-echo 'export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.3/bin/' >> ~/.bash_profile && source ~/.bash_profile
+echo 'export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.3/bin' >> ~/.bash_profile && source ~/.bash_profile
 ```
 
 
