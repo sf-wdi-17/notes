@@ -487,7 +487,7 @@ We begin with handling the request from a client for an edit page.
 * Let's quickly begin the setup of an `edit` form using our `new.html.erb` from earlier. To see how the form is different we will need to render it and check it out in Chrome console.
 
 
-	`app/views/creatures/new.html.erb`
+	`app/views/creatures/edit.html.erb`
 	
 		<%= form_for @creature do |f| %>
 			
