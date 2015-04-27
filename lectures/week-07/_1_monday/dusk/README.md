@@ -2,10 +2,11 @@
 
 ## High-Level Lesson Overview
 
-Hopefully, you already feel like you have some familiarity with associations since we discussed associations in Sequelize. Today we'll be:
+Hopefully, you already feel like you have some familiarity with associations (since we covered relationships/associations in Sequelize). Today we'll be:
 
- - Reviewing what you already learned about relationships between models
- - Translatihg your knowledge of Sequelize into Rails
+ - Reviewing what you already learned about associations
+ - Translatihg what you've learned into Rails
+   + _Because Ruby is synchronous, working with associations is a snap!_
  - Discussing migrations in **much more detail** than when we worked in Sequelize _(as promised! Yay!)_
 
 ## **H**opefully **H**elpful **H**ints
