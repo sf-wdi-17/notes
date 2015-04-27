@@ -515,7 +515,7 @@ This is because when we rake routes we notice that there is no `prefix` for the 
 		
 		get '/creatures/:id', to: 'creatures#show', as: "creature"
 			
-		get '/creatures/:id/edit', to: 'creatures#show', as: "edit_creature"		
+		get '/creatures/:id/edit', to: 'creatures#edit', as: "edit_creature"		
 		
 		post "/creatures", to: "creatures#create"
 	end
@@ -562,7 +562,7 @@ The only difference now is that we will need to use the `id` of the object being
 			
 			get '/creatures/:id', to: 'creatures#show', as: "creature"
 				
-			get '/creatures/:id/edit', to: 'creatures#show', as: "edit_creature"		
+			get '/creatures/:id/edit', to: 'creatures#edit', as: "edit_creature"		
 			
 			post "/creatures", to: "creatures#create"
 			
@@ -611,7 +611,7 @@ Following a similar pattern to the above we create a route for a destroy that us
 			
 			get '/creatures/:id', to: 'creatures#show', as: "creature"
 				
-			get '/creatures/:id/edit', to: 'creatures#show', as: "edit_creature"		
+			get '/creatures/:id/edit', to: 'creatures#edit', as: "edit_creature"		
 			
 			post "/creatures", to: "creatures#create"
 			
