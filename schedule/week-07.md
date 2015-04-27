@@ -2,7 +2,7 @@
 
 || Monday | Tuesday | Wednesday | Thursday | Friday |
 |------|------|-------|--------|---------|-------|
-| CS | Intro to CS problems for the week | Doubly-Linked Lists | Ruby Metaprogramming | P3 | P4 |
-| Dawn | Review Rails (Mike) | Authentication (Dennis)| Nested Resources (Brett) | API's (Mike) | Password Reset (Brett) |
+| CS | Intro to CS problems for the week | Doubly-Linked Lists | Ruby Metaprogramming | File IO | Web Scraping |
+| Dawn | [Review Rails](https://github.com/sf-wdi-17/notes/tree/master/lectures/week-07/_1_monday/dawn) (Mike) | Authentication (Dennis)| Nested Resources (Brett) | API's (Mike) | Password Reset (Brett) |
 | Dusk | Intro Associations (Brett) | Authorization (Dennis) | Assets (Mike) | Review (Mike)| Lab start |
-| Lab | Continue Todo's | Add Auth/Auth to Todo's | Add Styling to Todo's | OMDB Lab with Rails | TDB |
+| Lab | [Continue Todo's](https://github.com/sf-wdi-17/extended_todos) | Add Auth/Auth to Todo's | Add Styling to Todo's | OMDB Lab with Rails | TDB |
