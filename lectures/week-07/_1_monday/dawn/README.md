@@ -7,8 +7,6 @@
 | Objectives |
 | :---- |
 | Review **CRUD** in the context of a Rails application, especially **Updating** and **Deleting** a resource. |
-| Examine **form helpers** and **partials** (if time permits) in a  Rails Application. |
-| Apply styling and **Bootstrap** to our site to create a custom layout. |
 
 
 ### Previously
