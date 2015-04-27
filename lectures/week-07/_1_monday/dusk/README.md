@@ -1,38 +1,60 @@
-# Relationships / Associations
+# Know Your Relationships!
 
-Hopefully, you already feel like you have some familiarity with associations since we discussed associations in Sequelize.
+## High-Level Lesson Overview
 
-In rails, here are some things to remember when working with associations:
+Hopefully, you already feel like you have some familiarity with associations since we discussed associations in Sequelize. Today we'll be:
 
-  1. Always define all sides of a relationship.
-  2. `belongs_to` has the foreign key (FK)
-  3. Put your FKs in the migration files
+ - Reviewing what you already learned about relationships between models
+ - Translatihg your knowledge of Sequelize into Rails
+ - Discussing migrations in **much more detail** than when we worked in Sequelize _(as promised! Yay!)_
 
-## Objectives
-  - Understand how to create one-to-many and many-to-many relationships in rails.
-  - Understand how to modify migrations to add foreign keys to tables
-  - Understand how to create a join table
-  - Understand how to create model instances when they have associations.
+## **H**opefully **H**elpful **H**ints
+
+When you are **creating associations** in Rails' ActiveRecord (or most any ORM, for that matter):
+
+  - You'll define the relationships in your models (the blueprint for your objects)
+    + Don't forget to define all sides of the relationship (more on this in a moment)
+  - Remember to put the foreign key for a relationship in your migrations
+    + If you're not sure which side of the relationship has the foreign key, just use this simple rule: The model with `belongs_to` must include a foreign key.
+
+## Learning Objectives
+
+| Objective                                                                     |  
+| :-------------------                                                          |  
+| Understand how to create one-to-many and many-to-many relationships in rails. |  
+| Understand how to modify migrations to add foreign keys to tables             |  
+| Understand how to create a join table                                         |  
+| Understand how to create model instances when they have associations.         |  
 
 ---
 
-# Common Types of Relationships
+## Associations: A few common types
 
-## One to many (1:N)
+| Relationship type | Abbreviation            | Description                                                       | Example                                                                                        |  
+| :---------------  | :---------------------- | ------------                                                      | ------------                                                                                   |  
+| One-to-Many       | 1:N                     | Parent model is associated with many children from another model  | One owner `has_many` pets.                                                                     |  
+| Many-to-Many      | N:M                     | Two models. Both can be associated with many of the other.        | Libraries and books. One library can have many books, while one book can be in many libraries. |  
+
+## One to many (1:N) Relationship
 
 __Example__:
 One owner `has_many` pets and...
-Many pets `belongs_to` one owner
+A pet `belongs_to` one owner (this model will have a foreign key [FK] `owner_id`)
 
-(FK goes in the pets table)
-
-__Always remember__: Whenever there is a `belongs_to` in the model, there should be a FK in the matching migration!
+**Always remember!** : Whenever there is a `belongs_to` in the model, there should be a _FK in the matching migration_!
 
 ---
 
-### So to set this up, in our models we would add
+### So to set this up, we'll need two models:
 
-```rb
+```console
+$ rails generate model Pet name:string,type:string
+$ rails generate model Owner name:string
+```
+
+**Then, we'll need to add the following to our models:**
+
+```ruby
 class Owner < ActiveRecord::Base
     has_many :pets
 end
@@ -42,49 +64,76 @@ class Pet < ActiveRecord::Base
 end
 ```
 
-Note that `belongs_to` uses the singular form of the class name ('owner'), while `has_many` uses the pluralized form ('pets').
+Note that in this case, `belongs_to` uses the singular form of the class name (`:owner`), while `has_many` uses the pluralized form (`:pets`). 
+
+But if you think about it, this is exactly how you'd want to say this in plain English. For example, if we were just discussing the relationship between pets and owners, we'd say:
+
+  - "One owner has many pets"
+  - "A pet belongs to an owner"
 
 Now, as mentioned, we have to add a foreign key in our migration, so in our pets migration file we should add:
 
+`t.integer :owner_id`
+
+But wait, we could also do something more _rail-sy_ and say  
+
 `t.references :owner`
+
+This makes the association a bit more semantic and readable and has a few bonuses:
+
+  1. It defines the name of the foreign key column (in this case, `owner_id`) for us.
+  2. It adds a **foreign key constraint** which ensures **referential data integrity**  in our Postgresql database. (And if you want to know more about what that is, Google is going to be your friend here — or you can always ask me... after class.)
+
+**But wait, there's more...**
+
+We can actually get even more semantic and _rail-sy_ and say:
+
+`t.belongs_to :owner`
+
+This will do the same thing as `t.references`, but it has the added benefit of being super semantic for anyone reading your migrations later on.
 
 ---
 
-### Let's use our associated models
+### Wading in Deeper: Using our Associations
 
 Now, let's jump into our rails console by typing `rails c` at a command prompt, and check out how these new associations can help us define relationships between models:
 
-```rb
+```ruby
 fido = Pet.create(name: "Fido")
 lassie = Pet.create(name: "Lassie")
 brett = Owner.create(name: "brett")
 brett.pets
 fido.owner
-brett.pets << fido
-brett.pets << lassie
+brett.pets << fido # Makes "fido" one of my pets
+brett.pets << lassie # Makes "lassie" another one of my pets
 brett.pets.size
 brett.pets.map(&:name)
 brett.pets.each {|x| puts "My pet is named #{x.name}!"}
 fido.owner
 ```
 
+Remember: We just saw that in Rails, we can associate two model **instances** together using the `<<` operator.
+
 ---
 
-#### What if I don't add my foreign key when I first create my models?
+#### Wait!!!! What if I forget to add a foreign key before I first run `rake db:migrate`?
 
-If you were to make a mistake and forget to add your foreign key references at first, you can always fix this by adding the following to a new migration:
+If you were to make the mistake of running `rake db:migrate` before adding a foreign key to the table's migration, it's ok. There's no need to panic. You can always fix this by creating a new migration...
 
-```rb
-change_table :pets do |t|
-  t.references :owner
-end
+```console
+$ rails generate migration NameOfMigrationHere
 ```
 
-or
+...and then modifying it to include the following:
 
-```rb
+```ruby
 change_table :pets do |t|
+  # You ONLY need to add one of these three to your new migration
   t.integer :owner_id
+  # OR...
+  t.references :owner
+  # OR...
+  t.belongs_to :owner
 end
 ```
 
@@ -92,37 +141,7 @@ end
 
 ### Class Exercise 1
 
-Imagine we're creating an online order system for an e-commerce site. A customer loads up their shopping cart with _items_ and a new _order_ is created when they check out. So we know we'll have an `order` model and an `item` model.
-
-For this exercise, here are the attributes for each model:
-Order: Name
-Item: Name, description, price
-
-Be sure to think about what the relationship between _Orders_ and _Items_ should be.
-
-If the relationship is modeled correctly, you'll be able to assign a variable `o = Order.create` and then type `o.items` without getting back an error. You should also be able to assign a variable `i = Item.create` and then type `i.order` without an error.
-
-Once you've finished creating the models:
-  1. Create 5 items
-  2. Create 2 Orders
-  3. Assign 3 items to the order with id = 1, and 2 items to order with id = 2.
-  4. Play around with some of the array methods you know (each, map, select, size) for each order
-
----
-
-#### Exercise Bonus
-
-Using your knowledge of procs and blocks, try to select only the items in an order that are less than a certain price.
-
-You'll need to start with something like this:
-```rb
-someorder.items.select { ... } # Your code to select goes between the brackets.
-
-# Note this could also be written like this
-someorder.items.select do 
-    # Code to select specific items goes here
-end
-```
+Let's jump over to [in-class exercise #1](associations_1toN_exercise.md) where you'll all work in groups on a solution.
 
 ---
 
@@ -130,7 +149,7 @@ end
 
 Thinking back to Sequelize, you should remember that a N:M relationship is appropriate whenever both models can possess more than one of the other.
 
-Let's think about the example of students and courses. A student can take many courses and a course will have many students. If you think back to Sequelize, you'll recall that we used a _join_ table to create this kind of association.
+Let's think about the example of students and courses. A student can take many courses and a course will have many students. If you think back to our SQL discussions, you'll recall that we used a _join_ table to create this kind of association.
 
 ---
 
@@ -138,15 +157,15 @@ Let's think about the example of students and courses. A student can take many c
 
 Remember that a _join_ table has two different FKs, one for each model it is associating. In the example below, 3 students have been associated with 4 different courses.
 
-student_id | course_id
----------- | ---------
-1 | 1
-1 | 2
-1 | 3
-2 | 1
-2 | 4
-3 | 2
-3 | 3
+| student_id | course_id |  
+| ---------- | --------- |  
+| 1          | 1         |  
+| 1          | 2         |  
+| 1          | 3         |  
+| 2          | 1         |  
+| 2          | 4         |  
+| 3          | 2         |  
+| 3          | 3         |  
 
 Let's make sure we understand how this _join table_ works before moving on.
 
@@ -154,11 +173,11 @@ Let's make sure we understand how this _join table_ works before moving on.
 
 ### So how do we create N:M associations in rails?
 
-We use the `has_many :relation, :through => :join` method. 
+We use the `has_many :relatedModel, :through => :joinTableName` method. 
 
 We'll start by creating 3 models
 
-```bash
+```console
 $ rails generate model Student name:string
 $ rails generate model Course name:string
 $ rails generate model Enrollment enrollment_date:date 
@@ -172,7 +191,7 @@ After generating our models, we need to open them in sublime and edit them so th
 
 Your models should look as follows once you've finished making the necessary changes:
 
-```rb
+```ruby
 # models/course.rb
 class Course < ActiveRecord::Base
     has_many :enrollments
@@ -180,7 +199,7 @@ class Course < ActiveRecord::Base
 end
 ```
 
-```rb
+```ruby
 # models/student.rb
 class Student < ActiveRecord::Base
     has_many :enrollments
@@ -188,7 +207,7 @@ class Student < ActiveRecord::Base
 end
 ```
 
-```rb
+```ruby
 # models/enrollment.rb
 class Enrollment < ActiveRecord::Base
     belongs_to :course
@@ -200,7 +219,7 @@ end
 
 We'll also want to modify the migration for the `enrollment` model before we run db:migrate. Make your enrollment model look like this:
 
-```rb
+```ruby
 class CreateEnrollments < ActiveRecord::Migration
   def change
     create_table :enrollments do |t|
@@ -210,6 +229,10 @@ class CreateEnrollments < ActiveRecord::Migration
       # The foreign keys for the associations are defined below
       t.references :student
       t.references :course
+
+      # or we can do this instead
+      t.belongs_to :student
+      t.belongs_to :course
     end
   end
 end
@@ -227,14 +250,14 @@ Open the rails console by running `rails c` in terminal.
 
 At the command prompt, let's create some students:
 
-```rb
+```ruby
 brett = Student.create(name: "Brett")
 mike = Student.create(name: "Mike")
 del = Student.create(name: "Delmer")
 ```
 
 Now we can create some courses too:
-```rb
+```ruby
 algebra = Course.create(name: "Algebra")
 science = Course.create(name: "Science")
 english = Course.create(name: "English")
@@ -245,9 +268,9 @@ french = Course.create(name: "French")
 
 #### Associate our model instances
 
-Now, because we've used `:through`, we can create our associations in the same way we do for a 1:N association.
+Now, because we've used `:through`, we can create our associations in the same way we do for a 1:N association. If you're the curious type, you can try just using `has_many` without `through` (outside of class time please!!) and then using the console to experiment and figure out how you'd associate, and then access various instances together. 
 
-```rb
+```ruby
 brett.courses << algebra
 brett.courses << french
 
@@ -265,7 +288,7 @@ del.courses << [english, algebra]
 
 Once you've done all of this, try the following and see if your output matches the below in _irb_.
 
-```rb
+```ruby
 brett.courses.map(&:name)
 # Outputs: => ["Algebra", "French"]
 
@@ -282,20 +305,13 @@ Side note: Anyone know why we're passing `&:name` to `.map` here? (Hint, it has 
 
 ### Many-to-Many Exercise 
 
-Let's pair into groups of two. 
-
-Let's create models for something like Amazon.com. Amazon has many products, and many customers. Customers can purchase many products at one time by creating a shopping cart, and that cart becomes an order once the customer completes checkout.
-
-Your mission, should you wish to accept it:
-  1. Create 3 models (the third model can be called "sale" or "order")
-  2. Use the rails console to add products and customers to 2-3 'sales' (or 'orders')
-  3. Use the rails console to display all products and customers associated with each order.
+To do this exercise, let's [head over to our many-to-many exercise file](associations_NtoM_exercise.md) and work together in groups of two.
 
 ---
 
 # Less Common Associations
 
-For your reference only.
+For your reference. If you'd like to experiment with these, go nuts! (after class please...)
 
   - [has_one](http://guides.rubyonrails.org/association_basics.html#the-has-one-association)
   - [has_one through:](http://guides.rubyonrails.org/association_basics.html#the-has-one-through-association)
