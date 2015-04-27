@@ -57,8 +57,8 @@ A pet `belongs_to` one owner (this model will have a foreign key [FK] `owner_id`
 ### So to set this up, we'll need two models:
 
 ```console
-$ rails generate model Pet name:string
-$ rails generate model Owner name:string
+rails generate model Pet name:string
+rails generate model Owner name:string
 ```
 
 **Then, we'll need to add the following to our models:**
@@ -108,7 +108,7 @@ This will do the same thing as `t.references`, but it has the added benefit of b
 Before we can use our associations, we have to set up our database tables. Let's all run:
 
 ```console
-$ rake db:migrate
+rake db:migrate
 ```
 
 Now, let's jump into our rails console by typing `rails c` at a command prompt, and check out how these new associations can help us define relationships between models:
@@ -139,7 +139,7 @@ Remember: We just saw that in Rails, we can associate two model **instances** to
 If you were to make the mistake of running `rake db:migrate` before adding a foreign key to the table's migration, it's ok. There's no need to panic. You can always fix this by creating a new migration...
 
 ```console
-$ rails generate migration NameOfMigrationHere
+rails generate migration NameOfMigrationHere
 ```
 
 ...and then modifying it to include the following:
@@ -196,9 +196,9 @@ We use the `has_many :relatedModel, :through => :joinTableName` method.
 We'll start by creating 3 models
 
 ```console
-$ rails generate model Student name:string
-$ rails generate model Course name:string
-$ rails generate model Enrollment enrollment_date:date 
+rails generate model Student name:string
+rails generate model Course name:string
+rails generate model Enrollment enrollment_date:date 
 ```
 
 Note that "Enrollment" is our __join__ table.
