@@ -305,7 +305,7 @@ Let's create `creatures#create` method
 		...
 			def create
 				new_creature = params.require(:creature).permit(:name, :description)
-				creature.create(new_creature)
+				Creature.create(new_creature)
 				redirect_to "/creatures"
 			end
 		
@@ -412,7 +412,7 @@ The `#create` method redirects to `#index` (the `/creaures` path), but this isn'
 		...
 			def create
 				new_creature = params.require(:creature).permit(:name, :description)
-				creature = creature.create(new_creature)
+				creature = Creature.create(new_creature)
 				redirect_to "/creatures/#{creature.id}"
 			end
 		
