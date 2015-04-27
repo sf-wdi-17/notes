@@ -305,7 +305,7 @@ Let's create `creatures#create` method
 		...
 			def create
 				new_creature = params.require(:creature).permit(:name, :description)
-				creature.create(new_creature)
+				Creature.create(new_creature)
 				redirect_to "/creatures"
 			end
 		
@@ -334,7 +334,7 @@ Let's update our `creatures#new` method
 
 This sets `@creature` to a new instance of a `Creature` which we can now share with or `new.html.erb` and thus our `form_helper`
 	
-`app/views/creatures/index.html.erb`
+`app/views/creatures/new.html.erb`
 	
 	<%= form_for @creature do |f| %>
 		
@@ -412,7 +412,7 @@ The `#create` method redirects to `#index` (the `/creaures` path), but this isn'
 		...
 			def create
 				new_creature = params.require(:creature).permit(:name, :description)
-				creature = creature.create(new_creature)
+				creature = Creature.create(new_creature)
 				redirect_to "/creatures/#{creature.id}"
 			end
 		
@@ -459,7 +459,7 @@ We begin with handling the request from a client for an edit page.
 			
 			get '/creatures/:id', to: 'creatures#show'
 				
-			get '/creatures/:id/edit', to: 'creatures#show'		
+			get '/creatures/:id/edit', to: 'creatures#edit'		
 			
 			post "/creatures", to: "creatures#create"
 		end
@@ -487,7 +487,7 @@ We begin with handling the request from a client for an edit page.
 * Let's quickly begin the setup of an `edit` form using our `new.html.erb` from earlier. To see how the form is different we will need to render it and check it out in Chrome console.
 
 
-	`app/views/creatures/new.html.erb`
+	`app/views/creatures/edit.html.erb`
 	
 		<%= form_for @creature do |f| %>
 			
@@ -515,7 +515,7 @@ This is because when we rake routes we notice that there is no `prefix` for the 
 		
 		get '/creatures/:id', to: 'creatures#show', as: "creature"
 			
-		get '/creatures/:id/edit', to: 'creatures#show', as: "edit_creature"		
+		get '/creatures/:id/edit', to: 'creatures#edit', as: "edit_creature"		
 		
 		post "/creatures", to: "creatures#create"
 	end
@@ -562,7 +562,7 @@ The only difference now is that we will need to use the `id` of the object being
 			
 			get '/creatures/:id', to: 'creatures#show', as: "creature"
 				
-			get '/creatures/:id/edit', to: 'creatures#show', as: "edit_creature"		
+			get '/creatures/:id/edit', to: 'creatures#edit', as: "edit_creature"		
 			
 			post "/creatures", to: "creatures#create"
 			
@@ -581,10 +581,10 @@ The only difference now is that we will need to use the `id` of the object being
 			
 			def update
 				creature_id = params[:id]
-				creature = Creature.find(Creature_id)
+				creature = Creature.find(creature_id)
 				
 				# get updated data
-				updated_attributes = params.require(:creatue).permit(:name, :description)
+				updated_attributes = params.require(:creature).permit(:name, :description)
 				# update the creature
 				creature.update_attributes(updated_attributes)
 				
@@ -611,7 +611,7 @@ Following a similar pattern to the above we create a route for a destroy that us
 			
 			get '/creatures/:id', to: 'creatures#show', as: "creature"
 				
-			get '/creatures/:id/edit', to: 'creatures#show', as: "edit_creature"		
+			get '/creatures/:id/edit', to: 'creatures#edit', as: "edit_creature"		
 			
 			post "/creatures", to: "creatures#create"
 			
