@@ -17,7 +17,7 @@ Pair up in groups of two. One of you will be the navigator, the other one the dr
 Do the following:
 
 - Clone [this app](https://github.com/sf-wdi-17/cookbook_authorization) and cd into it
-- Load the schema and start the server
+- Bundle the gems, load the schema and start the server
 - Check out the app. It comes with devise authentication and recipe crudding. You need to be logged in to crud recipes
 - Read the [pundit documentation](https://github.com/elabs/pundit) (or at least the parts that are needed to do the following)
 - Make it so that only the creator of a recipe can read, edit, update, and delete it (in the controller)
