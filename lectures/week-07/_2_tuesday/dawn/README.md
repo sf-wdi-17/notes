@@ -30,7 +30,7 @@ Passwords are [hashed](http://en.wikipedia.org/wiki/Cryptographic_hash_function)
 
 * Start a new rails app with `rails new learn_authentication`
 * Uncomment the `bcrypt-ruby` gem in your `Gemfile` and run `bundle`
-* Generate a user model with three attributes (username, password_digest)
+* Generate a user model with two attributes (username, password_digest)
   * Note, if we don't specify a datatype it defaults to a string
 
 ```
