@@ -22,6 +22,7 @@ Do the following:
 - Read the [pundit documentation](https://github.com/elabs/pundit) (or at least the parts that are needed to do the following)
 - Make it so that only the creator of a recipe can read, edit, update, and delete it (in the controller)
 - Make it so that edit and delete links don't show on the views if the user cannot edit or delete the specific recipe
+- If you're lost, consult the repo's [solution branch](https://github.com/sf-wdi-17/cookbook_authorization/tree/solution) or have a look at the [solution's diff](https://github.com/sf-wdi-17/cookbook_authorization/commit/a90593b6f47792e739a72119dae6d28df44784a8)
 
 # Reflect
 Have the driver reiterate the steps needed to install Pundit. Ask each other questions if anything is unclear. Challenge each other and test each other's knowledge!
