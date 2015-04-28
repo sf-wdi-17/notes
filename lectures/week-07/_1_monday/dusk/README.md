@@ -213,7 +213,7 @@ Your models should look as follows once you've finished making the necessary cha
 # models/course.rb
 class Course < ActiveRecord::Base
     has_many :enrollments
-    has_many :courses, :through => :enrollments
+    has_many :students, :through => :enrollments
 end
 ```
 
