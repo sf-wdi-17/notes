@@ -8,6 +8,9 @@ By the end of today you should be able to...
 * Log in a user
 * Log out a user
 
+## Link
+We already know how to implement authentication in a Node project, but might need the same functionality in a Rails project.
+
 ##Terminology
 
 ####Password Hashing & Digest
