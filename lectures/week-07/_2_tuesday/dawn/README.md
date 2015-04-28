@@ -24,11 +24,11 @@ Passwords are [hashed](http://en.wikipedia.org/wiki/Cryptographic_hash_function)
   "Whenever I board a flight, the security officer checks my passport photo against my face to ensure that I am **authenticated** as the person who paid for the ticket."
 
 ####Sesssions
-[Sessions](http://guides.rubyonrails.org/security.html#what-are-sessions-questionmark) make HTTP stateful and help us avoid having to reauthenticate the user for every request made. Sessions are preserved on the server side. A session cookie is used to pass data back and forth between the client and server about the session. Typical data stored in the session cookie always includes the session id and the user id if the user is logged in.
+[Sessions](http://guides.rubyonrails.org/security.html#what-are-sessions-questionmark) make HTTP stateful and help us avoid having to reauthenticate the user for every request made. Sessions are preserved on the server side. A session cookie is used to pass data back and forth between the client and server about the session. Typical data stored in the session cookie includes the session id and the user id if the user is logged in.
 
 ##Step 1 — App setup
 
-* Start a new rails app with `rails new LearnAuth`
+* Start a new rails app with `rails new learn_authentication`
 * Uncomment the `bcrypt-ruby` gem in your `Gemfile` and run `bundle`
 * Generate a user model with three attributes (username, password_digest)
   * Note, if we don't specify a datatype it defaults to a string
@@ -41,13 +41,13 @@ rails g model user username password_digest
 * Create a validation that ensures a username is present
 * Finally create a `welcome#index` controller action that displays a welcome message (note this requires a welcome controller and associated view folder)
 
-##Step 2 — Securly storing passwords
+##Step 2 — Securley storing passwords
 
 * Add `has_secure_password` to your user model.
 
 ```ruby
 class User < ActiveRecord::Base
-    #very strong password encryption
+    # enable password encryption
     has_secure_password 
 end
 ```
@@ -86,7 +86,7 @@ user = User.create(username: 'batman', password: 'nanana', password_confirmation
 * Create a `form_for` a new user that sends a `post` request to your `user#create` action.
 
 ```erb
-<%= form_for @user, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+<%= form_for @user do |f| %>
 
     <%= f.label :username %><br>
     <%= f.text_field :username %><br>
@@ -150,7 +150,7 @@ end
 ##Step 6 — Logging in a user
 
 * Create an `sessions_controller.rb` with the actions `new`, `create`, and `destroy`
-* Link to these actions to specific routes.
+* Link these actions to specific routes.
 
 ```ruby
   get    'sessions/new' => 'sessions#new'
@@ -222,7 +222,7 @@ private
 
 ##Step 8 — Logging out your user
 
-* In your `sessions#destroy` you must clear out clear out part of your session hash, as that are what we are using to determine logged in state.
+* In your `sessions#destroy`, you must clear out part of your session hash, since that is what we are using to determine whether or not someone is logged in.
 
 ```ruby
 def destroy
