@@ -236,11 +236,6 @@ end
   
 * **Challenge**: Create a link/button that toggles state between `login` and `logout` depending on if there is a `current_user`. Make sure it is present on every page.
 
-##Tonight's Lab
-
-* Finish the in-class exercise if you didn't get a chance
-* **Add a login system to one of your existing projects manually or using [devise](https://github.com/plataformatec/devise)**
-
 ##Some Further Resources
 * *NB: these may be slightly older ways of doing things*
 * [User Auth Rails Cast Video](https://www.youtube.com/watch?v=23JoO_R8SMs)
