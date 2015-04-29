@@ -147,7 +147,7 @@ Now let's all spend 20 minutes Implementing the standard CRUD operations on book
 
 Hint: Think about the fact that `books` now belong to `authors` which means we can't ever access a book `:id` in the URL unless we also have an `:author_id` in the URL.
 
-If you're a bit stuck, feel free to look at the [completed version I created](prepped/authors_books_app/README.md)
+If you're a bit stuck, feel free to look at the [completed version I created](prepped/authors_books_app/)
 
 ## What You'll Need to Know About ERB
 
