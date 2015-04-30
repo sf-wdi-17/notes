@@ -151,7 +151,7 @@ end
 
 ```
 
-Let's take a look the control flow of our intimidating `password=` method. We have on goal here which is to use the password passed into the user object to be the **hashed** password we can save in the **password_digest**. Note: we never created a field called `password` for our user to save.
+Let's take a look the control flow of our intimidating `password=` method. We have one goal here, which is to use the password passed into the user object to be the **hashed** password we can save in the **password_digest**. Note: we never created a field called `password` for our user to save.
 
 ```
     if unencrypted_password.nil?
@@ -282,7 +282,7 @@ end
 
 ```
 
-Now once we `save` a user with their hashed password their is only one way to confirm them again. Let's do this manually in Rails console.
+Now once we `save` a user with their hashed password there is only one way to confirm them again. Let's do this manually in Rails console.
 
 ```
 Loading development environment (Rails 4.1.6)
