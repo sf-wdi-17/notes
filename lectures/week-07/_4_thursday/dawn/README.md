@@ -2,6 +2,7 @@
 
 Objectives
 Students will be able to...
+
 1. Use Typhoeus, a ruby gem, to make HTTP requests to API's.
 2. Parse the data returned by the API.
 3. Use the data to create Dynamic content in a Rails app.
@@ -91,4 +92,5 @@ GET /movie?q=tt0477348
 
 Our app needs to make a request to the OMDB API for the movie with this ID and present the user with an HTML page containing these results.
 
+[Solution](https://github.com/sf-wdi-17/rails_apis_lesson)
 
