@@ -44,8 +44,8 @@ Team up with your buddy and explain to each other how to build a JSON API (as st
 ## Now And Then
 As we will see, knowing how to build a JSON API is good for two reasons:
 
-1. It allows to build single page applications (SPAs). You may not want to reload the whole page whenever you submit a form, as when you submit a comment on Facebook. It happens **asynchronously**.
-2. If your app has multiple front end, such as a website and a mobile app, you want to build a distributed system. Both the client side website as well as the mobile app should access the same back end, which can be a JSON API.
+1. It enables you to build single page applications (SPAs). You may not want to reload the whole page whenever you submit a form, such as when you submit a comment on Facebook. It happens **asynchronously**.
+2. If your app has multiple front ends, such as a website and a mobile app, you want to build a distributed system. Both the client side website as well as the mobile app should access the same back end, which can be a JSON API.
 
 Additional features you might want to add to an API:
 
