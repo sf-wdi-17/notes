@@ -7,9 +7,8 @@
 To get started building our sample application let's start from the beginning.
 
 ```
-rails new intro_json -T -d postgresql
+rails new intro_json -T
 cd intro_json
-rake db:create
 ```
 
 ## Setup Rails Models
