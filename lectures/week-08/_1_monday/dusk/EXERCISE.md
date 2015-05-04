@@ -8,7 +8,7 @@ Start a new rails project by running the following commands:
 2. `cd ajax_app`
 3. `rails g scaffold post title content`
 
-#3 is something we haven't seen before. It generates the scaffolding for a resource. Which means that it makes all the things nessecary for CRUD on a single resource (i.e. model, controller, and views)
+\#3 is something we haven't seen before. It generates the scaffolding for a resource. Which means that it makes all the things nessecary for CRUD on a single resource (i.e. model, controller, and views)
 
 Once everything here is done we're ready to move on. To do this run `rake db:migrate` and then `rails s` and the go to [http://localhost:3000/posts](http://localhost:3000/posts) in your browser.
 
