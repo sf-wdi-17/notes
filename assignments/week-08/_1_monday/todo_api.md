@@ -1,8 +1,9 @@
 # Todo App as an API
-Build a (or re-build your existing) todo app so that it works with AJAX requests.
+Build a (or re-build your existing) todo app that works with AJAX requests.
 
 You will need:
 
+- a model for your todo items (content should be enough)
 - a controller for your todo items that responds to .json
 - jQuery
 
