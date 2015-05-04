@@ -146,20 +146,20 @@ and
 
 (10).times do |n|
   user = User.new
-  user.email = "#{n}#{Faker::Internet.email}"
-  user.first_name = Faker::Name.first_name
-  user.last_name = Faker::Name.last_name
+  user.email = "#{n}#{FFaker::Internet.email}"
+  user.first_name = FFaker::Name.first_name
+  user.last_name = FFaker::Name.last_name
   user.save
   (10).times do |n|
     article = user.articles.new
-    article.title = Faker::HipsterIpsum.words(5).join(" ")
-    article.content = Faker::HipsterIpsum.paragraph
+    article.title = FFaker::HipsterIpsum.words(5).join(" ")
+    article.content = FFaker::HipsterIpsum.paragraph
     article.save
     
     old_comment = nil
     (20).times do |n|
       params = Hash.new
-      params[:body] = Faker::HipsterIpsum.paragraph
+      params[:body] = FFaker::HipsterIpsum.paragraph
       
       if rand(3) && old_comment
         old_comment = old_comment.comments.create params
