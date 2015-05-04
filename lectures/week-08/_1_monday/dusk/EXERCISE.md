@@ -14,7 +14,7 @@ Once everything here is done we're ready to move on. To do this run `rake db:mig
 
 Take some time to create a couple posts.
 
-## Access posts with jQuery (20 min)
+## Access posts with jQuery (10 min)
 
 In your browser open up the javascript console by typing `Command-Option-j`. Then in your browser console use the `$.getJSON` jQuery method to make a get request and console log the results. Feel free to use the following code as a template.
 
@@ -28,7 +28,7 @@ Use the template code above to make get requests `/posts` and `/posts/:id` (be s
 
 **Bonus:** Append the responses you get back to the page using jQuery.
 
-## Creating posts with jQuery
+## Creating posts with jQuery (10 min)
 
 In your browser console make a `POST` using the `$.post` method. Here is some template code for making that post request.
 
@@ -56,7 +56,7 @@ To verify that you're actually creating new posts refresh your page.
 
 **Bonus:** Append the new post to the page using jQuery.
 
-## Deleting use AJAX
+## Deleting use AJAX (10 min)
 
 In your browser console make a `DELETE` request using the jQuery `$.ajax` method.
 
@@ -72,7 +72,7 @@ After each call to delete be sure to refesh your page to observe the results.
 
 **Bonus:** Remove the post specified from the page.
 
-## Updating 
+## Updating (10 min)
 
 In your browser console make a `PUT` request using the jQuery `$.ajax` method.
 
