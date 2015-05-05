@@ -53,7 +53,7 @@ We also should make our `todos/index.html.erb` have a `todos-con` to hold our `t
 ```
 
 
-In the `application.js` we need to add our JS for loading all the `todos`.
+In the `app/assets/javascripts/application.js` we need to add our JS for loading all the `todos`.
 
 
 **NOTE: If you haven't yet, you should go into your `rails console` and try to make a `todo` so that it can show up...**
