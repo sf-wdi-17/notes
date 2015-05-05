@@ -623,7 +623,7 @@ The above assumes we have some styling for the `.todo-complete` class.
 `app/assets/stylesheets/application.css`
 ```css
  .todo-complete {
-    background-color: gray;
+    color: gray;
   }
 
 ```
