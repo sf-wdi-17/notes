@@ -607,7 +607,7 @@ $todosCon.on("click", ".completed", function () {
     }
   }).done(function (data) {
     // update the styling of our todo
-    $todo.toggleClass(".todo-complete")
+    $todo.toggleClass("todo-completed")
   })
 });
 
@@ -705,7 +705,7 @@ $(function () {
       }
     }).done(function (data) {
       // update the styling of our todo
-      $todo.toggleClass(".todo-complete")
+      $todo.toggleClass("todo-complete")
     })
   });
 
@@ -782,7 +782,7 @@ The only difference here is that we need to make sure that for our `$.get` we ap
   $todo.find(".completed").attr("checked", createdTodo.completed);
 
   if (createdTodo.completed) {
-    $todo.toggleClass(".todo-completed")
+    $todo.toggleClass("todo-completed")
   }
 
   $todosCon.append($todo);             
@@ -834,7 +834,7 @@ $(function () {
       $todo.find(".completed").attr("checked", createdTodo.completed);
 
       if (createdTodo.completed) {
-        $todo.toggleClass(".todo-completed")
+        $todo.toggleClass("todo-completed")
       }
 
       $todosCon.append($todo);  
@@ -876,7 +876,7 @@ $(function () {
       }
     }).done(function (data) {
       // update the styling of our todo
-      $todo.toggleClass(".todo-complete")
+      $todo.toggleClass("todo-completed")
     })
   });
 
