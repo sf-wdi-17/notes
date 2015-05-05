@@ -11,6 +11,7 @@ rails new spa_ex -T -d postgresql && cd spa_ex && rake db:create
 Generating models:
 
 * We need a `Todo` model with `content:text` and `completed:boolean`.
+  * `rails g model todo content:text completed:boolean`
 
 Generating routes:
 
