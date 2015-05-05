@@ -3,7 +3,7 @@
 ### Part 1: Setup
 
 ```bash
-rails new spa_ex -T -d postgresql && cd spa_ex && rake db:create
+rails new spa_ex -T && cd spa_ex
 ```
 
 Generating models:
