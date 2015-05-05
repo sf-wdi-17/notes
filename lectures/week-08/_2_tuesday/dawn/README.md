@@ -735,8 +735,8 @@ If we separate out the `append` text for our todo so that we can add some stylin
 
 
 ```js
-  var $todo = $("<div class=\"todo\" data-id=" + todo.id + ">" + 
-                      todo.content + 
+  var $todo = $("<div class=\"todo\" data-id=" + createdTodo.id + ">" + 
+                      createdTodo.content + 
                       "<input type=\"checkbox\" class=\"completed\">" +
                       "<button class=\"delete\">Delete</button></div>");
 
@@ -761,12 +761,12 @@ Now we can use the `$todo` to update the `checkbox` before we append it to the p
 
 
 ```js
-  var $todo = $("<div class=\"todo\" data-id=" + todo.id + ">" + 
-                      todo.content + 
+  var $todo = $("<div class=\"todo\" data-id=" + createdTodo.id + ">" + 
+                      createdTodo.content + 
                       "<input type=\"checkbox\" class=\"completed\">" +
                       "<button class=\"delete\">Delete</button></div>");
 
-  $todo.find(".completed").attr("checked", todo.completed);
+  $todo.find(".completed").attr("checked", createdTodo.completed);
 
   $todosCon.append($todo);             
 ```
@@ -774,14 +774,14 @@ Now we can use the `$todo` to update the `checkbox` before we append it to the p
 The only difference here is that we need to make sure that for our `$.get` we append a `todo` with the `.todo-completed` styling.
 
 ```js
-  var $todo = $("<div class=\"todo\" data-id=" + todo.id + ">" + 
-                      todo.content + 
+  var $todo = $("<div class=\"todo\" data-id=" + createdTodo.id + ">" + 
+                      createdTodo.content + 
                       "<input type=\"checkbox\" class=\"completed\">" +
                       "<button class=\"delete\">Delete</button></div>");
 
-  $todo.find(".completed").attr("checked", todo.completed);
+  $todo.find(".completed").attr("checked", createdTodo.completed);
 
-  if (todo.completed) {
+  if (createdTodo.completed) {
     $todo.toggleClass(".todo-completed")
   }
 
@@ -797,10 +797,10 @@ All together we now have
 
 // wait for window load
 $(function () {
-  
+
   // grab the `todos-con`
   var $todosCon = $("#todos-con");
-  
+
   $.get("/todos.json")
     .done(function (todos) {
       console.log("All Todos:", todos);
@@ -826,17 +826,17 @@ $(function () {
         content: content
       }
     }).done(function (createdTodo) {
-      var $todo = $("<div class=\"todo\" data-id=" + todo.id + ">" + 
-                    todo.content + 
+      var $todo = $("<div class=\"todo\" data-id=" + createdTodo.id + ">" + 
+                    createdTodo.content + 
                     "<input type=\"checkbox\" class=\"completed\">" +
                     "<button class=\"delete\">Delete</button></div>");
 
-      $todo.find(".completed").attr("checked", todo.completed);
+      $todo.find(".completed").attr("checked", createdTodo.completed);
 
-      if (todo.completed) {
+      if (createdTodo.completed) {
         $todo.toggleClass(".todo-completed")
       }
-      
+
       $todosCon.append($todo);  
     });
   });
@@ -868,7 +868,7 @@ $(function () {
 
     $.ajax({
       url: "/todos/" + $todo.data("id") + ".json",
-      type: "PATCH",
+      type: "PUT",
       data: {
         todo: {
           completed: this.checked
@@ -881,7 +881,6 @@ $(function () {
   });
 
 });
-
 ```
 
 ## `.done(function (lesson) { lesson.end() })`
