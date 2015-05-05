@@ -620,7 +620,7 @@ $todosCon.on("click", ".completed", function () {
 
 The above assumes we have some styling for the `.todo-complete` class. 
 
-`app/assets/stylesheets/application.css`
+`app/assets/stylesheets/todos.scss`
 ```css
  .todo-complete {
     color: gray;
