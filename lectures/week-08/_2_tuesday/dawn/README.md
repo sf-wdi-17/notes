@@ -616,11 +616,11 @@ $todosCon.on("click", ".completed", function () {
 
 ```
 
-The above assumes we have some styling for the `.todo-complete` class. 
+The above assumes we have some styling for the `.todo-completed` class. 
 
 `app/assets/stylesheets/todos.scss`
 ```css
- .todo-complete {
+ .todo-completed {
     color: gray;
   }
 
