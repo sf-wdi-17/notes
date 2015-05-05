@@ -553,7 +553,7 @@ This assumes on the backend we have an `destroy` method
 
 ### Checkboxes
 
-**NOTE** Add the create action to your todos controller
+**NOTE** Add the update action to your todos controller
 
 ```ruby
   def update
