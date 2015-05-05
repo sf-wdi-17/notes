@@ -552,6 +552,23 @@ This assumes on the backend we have an `destroy` method
 
 ### Checkboxes
 
+**NOTE** Add the create action to your todos controller
+
+```ruby
+  def update
+    # find the `todo`
+    @todo = Todo.find(params[:id])
+    # update the todo
+    @todo.update_attributes(params.require(:todo).permit(:completed, :content))
+    # then respond to format
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @todo }
+    end
+  end
+```
+
 One of the simplest updates we can do is to add a completed `checkbox`. Let's update our `append` to also have the `checkbox`.
 
 ```
