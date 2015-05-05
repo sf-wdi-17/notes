@@ -22,6 +22,8 @@ Generating controllers:
 * We need a `todos` controller with an `index` page, i.e.
   * `rails g controller todos index`
 
+**Don't forget to `rake db:migrate`**
+
 ### Part 2: JSON API
 
 Now we need to setup our `todos#index` method to serve both `html` and `json` for `todos`.
