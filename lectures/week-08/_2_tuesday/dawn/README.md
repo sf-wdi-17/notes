@@ -59,7 +59,7 @@ In the `app/assets/javascripts/application.js` we need to add our JS for loading
 
 **NOTE: If you haven't yet, you should go into your `rails console` and try to make a `todo` so that it can show up...**
 
-
+`app/assets/javascripts/application.js`
 ```js
 // wait for window load
 $(function () {
@@ -133,7 +133,7 @@ Editing
 
 Let's wait for the submit event from the form. Then we should `preventDefault()` on the form.
 
-
+`app/assets/javascripts/application.js`
 ```js
   var $todoForm = $("#new_todo");
 
@@ -145,7 +145,7 @@ Let's wait for the submit event from the form. Then we should `preventDefault()`
 ```
 
 All in all we have the following:
-
+`app/assets/javascripts/application.js`
 ```js
 
 // wait for window load
@@ -180,7 +180,7 @@ $(function () {
 Now that our form is submitted, we can add the in the logic to `post` the data to our backend and render it to the page.
 
 
-
+`app/assets/javascripts/application.js`
 ```js
 $todoForm.on("submit", function (event) { 
   event.preventDefault();
@@ -201,7 +201,7 @@ $todoForm.on("submit", function (event) {
 
 All together we have the following, but keep in mind we still need to write some todo logic in our controller.
 
-
+`app/assets/javascripts/application.js`
 ```js
 
 // wait for window load
@@ -268,7 +268,7 @@ In order to setup a delete we need to add `delete` buttons to all our elements, 
 
 Let's update our `append` to have a button.
 
-
+`app/assets/javascripts/application.js`
 ```js
 
 $todoForm.on("submit", function (event) { 
@@ -292,7 +292,7 @@ $todoForm.on("submit", function (event) {
 
 **NOTE**: this only updated the `append` for the `formSubmit`, so unless you want only new todos to have a delete button, we should update all the `append` methods.
 
-
+`app/assets/javascripts/application.js`
 ```js
   $todosCon.append("<div>" + 
                     createdTodo.content + 
@@ -301,7 +301,7 @@ $todoForm.on("submit", function (event) {
 
 Be sure to update the `append` in `$.get("/todos.json")`
 
-
+`app/assets/javascripts/application.js`
 ```js
   $todosCon.append("<div>" + 
                     todo.content + 
@@ -312,7 +312,7 @@ Be sure to update the `append` in `$.get("/todos.json")`
 
 Let't also listen for `click`'s on any of those `delete` buttons.
 
-
+`app/assets/javascripts/application.js`
 ```js
   // setup a click handler that only
   //  handle clicks from an element
@@ -329,6 +329,7 @@ This is kind of a new trick for us, and it's called **event delegation**. We are
 
 All together we have:
 
+`app/assets/javascripts/application.js`
 ```js
 
 
@@ -385,7 +386,7 @@ $(function () {
 
 Next we need to send an actual `DELETE` request to the server, which might look something like this.
 
-
+`app/assets/javascripts/application.js`
 ```js
 
     $.ajax({
@@ -400,7 +401,7 @@ Next we need to send an actual `DELETE` request to the server, which might look 
 
 However, how are we going to get the `id` of the object that we want to delete from the server? We could use a simple trick to just add the `id` to an attribute on the element we want to `delete`. Let's update our `append` to do that. While we are at it let's also give each todo a `class` of `.todo`
 
-
+`app/assets/javascripts/application.js`
 ```js
     $todosCon.append("<div class=\"todo\" data-id=" + createdTodo.id + ">" + 
                     createdTodo.content + 
@@ -410,6 +411,7 @@ However, how are we going to get the `id` of the object that we want to delete f
 
 **NOTE**: this only updated the `append` for the `formSubmit`, so also update the `$.get` as well.
 
+`app/assets/javascripts/application.js`
 ```js
     $todosCon.append("<div class=\"todo\" data-id=" + todo.id + ">" + 
                     todo.content + 
@@ -421,7 +423,7 @@ However, how are we going to get the `id` of the object that we want to delete f
 
 Now we can grab that from our view. Only there's one problem. When someone clicks the `delete` button that's all we have access to, but we want to find containing `div`'s `data-id` attribute. In jQuery we can use `.closest` to find that parent `div`.
 
-
+`app/assets/javascripts/application.js`
 ```js
   // setup a click handler that only
   //  handle clicks from an element
@@ -452,7 +454,7 @@ All together we have
 
 
 
-
+`app/assets/javascripts/application.js`
 ```js
 
 
@@ -572,6 +574,7 @@ This assumes on the backend we have an `destroy` method
 
 One of the simplest updates we can do is to add a completed `checkbox`. Let's update our `append` to also have the `checkbox`.
 
+`app/assets/javascripts/application.js`
 ```js
   $todosCon.append("<div class=\"todo\" data-id=" + createdTodo.id + ">" + 
                   createdTodo.content + 
@@ -582,6 +585,7 @@ One of the simplest updates we can do is to add a completed `checkbox`. Let's up
 
 **NOTE**: this only updated the `append` for the `formSubmit`, so also update the `$.get` as well.
 
+`app/assets/javascripts/application.js`
 ```js
   $todosCon.append("<div class=\"todo\" data-id=" + todo.id + ">" + 
                   todo.content + 
@@ -592,6 +596,7 @@ One of the simplest updates we can do is to add a completed `checkbox`. Let's up
 
 Now let's update our code to add a listener to handle when `completed` is clicked.
 
+`app/assets/javascripts/application.js`
 ```js
 
 $todosCon.on("click", ".completed", function () {
@@ -628,7 +633,7 @@ All together we have:
 
 
 
-
+`app/assets/javascripts/application.js`
 ```js
 
 
@@ -720,7 +725,7 @@ Theres' only one problem with our checkboxes right now, and it's that they use t
 
 If we separate out the `append` text for our todo so that we can add some styling and manipulate them then it should make our rendering lives easier. This will also make our code more readable.
 
-
+`app/assets/javascripts/application.js`
 ```js
   var $todo = $("<div class=\"todo\" data-id=" + createdTodo.id + ">" + 
                       createdTodo.content + 
@@ -733,7 +738,7 @@ If we separate out the `append` text for our todo so that we can add some stylin
 
 **NOTE**: this only updated the `append` for the `formSubmit`, so also update the `$.get` as well.
 
-
+`app/assets/javascripts/application.js`
 ```js
   var $todo = $("<div class=\"todo\" data-id=" + createdTodo.id + ">" + 
                       createdTodo.content + 
@@ -747,6 +752,7 @@ If we separate out the `append` text for our todo so that we can add some stylin
 
 Now we can use the `$todo` to update the `checkbox` before we append it to the page.
 
+`app/assets/javascripts/application.js`
 ```js
   var $todo = $("<div class=\"todo\" data-id=" + createdTodo.id + ">" + 
                       createdTodo.content + 
@@ -759,7 +765,7 @@ Now we can use the `$todo` to update the `checkbox` before we append it to the p
 
 **NOTE**: this only updated the `append` for the `formSubmit`, so also update the `$.get` as well.
 
-
+`app/assets/javascripts/application.js`
 ```js
   var $todo = $("<div class=\"todo\" data-id=" + createdTodo.id + ">" + 
                       createdTodo.content + 
@@ -773,6 +779,7 @@ Now we can use the `$todo` to update the `checkbox` before we append it to the p
 
 The only difference here is that we need to make sure that for our `$.get` we append a `todo` with the `.todo-completed` styling.
 
+`app/assets/javascripts/application.js`
 ```js
   var $todo = $("<div class=\"todo\" data-id=" + createdTodo.id + ">" + 
                       createdTodo.content + 
@@ -791,7 +798,7 @@ The only difference here is that we need to make sure that for our `$.get` we ap
 
 All together we now have
 
-
+`app/assets/javascripts/application.js`
 ```js
 
 
