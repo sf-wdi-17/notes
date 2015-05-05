@@ -802,7 +802,6 @@ All together we now have
 ```js
 
 
-// wait for window load
 $(function () {
 
   // grab the `todos-con`
@@ -815,9 +814,10 @@ $(function () {
       // append each todo
       todos.forEach(function (todo) {
       	var completed = todo.completed ? "todo-completed" : "";
+      	var checked = todo.completed ? "checked" : "";
         $todosCon.append("<div class=\"todo "+ completed + "\" data-id=" + todo.id + ">" + 
                         todo.content + 
-                        "<input type=\"checkbox\" class=\"completed\">" +
+                        "<input type=\"checkbox\" class=\"completed\" " + checked + ">" +
                         "<button class=\"delete\">Delete</button></div>");
       });
 
@@ -889,6 +889,7 @@ $(function () {
   });
 
 });
+
 ```
 
 ## `.done(function (lesson) { lesson.end() })`
