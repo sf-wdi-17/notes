@@ -4,7 +4,7 @@
 
 ### Part 1: Setup
 
-```
+```bash
 rails new spa_ex -T -d postgresql && cd spa_ex && rake db:create
 ```
 
@@ -29,7 +29,7 @@ Generating controllers:
 Now we need to setup our `todos#index` method to serve both `html` and `json` for `todos`.
 
 
-```
+```ruby
   def index
     @todos = Todo.all
 
@@ -47,7 +47,7 @@ Go to [`localhost:3000/todos.json`](localhost:3000/todos.json) and verify this i
 
 We also should make our `todos/index.html.erb` have a `todos-con` to hold our `todos`.
 
-```
+```html
 <div id="todos-con">
 </div>
 ```
@@ -59,7 +59,7 @@ In the `app/assets/javascripts/application.js` we need to add our JS for loading
 **NOTE: If you haven't yet, you should go into your `rails console` and try to make a `todo` so that it can show up...**
 
 
-```
+```js
 // wait for window load
 $(function () {
     $.get("/todos.json")
@@ -71,7 +71,7 @@ $(function () {
 
 Then we want to use `jQuery` to `append` the `todo` the page.
 
-```
+```js
 // wait for window load
 $(function () {
   
@@ -99,7 +99,7 @@ Let's modify our `todos/index.html.erb` to have a form for a `todo`.
 
 Make a note here to add the `@todo` to our `index` method
 
-```
+```ruby
   def index
     @todos = Todo.all
     @todo = Todo.new
@@ -114,7 +114,7 @@ Make a note here to add the `@todo` to our `index` method
 and also do the following:
 
 
-```
+```html
 	
 	<%= form_for @todo  do |f| %>
 	  <%= f.text_field :content, placeholder: :content %>
@@ -133,7 +133,7 @@ Editing
 Let's wait for the submit event from the form. Then we should `preventDefault()` on the form.
 
 
-```
+```js
   var $todoForm = $("#new_todo");
 
   $todoForm.on("submit", function (event) {
@@ -145,7 +145,7 @@ Let's wait for the submit event from the form. Then we should `preventDefault()`
 
 All in all we have the following:
 
-```
+```js
 
 // wait for window load
 $(function () {
@@ -180,7 +180,7 @@ Now that our form is submitted, we can add the in the logic to `post` the data t
 
 
 
-```
+```js
 $todoForm.on("submit", function (event) { 
   event.preventDefault();
   console.log("Form submitted", $(this).serialize());
@@ -201,7 +201,7 @@ $todoForm.on("submit", function (event) {
 All together we have the following, but keep in mind we still need to write some todo logic in our controller.
 
 
-```
+```js
 
 // wait for window load
 $(function () {
@@ -245,7 +245,7 @@ $(function () {
 
 Let's setup our controller to save the information, and send it back.
 
-```
+```ruby
 
   def create
 
@@ -268,7 +268,7 @@ In order to setup a delete we need to add `delete` buttons to all our elements, 
 Let's update our `append` to have a button.
 
 
-```
+```js
 
 $todoForm.on("submit", function (event) { 
   event.preventDefault();
@@ -292,7 +292,7 @@ $todoForm.on("submit", function (event) {
 **NOTE**: this only updated the `append` for the `formSubmit`, so unless you want only new todos to have a delete button, we should update all the `append` methods.
 
 
-```
+```js
   $todosCon.append("<div>" + 
                     createdTodo.content + 
                     "<button class=\"delete\">Delete</button></div>")
@@ -301,7 +301,7 @@ $todoForm.on("submit", function (event) {
 Be sure to update the `append` in `$.get("/todos.json")`
 
 
-```
+```js
   $todosCon.append("<div>" + 
                     todo.content + 
                     "<button class=\"delete\">Delete</button></div>")
@@ -312,7 +312,7 @@ Be sure to update the `append` in `$.get("/todos.json")`
 Let't also listen for `click`'s on any of those `delete` buttons.
 
 
-```
+```js
   // setup a click handler that only
   //  handle clicks from an element
   //  with the `.delete` className
@@ -328,7 +328,7 @@ This is kind of a new trick for us, and it's called **event delegation**. We are
 
 All together we have:
 
-```
+```js
 
 
 // wait for window load
@@ -385,7 +385,7 @@ $(function () {
 Next we need to send an actual `DELETE` request to the server, which might look something like this.
 
 
-```
+```js
 
     $.ajax({
       url: "/todos/:some_id.json",
@@ -400,7 +400,7 @@ Next we need to send an actual `DELETE` request to the server, which might look 
 However, how are we going to get the `id` of the object that we want to delete from the server? We could use a simple trick to just add the `id` to an attribute on the element we want to `delete`. Let's update our `append` to do that. While we are at it let's also give each todo a `class` of `.todo`
 
 
-```
+```js
     $todosCon.append("<div class=\"todo\" data-id=" + createdTodo.id + ">" + 
                     createdTodo.content + 
                     "<button class=\"delete\">Delete</button></div>");
@@ -409,7 +409,7 @@ However, how are we going to get the `id` of the object that we want to delete f
 
 **NOTE**: this only updated the `append` for the `formSubmit`, so also update the `$.get` as well.
 
-```
+```js
     $todosCon.append("<div class=\"todo\" data-id=" + todo.id + ">" + 
                     todo.content + 
                     "<button class=\"delete\">Delete</button></div>");
@@ -421,7 +421,7 @@ However, how are we going to get the `id` of the object that we want to delete f
 Now we can grab that from our view. Only there's one problem. When someone clicks the `delete` button that's all we have access to, but we want to find containing `div`'s `data-id` attribute. In jQuery we can use `.closest` to find that parent `div`.
 
 
-```
+```js
   // setup a click handler that only
   //  handle clicks from an element
   //  with the `.delete` className
@@ -452,7 +452,7 @@ All together we have
 
 
 
-```
+```js
 
 
 // wait for window load
@@ -518,7 +518,7 @@ $(function () {
 
 This assumes on the backend we have an `destroy` method
 
-```
+```ruby
   def destroy
     # find the `todo`
     # delete the `todo`
@@ -530,7 +530,7 @@ This assumes on the backend we have an `destroy` method
 * To **delete** a todo we just say `todo.destroy()`
 
 
-```
+```ruby
 
   def destroy
     # find the `todo`
@@ -571,7 +571,7 @@ This assumes on the backend we have an `destroy` method
 
 One of the simplest updates we can do is to add a completed `checkbox`. Let's update our `append` to also have the `checkbox`.
 
-```
+```js
   $todosCon.append("<div class=\"todo\" data-id=" + createdTodo.id + ">" + 
                   createdTodo.content + 
                   "<input type=\"checkbox\" class=\"completed\">" +
@@ -581,7 +581,7 @@ One of the simplest updates we can do is to add a completed `checkbox`. Let's up
 
 **NOTE**: this only updated the `append` for the `formSubmit`, so also update the `$.get` as well.
 
-```
+```js
   $todosCon.append("<div class=\"todo\" data-id=" + todo.id + ">" + 
                   todo.content + 
                   "<input type=\"checkbox\" class=\"completed\">" +
@@ -591,7 +591,7 @@ One of the simplest updates we can do is to add a completed `checkbox`. Let's up
 
 Now let's update our code to add a listener to handle when `completed` is clicked.
 
-```
+```js
 
 $todosCon.on("click", ".completed", function () {
   var $todo = $(this).closest(".todo");
@@ -612,10 +612,10 @@ $todosCon.on("click", ".completed", function () {
 
 ```
 
-The above assumes we have some styling for the `.todo-complete` class
+The above assumes we have some styling for the `.todo-complete` class. 
 
-
-```
+`app/assets/stylesheets/application.css`
+```css
  .todo-completed {
     background-color: gray;
   }
@@ -628,7 +628,7 @@ All together we have:
 
 
 
-```
+```js
 
 
 // wait for window load
@@ -720,7 +720,7 @@ Theres' only one problem with our checkboxes right now, and it's that they use t
 If we separate out the `append` text for our todo so that we can add some styling and manipulate them then it should make our rendering lives easier. This will also make our code more readable.
 
 
-```
+```js
   var $todo = $("<div class=\"todo\" data-id=" + createdTodo.id + ">" + 
                       createdTodo.content + 
                       "<input type=\"checkbox\" class=\"completed\">" +
@@ -733,7 +733,7 @@ If we separate out the `append` text for our todo so that we can add some stylin
 **NOTE**: this only updated the `append` for the `formSubmit`, so also update the `$.get` as well.
 
 
-```
+```js
   var $todo = $("<div class=\"todo\" data-id=" + todo.id + ">" + 
                       todo.content + 
                       "<input type=\"checkbox\" class=\"completed\">" +
@@ -746,7 +746,7 @@ If we separate out the `append` text for our todo so that we can add some stylin
 
 Now we can use the `$todo` to update the `checkbox` before we append it to the page.
 
-```
+```js
   var $todo = $("<div class=\"todo\" data-id=" + createdTodo.id + ">" + 
                       createdTodo.content + 
                       "<input type=\"checkbox\" class=\"completed\">" +
@@ -759,7 +759,7 @@ Now we can use the `$todo` to update the `checkbox` before we append it to the p
 **NOTE**: this only updated the `append` for the `formSubmit`, so also update the `$.get` as well.
 
 
-```
+```js
   var $todo = $("<div class=\"todo\" data-id=" + todo.id + ">" + 
                       todo.content + 
                       "<input type=\"checkbox\" class=\"completed\">" +
@@ -772,7 +772,7 @@ Now we can use the `$todo` to update the `checkbox` before we append it to the p
 
 The only difference here is that we need to make sure that for our `$.get` we append a `todo` with the `.todo-completed` styling.
 
-```
+```js
   var $todo = $("<div class=\"todo\" data-id=" + todo.id + ">" + 
                       todo.content + 
                       "<input type=\"checkbox\" class=\"completed\">" +
@@ -791,7 +791,7 @@ The only difference here is that we need to make sure that for our `$.get` we ap
 All together we now have
 
 
-```
+```js
 
 
 // wait for window load
