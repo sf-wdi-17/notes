@@ -1,6 +1,4 @@
 # INTRO SPA
-## AJAX-Rails Cont.
-
 
 ### Part 1: Setup
 
