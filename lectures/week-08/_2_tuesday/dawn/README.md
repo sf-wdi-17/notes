@@ -617,7 +617,7 @@ The above assumes we have some styling for the `.todo-complete` class.
 
 `app/assets/stylesheets/application.css`
 ```css
- .todo-completed {
+ .todo-complete {
     background-color: gray;
   }
 
