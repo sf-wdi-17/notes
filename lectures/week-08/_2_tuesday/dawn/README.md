@@ -890,4 +890,7 @@ $(function () {
 
 ```
 
+**Bonus:** What bugs does this final code have? Fix them.
+
+
 ## `.done(function (lesson) { lesson.end() })`
