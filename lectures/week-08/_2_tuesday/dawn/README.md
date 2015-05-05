@@ -807,7 +807,8 @@ $(function () {
 
       // append each todo
       todos.forEach(function (todo) {
-        $todosCon.append("<div class=\"todo\" data-id=" + todo.id + ">" + 
+      	var completed = todo.completed ? "todo-completed" : "";
+        $todosCon.append("<div class=\"todo "+ completed + "\" data-id=" + todo.id + ">" + 
                         todo.content + 
                         "<input type=\"checkbox\" class=\"completed\">" +
                         "<button class=\"delete\">Delete</button></div>");
@@ -834,7 +835,7 @@ $(function () {
       $todo.find(".completed").attr("checked", createdTodo.completed);
 
       if (createdTodo.completed) {
-        $todo.toggleClass("todo-completed")
+        $todo.toggleClass("todo-complete")
       }
 
       $todosCon.append($todo);  
@@ -876,7 +877,7 @@ $(function () {
       }
     }).done(function (data) {
       // update the styling of our todo
-      $todo.toggleClass("todo-completed")
+      $todo.toggleClass("todo-complete")
     })
   });
 
