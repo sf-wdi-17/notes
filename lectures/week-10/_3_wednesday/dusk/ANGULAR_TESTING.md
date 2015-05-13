@@ -15,6 +15,12 @@ At the very minimum, it is good practice to have a few simple integration tests 
 
 **Start with your user narratives**. Even a non-technical person can design integration tests using the "Given-When-Then" model. 
 
+**Given** the scenario (e.g. wants to writes a new post, is on home page, is on new messages page, et)
+
+**When** the trigger (e.g. clicks on something, submits form, etc)
+
+**Then** what you expect to happen (e.g. an element changes on the screen, an element is added to or removed from an array, words appear on the screen, etc)
+
 **Activity: Translate one of your user narratives from last week's projects into integration tests using the Given-When-Then model. How many tests did one narrative break down into? 1? more?**
 
 * What's an example of a unit test?
