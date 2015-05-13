@@ -1,4 +1,5 @@
-# Angular E2E Testing: Protractor (Selenium, WebDriverJS, & Jasmine)
+# Angular Integration Tests
+## Protractor (Selenium, WebDriverJS, & Jasmine)
 
 > Objective: Be able to design and deploy robust E2E/integration/UI tests for an AngularJS project using the Protractor framework
 
