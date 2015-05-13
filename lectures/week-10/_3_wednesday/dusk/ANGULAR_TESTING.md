@@ -2,30 +2,16 @@
 
 > Objective: Be able to design and deploy robust E2E/integration/UI tests for an AngularJS project using the Protractor framework
 
-####Don't be this guy!
-![alt tag](http://blogs.msdn.com/cfs-filesystemfile.ashx/__key/communityserver-blogs-components-weblogfiles/00-00-01-32-02-metablogapi/8054.image_5F00_thumb_5F00_35C6E986.png)
-
-## Part 1: Testing the Client 30 min
-
-#### Example - QuestionQueue.herokuapp.com
-
-#### Browser vs. Server Testing
-
-Testing code that lives on your server can use server-side testing frameworks. **Quick Review: What are some of the testing frameworks for a javascript server?**
-
-But if our client is written AngularJS is written in Javascript, but it lives and works on the client, so how do we test it? 
-
-#### Unit Tests vs. E2E/Integration/UI Tests
+## Review - Unit Tests and Integration Tests
+#### What is Integration testing?
 
 To test only one model method or controller method or module method while ignoring, "stubbing" or "mocking" the rest of your application is called "unit testing." 
 
-**Integration **, **UI**, **E2E** (**end-to-end**) are tests that automate a sort of virtual user's interaction with your app. An integration test tests the full functioning of both the server and the client through one workflow, hence they are called "End to End" or "integration" or "UI" tests. Since they test a lot of code, E2E tests are more efficient, but also less precise and if you are not careful more 'brittle'. 
+**Integration**, **UI**, **E2E** (**end-to-end**) means tests that automate a user's interaction with your app. An integration test tests the full functioning of both the server and the client through one workflow, hence they are called "End to End" or "integration" or "UI" tests. Since they test a lot of code, E2E tests provide more coverage, but as a trade off they are less precise and if you are not careful more 'brittle' - **they can break too easily**. 
 
-At the very minimum, it is good practice to have a few simple integration tests across the core features of your app as a safety net. Generally every project should have some integration tests, and the larger a project, the more unit tests.
+At the very minimum, it is good practice to have a few simple integration tests across the core features of your app as a safety net. Every project should have integration tests. As a project grows, unit tests become more useful and relevant.
 
-**Rules of thumb: Keep integration tests broad and shallow with good selectors. Keep unit tests laser-focused with good mocks and stubs.**
-
-#### How to design integration tests
+### How to design integration tests
 
 **Start with your user narratives**. Even a non-technical person can design integration tests using the "Given-When-Then" model. 
 
@@ -35,7 +21,13 @@ At the very minimum, it is good practice to have a few simple integration tests 
 * What's an example of an integrated test?
 * Can you think of an example of when something is breaking but an integrated test could still work? Or an integrated test failing when the app actually is working?
 
-## Part 2: Intro to Protractor - Selenium & Jasmine - 10 min
+**Rules of thumb: Keep integration tests broad and shallow with good selectors. Keep unit tests laser-focused with good mocks and stubs.**
+
+## Part 1: Big Picture - Testing the Client 
+
+Testing code that lives on your server can use server-side testing frameworks. But if we want to test a client-side framework like AngularJS, how do we test it? 
+
+#### Example - [QuestionQueue.herokuapp.com](http://questionqueue.herokuapp.com)
 
 To do unit testing on AngularJS use [Karma](http://karma-runner.github.io/0.12/intro/how-it-works.html). To do E2E tests on AngularJS, the AngularJS team recommends [Protractor](https://angular.github.io/protractor). So we're gonna learn it!
 
@@ -80,6 +72,7 @@ protractor test/<<your_configuration_file.js>>
 
 ### Part 6: Challenge Questions
 
+* What are some of the testing frameworks for a javascript server?
 * Do you need a server running to run Protractor tests?
 * Could you use Protractor to test React.js a competitor client MVC framework to AngularJS?
 * If you have a server running, will protractor tests test that everything is working on the server too?
@@ -87,4 +80,5 @@ protractor test/<<your_configuration_file.js>>
 * Define 'brittle'
 * What is the first thing you should do when you write a test?
 * What constituent parts does Protract 'glue together'? Could you use those parts individually? When? Under what circumstances?
+
 
