@@ -1,8 +1,12 @@
 #Angular Services
 
-Angular is really good at a lot of things, one thing is safely and rationally separating concerns and segregating of duties. In addition to **Controllers** and **Templates** AngularJS has **Directives** for complex manipulation of the DOM. AngularJS **Filters** are for manipulating sets of data. AngularJS **Services** are for getting, storing, and syncronizing data across controllers and views.
+> Objective: Students will be able to write AngularJS services to dry up code, mock data, and connect to external or internal APIs.
 
-> **Services** are for getting, storing, and syncronizing data across controllers and views.
+Angular is really good at helping you safely and rationally **separate concerns** and **segregate duties**. In addition to **Controllers** and **Templates** (as we saw in Rails and Express) AngularJS has **Directives** for complex manipulation of the DOM, **Filters** for manipulating sets of data, and **Services** for getting, storing, and syncronizing data across controllers and views.
+
+Controllers in Angular (and other apps!) are for single use only and they don't communicate with each other. E.g. when you change routes you will lose the data you've loaded up into your present controller, or if you have two controllers running to mananage two suptemplates, they don't be able to share data. Unless. . . you use a service to get, store, and sycronize data!
+
+> **Services** are for getting, storing, and syncronizing data across your apps controllers and views.
 
 Services can be used to. . .
 
@@ -12,8 +16,6 @@ Services can be used to. . .
 *  Abstract repeated methods (to dry up code)
 
 There are native Angular services, angular-plugin services, and your own custom services.
-
-Controllers are for single use only and they don't communicate with each other. So when you change routes you will lose the data you've loaded up into your present controller, or if you have two controllers running to mananage two suptemplates, thye don't be able to share data. Unless. . . you use a service to get, store, and sycronize data!
 
 #####Some Native Angular Services
 * $http - for ajax calls
