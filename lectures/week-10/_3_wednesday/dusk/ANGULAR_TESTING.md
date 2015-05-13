@@ -1,8 +1,8 @@
 # Protractor: AngularJS Integration Tests
 
-> Objective: Be able to design and deploy robust E2E/integration/UI tests for an AngularJS project using the Protractor framework
+> Objective: Be able to design and deploy robust integration tests for an AngularJS project using the Protractor framework
 
-## Review - Unit Tests and Integration Tests
+## Review - Unit Tests and Integration Tests - 20 min
 #### What is Integration testing?
 
 To test only one model method or controller method or module method while ignoring, "stubbing" or "mocking" the rest of your application is called "unit testing." 
@@ -11,7 +11,7 @@ To test only one model method or controller method or module method while ignori
 
 At the very minimum, it is good practice to have a few simple integration tests across the core features of your app as a safety net. Every project should have integration tests. As a project grows, unit tests become more useful and relevant.
 
-### How to design integration tests
+#### How to design integration tests
 
 **Start with your user narratives**. Even a non-technical person can design integration tests using the "Given-When-Then" model. 
 
@@ -23,15 +23,15 @@ At the very minimum, it is good practice to have a few simple integration tests 
 
 **Rules of thumb: Keep integration tests broad and shallow with good selectors. Keep unit tests laser-focused with good mocks and stubs.**
 
-## Part 1: Big Picture - Testing the Client 
+## Big Picture - Testing the Client - 10 min
 
 Testing code that lives on your server can use server-side testing frameworks. But if we want to test a client-side framework like AngularJS, how do we test it? 
 
 #### Example - [QuestionQueue.herokuapp.com](http://questionqueue.herokuapp.com)
 
-To do unit testing on AngularJS use [Karma](http://karma-runner.github.io/0.12/intro/how-it-works.html). To do E2E tests on AngularJS, the AngularJS team recommends [Protractor](https://angular.github.io/protractor). So we're gonna learn it!
+To do integration tests on AngularJS, the AngularJS team recommends [Protractor](https://angular.github.io/protractor). So we're gonna learn it!
 
-![alt tag](https://angular.github.io/protractor/img/protractor-logo-300.png)
+![alt tag](https://angular.github.io/protractor/img/protractor-logo-600.png)
 
 Protractor is the AngularJS-specific glue that connects [WebdriverJS](https://code.google.com/p/selenium/wiki/WebDriverJs) - agnositic javascript bindings for  [Selenium](http://en.wikipedia.org/wiki/Selenium_%28software%29) that commands your browser, and [Jasmine.js](http://jasmine.github.io/) which affords some nice behavior-driven test sugar.
 
@@ -39,11 +39,11 @@ Protractor is the AngularJS-specific glue that connects [WebdriverJS](https://co
 
 Protractor glues all these together into a cohesive AngularJS-specific Integration or E2E testing environment while giving us some nice abstraction and **AngularJS-specific sugar and selectors.**
 
-## Part 3: Protractor Setup - 30 min
+## Protractor Setup - 30 min
 
 Run through [the Protractor Tutorial](https://angular.github.io/protractor/#/tutorial) from end to end. 30 min.
 
-## Part 4: Avoid 'Brittle' Integration Tests - 5 min
+## Avoid 'Brittle' Integration Tests - 5 min
 
 'Brittle' or 'Smelly' tests means bad ones that don't do their jobs efficiently. A brittle test is one that:
 
@@ -58,7 +58,7 @@ Here are three strategies to avoid brittle tests:
 2. Don't try to do too much in one integration test
 3. Watch out for asyncronus stuff and don't use hard-coded setTimeout() delays instead detect when loading is complete, promises resolve, or callbacks are called. (Protractor covers this for you quite nicely!)
 
-## Part 5: TDD - Smoke Test - 30 min 
+## TDD - Smoke Test - 30 min 
 
 Create a test that opens your angular project and tests that the title is correct. See the Basic Example Solution app if you get stuck.
 
@@ -70,7 +70,7 @@ Create a test that opens your angular project and tests that the title is correc
 protractor test/<<your_configuration_file.js>>
 ```
 
-### Part 6: Challenge Questions
+## Challenge Questions
 
 * What are some of the testing frameworks for a javascript server?
 * Do you need a server running to run Protractor tests?
@@ -80,5 +80,9 @@ protractor test/<<your_configuration_file.js>>
 * Define 'brittle'
 * What is the first thing you should do when you write a test?
 * What constituent parts does Protract 'glue together'? Could you use those parts individually? When? Under what circumstances?
+
+## Good to Know
+
+* To do unit testing on AngularJS use [Karma](http://karma-runner.github.io/0.12/intro/how-it-works.html).  
 
 
