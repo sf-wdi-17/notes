@@ -39,7 +39,7 @@ To do integration tests on AngularJS, the AngularJS team recommends [Protractor]
 
 ![alt tag](https://angular.github.io/protractor/img/protractor-logo-600.png)
 
-Protractor is the AngularJS-specific glue that connects [WebdriverJS](https://code.google.com/p/selenium/wiki/WebDriverJs) - agnositic javascript bindings for  [Selenium](http://en.wikipedia.org/wiki/Selenium_%28software%29) that commands your browser, and [Jasmine.js](http://jasmine.github.io/) which affords some nice behavior-driven test sugar.
+Protractor is the AngularJS-specific glue that connects [WebdriverJS](https://code.google.com/p/selenium/wiki/WebDriverJs) - agnostic javascript bindings for  [Selenium](http://en.wikipedia.org/wiki/Selenium_%28software%29) that commands your browser, and [Jasmine.js](http://jasmine.github.io/) which affords some nice behavior-driven test sugar.
 
 ![alt tag](http://engineering.wingify.com/images/2015/02/2.png)
 
@@ -47,7 +47,7 @@ Protractor glues all these together into a cohesive AngularJS-specific Integrati
 
 ## Protractor Setup - 30 min
 
-Run through [the Protractor Tutorial](https://angular.github.io/protractor/#/tutorial) from end to end. 30 min.
+Run through [the Protractor Tutorial](https://angular.github.io/protractor/#/tutorial) from end to end.
 
 ## Avoid 'Brittle' Integration Tests - 5 min
 
@@ -62,11 +62,11 @@ Here are three strategies to avoid brittle tests:
 
 1. Use Strong Selectors - Angular models > CSS Selectors
 2. Don't try to do too much in one integration test
-3. Watch out for asyncronus stuff and don't use hard-coded setTimeout() delays instead detect when loading is complete, promises resolve, or callbacks are called. (Protractor covers this for you quite nicely!)
+3. Watch out for asynchronous stuff and don't use hard-coded setTimeout() delays instead detect when loading is complete, promises resolve, or callbacks are called. (Protractor covers this for you quite nicely!)
 
 ## TDD - Smoke Test - 30 min 
 
-Create a test that opens your angular project and tests that the title is correct. See the Basic Example Solution app if you get stuck.
+Create a test that opens your angular project and tests that the title is correct.
 
 #### Hints
 * You will need to setup a configuration file and your first "spec.js" file
