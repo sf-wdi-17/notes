@@ -1,0 +1,10 @@
+<h1>Books#show</h1>
+
+<p>
+<%= link_to "Back", author_books_path  %> 
+</p>
+
+<h3>Book details:</h3>
+<p>Title: <%= @book.title %> </p>
+<p><%= link_to "Edit Author's Book", edit_author_book_path(@author, @book) %> </p>
+<p><%= button_to "Delete Author's Book", [@author, @book], :method => :delete  %> </p>
