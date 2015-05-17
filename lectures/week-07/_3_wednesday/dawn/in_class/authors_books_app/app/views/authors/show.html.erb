@@ -1,9 +1,0 @@
-<h1>Authors#show</h1>
-
-
-<h3>The author is:</h3>
-<p>
-<%= link_to @author.name, author_books_path(@author)  %> - <%= link_to "Add Book", new_author_book_path(@author)  %> 
-</p>
-<p><%= link_to "Edit Author", edit_author_path %> </p>
-<p><%= button_to "Delete Author", @author, :method => :delete  %> 	</p>
