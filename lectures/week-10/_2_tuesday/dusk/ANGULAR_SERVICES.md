@@ -103,7 +103,7 @@ angular.module('myApp.services', [])
 
 ## Challenge 2: Make an $http to call an API
 
-Take the following controller code and abstract it into a Movie service method called ```search()```. Can you see the OMDBapi data in your view? Can you extend the Movie service to take arguments and respond with the OMDBapi specifically? 
+Take the following controller code and abstract it into a Movie service method called ```search()```. Can you see the OMDBapi data in your view? Can you extend the Movie service to take arguments and respond with the OMDBapi specifically? Can you display an error message if it fails with alert()? Can you do the same with ng-show?
 
 ```
 <form ng-submit="searchMovies">
@@ -121,7 +121,8 @@ Take the following controller code and abstract it into a Movie service method c
 
 $scope.searchMovies = $http.get('http://www.omdbapi.com/?s=' + $scope.search)
   .success(function(data) {
-    $scope.movies = data.Search
+    console.log(data);
+    // $scope.movies = data.Search
   }).failure(function(data) {
     $scope.movies = [];
   })
