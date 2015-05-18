@@ -106,7 +106,6 @@ In angular, we use double brackets (for the most part) to evaluate variables and
 </body>
 ```
 
-
 #### What's this 2-Way Data Binding Thing?
 
 ##### First, let's talk about the usual 1-way bindings:
@@ -134,8 +133,6 @@ This has a number of advantages:
   * We get to write waaayyyy less code for the right kind of applications.
 
 ![Two-Way Data Binding](twoway.png)
-
-
 
 #### Some Other Common Built-in (meaning part of the `ng` module) Directives
 
@@ -184,7 +181,7 @@ If you're paying close attention, you're probably wondering what the `| number` 
 </div> 
 ```
 
-####Exercise:
+######Exercise:
 
   * Set a variable `greeting` using `ng-bind` and display it.
     + Ex: `greeting="Hello there"`
@@ -243,7 +240,7 @@ You may be asking, what's the `ng-init=""` thing?
 
 The `ngInit` directive allows you to evaluate an expression in the current scope. Essentially, you can initialize a variable with a particular expression, but unlike `ngBind`, `ngInit` is not then linked to the data source or expression, so changes to the expression won't change anything in your view.
   
-###Exercise
+######Exercise
 
 Make an array of friends that are objects where each has a `name` and `style` attribute, e.g. `friends=[{name: 'moe', style: {color: blue}}]`.
 
