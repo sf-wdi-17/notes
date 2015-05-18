@@ -1,8 +1,9 @@
 #Angular Services
 
-> Objective: Students will be able to write AngularJS services to dry up code, mock data, and connect to external or internal APIs.
 
-## What is an AngularJS Service? - 10 min
+> **Objective**: to be able to write AngularJS services to mock data,  dry up code, and connect to external or internal APIs.
+
+## What is an AngularJS Service?
 
 #### Separation of Concerns & Segregation of Duties
 
@@ -40,18 +41,19 @@ There are native Angular services, angular-plugin services, and your own custom 
 * MapService (manage methods related to geolocation objects)
 * ...
 
-## Challenge 1: Setup Mock API Data Service
+## Challenge 1: Setup Mock API Data Service - 30 min
 
-Let's setup a basic app and use a service to inject some mock movie test data into a view.
+1. Setup a basic angular app (index.html and app.js).
+2. Implement a service (code below) to inject some mock movie test data into a view.
+3. Use ng-repeat to display a list or table of movies in a view
+4. If you get done, brainstorm a list of what else could you do.
 
-**Create a view that displays the mock movie data from the Movie service.**
-
-```
+```JS
 /*
  * SERVICES.JS
  */
  
-angular.module('myApp.services', [])
+angular.module('myApp', [])
 
 .factory('Movie', function() {
 
@@ -102,14 +104,14 @@ angular.module('myApp.services', [])
 
 Take the following controller code and abstract it into a Movie service method called ```search()```. Can you see the OMDBapi data in your view? Can you extend the Movie service to take arguments and respond with the OMDBapi specifically? Can you display an error message if it fails with alert()? Can you do the same with ng-show?
 
-```
+```html
 <form ng-submit="searchMovies">
   <input ng-model='search'>
   <button type="submit">
 </form>
 ```
 
-```
+```JS
 /*
  *  MOVIECtrl.js
  */
@@ -134,7 +136,7 @@ $scope.searchMovies = $http.get('http://www.omdbapi.com/?s=' + $scope.search)
 
 You can also abstract random methods and objects into your services to dry up your code. 
 
-```
+```JS
 .factory('AuthService', function ($rootScope, User) {
     return {
       checkLogin: function() {
@@ -175,7 +177,7 @@ Most APIs and all that you build should be RESTful and respond to the basic
 
 And for this a nice bunch of Angular developers made **ngResource** which gives you the custom service **$resource** that exposes 5 routes.
 
-```
+```JS
 { 'get':    {method:'GET'},
   'save':   {method:'POST'},
   'query':  {method:'GET', isArray:true},
@@ -184,7 +186,7 @@ And for this a nice bunch of Angular developers made **ngResource** which gives 
 ```
 $resource can very quickly dry up lots of code and it forces you to be **very RESTful** in your API design.
 
-```
+```JS
 // services.js
 
   .factory('Post', function ($resource) {
@@ -194,7 +196,7 @@ $resource can very quickly dry up lots of code and it forces you to be **very RE
 
 So a long ```$http.get``` call can be reduced to one line:
 
-```
+```JS
 // controller.js
 
 $scope.post = Post.get($scope.postId)
@@ -232,11 +234,9 @@ Sample Angular folder structure
 
 These are just two flavors of services. Use service() when you want to return a function with methods. Use factory() when you want to return an object or array of objects.
 
-```
+```JS
 app.service('myService', function() {
-
-  // service is just a constructor function
-  // that will be called with 'new'
+  // service is just a constructor function that will be called with 'new'
 
   this.sayHello = function(name) {
      return "Hi " + name + "!";
@@ -244,9 +244,7 @@ app.service('myService', function() {
 });
 
 app.factory('myFactory', function() {
-
-  // factory returns an object
-  // you can run some code before
+  // factory returns an object you can run some code before
 
   return {
     sayHello : function(name) {
@@ -256,27 +254,29 @@ app.factory('myFactory', function() {
 });
 ```
 
-**Note: Services and Factories are built on Providers. Providers are insantiated before configuration meaning they can't recieve other injected services and you use providers if you want to instantiate something before the app runs**
+>**Note**: Services and Factories are built on Providers. Providers are instantiated before configuration meaning they can't receive other injected services and you use providers if you want to instantiate something before the app runs
 
 ### Q&A
 How would you make your data persistent? 
 
 * Parse
 * Firebase
-* localstorage
+* localStorage
 * Two way API
 * Your own server
 
-<br>
-#Lab
+#Lab Challenge
 
-###Requirements
+####Hack Onward!
+1. Find a teammate or work on your own.
+2. Decide how you want to enhance your search API and improve your OMDBAPI app. You could:
 * Display a search input and below it search results.
 * Display a filter input and below it your list of movies
 * Use a 'Movie' service that has a method 'search()' that lets you search omdbapi.com by movie title.
 * Use a 'List' service to have methods that add and remove movies to a list.
 
-Extra Credit
-
+####Extra Credit
+1. For "Extra Credit":
 * Use "|filter" to filter your list of movies 
 * Add another field to your search of omdbapi.com
+* Create a list of "favorited movies" - controller code getting fat? Need another service!
