@@ -1,27 +1,18 @@
-https://thinkster.io/angular-rails/
 #Angular ♥ Rails
->Objective: Students will understand and know how to start a project with a Rails server and AngularJS client.
+>Objective: Students will build an AngularJS front end and consume their own rails API.
 
-Let's get right into it
+**Activity: What should we build with rails and AngularJS?**
 
-```
-rails new railsy-angular --skip-javascript -T
-```
-Rails ships with the gem Turbolinks which conflicts with AngularJS, and with jQuery which AngularJS largely replaces. The ```--skip-javascript``` will make a project without them. Rails also ships with unit test which we won't need so we remove it with ```-T```
-
-Otherwise we'd have to:
-
-**Remove turbolinks**
+## Start With a Template
+First pull down this rails-angular seed I created called railsy-angular and change the name.
 
 ```
-Gemfile
-
-gem 'turbolinks'
-```
-```
-application.js
-
-//= require turbolinks
-
+git clone
 ```
 
+For how to set up a rails/angular stack see these materials
+
+* [https://thinkster.io/angular-rails/](https://thinkster.io/angular-rails/)
+* [http://www.intridea.com/blog/2014/9/25/how-to-set-up-angular-with-rails](http://www.intridea.com/blog/2014/9/25/how-to-set-up-angular-with-rails)
+
+## 
