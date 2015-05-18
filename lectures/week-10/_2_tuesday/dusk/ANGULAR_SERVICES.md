@@ -1,8 +1,17 @@
+todo:
+test it
+
 #Angular Services
 
 > Objective: Students will be able to write AngularJS services to dry up code, mock data, and connect to external or internal APIs.
 
+## What is an AngularJS Service? - 10 min
+
+#### Separation of Concerns & Segregation of Duties
+
 Angular is really good at helping you safely and rationally **separate concerns** and **segregate duties**. In addition to **Controllers** and **Templates** (as we saw in Rails and Express) AngularJS has **Directives** for complex manipulation of the DOM, **Filters** for manipulating sets of data, and **Services** for getting, storing, and syncronizing data across controllers and views.
+
+#### Syncronizing Data Across Controllers
 
 Controllers in Angular (and other apps!) are for single use only and they don't communicate with each other. E.g. when you change routes you will lose the data you've loaded up into your present controller, or if you have two controllers running to mananage two suptemplates, they don't be able to share data. Unless. . . you use a service to get, store, and sycronize data!
 
@@ -23,7 +32,6 @@ There are native Angular services, angular-plugin services, and your own custom 
 * $location - for manipulating urls and paths
 * $window - for accessing attributes of the browser window
 
-
 #####Some Common Angular Plugin Services
 * $resource (ngResource)
 * $state (ui-router)
@@ -35,58 +43,12 @@ There are native Angular services, angular-plugin services, and your own custom 
 * MapService (manage methods related to geolocation objects)
 * ...
 
+## Challenge 1: Setup Mock API Data Service
 
-### 1. Mock API Data Service
+Let's setup a basic app and use a service to inject some mock movie test data into a view.
 
-```
-/*
- * APP.JS
- */
- 
-angular.module('myApp', ['myApp.controllers', 'myApp.services'])
+**Create a view that displays the mock movie data from the Movie service.**
 
-
-.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'templates/room-show'
-      , controller: 'RoomIndexCtrl'
-      })
-
-      .when('/:room_name', {
-        templateUrl: 'templates/post-index'
-      , controller: 'PostIndexCtrl'
-      })
-
-  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
-
-});
-```
-
-
-```
-/*
- * CONTROLLERS.JS
- */
- 
-angular.module('myApp.controllers', [])
-
-.controller('DashCtrl', function($scope) {})
-
-.controller('ChatsCtrl', function($scope, Chats) {
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
-  }
-})
-
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
-})
-;
-
-```
 ```
 /*
  * SERVICES.JS
@@ -94,48 +56,42 @@ angular.module('myApp.controllers', [])
  
 angular.module('myApp.services', [])
 
-.factory('Messages', function() {
-  // Might use a resource here that returns a JSON array
+.factory('Movie', function() {
 
   // Some fake testing data
-  var chats = [{
+  var movies = [{
     id: 0,
-    name: 'Ben Sparrow',
-    lastText: 'You on your way?',
-    face: 'https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png'
+    title: 'Pirates of the Carribean',
+    poster_url: 'http://images.vcpost.com/data/images/full/48799/pirates-of-the-carribean-dead-men-tell-no-tales.jpg'
   }, {
     id: 1,
-    name: 'Max Lynx',
-    lastText: 'Hey, it\'s me',
-    face: 'https://avatars3.githubusercontent.com/u/11214?v=3&s=460'
+    title: 'Pirates of the Carribean',
+    poster_url: 'http://images.vcpost.com/data/images/full/48799/pirates-of-the-carribean-dead-men-tell-no-tales.jpg'
   },{
     id: 2,
-    name: 'Adam Bradleyson',
-    lastText: 'I should buy a boat',
-    face: 'https://pbs.twimg.com/profile_images/479090794058379264/84TKj_qa.jpeg'
+    title: 'Pirates of the Carribean',
+    poster_url: 'http://images.vcpost.com/data/images/full/48799/pirates-of-the-carribean-dead-men-tell-no-tales.jpg'
   }, {
     id: 3,
-    name: 'Perry Governor',
-    lastText: 'Look at my mukluks!',
-    face: 'https://pbs.twimg.com/profile_images/491995398135767040/ie2Z_V6e.jpeg'
+    title: 'Pirates of the Carribean',
+    poster_url: 'http://images.vcpost.com/data/images/full/48799/pirates-of-the-carribean-dead-men-tell-no-tales.jpg'
   }, {
     id: 4,
-    name: 'Mike Harrington',
-    lastText: 'This is wicked good ice cream.',
-    face: 'https://pbs.twimg.com/profile_images/578237281384841216/R3ae1n61.png'
+    title: 'Pirates of the Carribean',
+    poster_url: 'http://images.vcpost.com/data/images/full/48799/pirates-of-the-carribean-dead-men-tell-no-tales.jpg'
   }];
 
   return {
     all: function() {
-      return chats;
+      return movies;
     },
     remove: function(chat) {
-      chats.splice(chats.indexOf(chat), 1);
+      movies.splice(movies.indexOf(movie), 1);
     },
-    get: function(chatId) {
-      for (var i = 0; i < chats.length; i++) {
-        if (chats[i].id === parseInt(chatId)) {
-          return chats[i];
+    get: function(movieId) {
+      for (var i = 0; i < movies.length; i++) {
+        if (movies[i].id === parseInt(movieId)) {
+          return movies[i];
         }
       }
       return null;
@@ -145,10 +101,9 @@ angular.module('myApp.services', [])
 
 ```
 
+## Challenge 2: Make an $http to call an API
 
-### 2. $http to call an API
-
-Take the following controller code and abstract it into a MovieService method called ```search()```.
+Take the following controller code and abstract it into a Movie service method called ```search()```. Can you see the OMDBapi data in your view? Can you extend the Movie service to take arguments and respond with the OMDBapi specifically? Can you display an error message if it fails with alert()? Can you do the same with ng-show?
 
 ```
 <form ng-submit="searchMovies">
@@ -158,15 +113,27 @@ Take the following controller code and abstract it into a MovieService method ca
 ```
 
 ```
+/*
+ *  MOVIECtrl.js
+ */
+
+...
+
 $scope.searchMovies = $http.get('http://www.omdbapi.com/?s=' + $scope.search)
   .success(function(data) {
-      $scope.movies = data.Search
+    console.log(data);
+    // $scope.movies = data.Search
   }).failure(function(data) {
     $scope.movies = [];
   })
+
+...
+
 ```
 
-### Using Services to Dry Up Code
+## Other Ways to Use Services
+
+#### Using Services to Dry Up Code
 
 You can also abstract random methods and objects into your services to dry up your code. 
 
@@ -197,7 +164,7 @@ You can also abstract random methods and objects into your services to dry up yo
   })
 ```
 
-### How to Consume Your Own RESTful API: $resource (ngResource)
+#### How to Consume Your Own RESTful API: $resource (ngResource)
 
 Most APIs and all that you build should be RESTful and respond to the basic
 
@@ -228,7 +195,6 @@ $resource can very quickly dry up lots of code and it forces you to be **very RE
   })
 ```
 
-
 So a long ```$http.get``` call can be reduced to one line:
 
 ```
@@ -238,7 +204,7 @@ $scope.post = Post.get($scope.postId)
 ```
 
 <br>
-#Good to Know
+##Good to Know
 
 ### Sample Folder Structure
 Sample Angular folder structure
@@ -260,7 +226,7 @@ Sample Angular folder structure
     |--...(directives.js, filters.js, interceptors.js, etc)
   |styles
   |templates
-    |chats
+    |movies
     |site
   |--index.html
 ```
