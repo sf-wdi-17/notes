@@ -103,7 +103,7 @@ angular.module('myApp.services', [])
 
 ## Challenge 2: Make an $http to call an API
 
-Take the following controller code and abstract it into a Movie service method called ```search()```. Can you extend it to take arguments and respond with the OMDBapi specifically? 
+Take the following controller code and abstract it into a Movie service method called ```search()```. Can you see the OMDBapi data in your view? Can you extend the Movie service to take arguments and respond with the OMDBapi specifically? 
 
 ```
 <form ng-submit="searchMovies">
