@@ -1,6 +1,3 @@
-todo:
-test it
-
 #Angular Services
 
 > Objective: Students will be able to write AngularJS services to dry up code, mock data, and connect to external or internal APIs.
