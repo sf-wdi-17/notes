@@ -30,26 +30,28 @@ AngularJS is a full-featured SPA framework that lets you extend HTML vocabulary 
 
 ##Step 1 - setup
 
-Fork & clone: 
+Fork (to your own GitHub Account) and then clone: 
 
-	https://github.com/wdi-sf-fall/intro-to-angular-in-eight-steps
+So, go to this repo and forK:
+https://github.com/sf-wdi-17/intro-to-angular-in-eight-steps
 
-	
+Then you can clone with:
+```
+git clone git@github.com:<your account>/intro-to-angular-in-eight-steps
+```
+
 Fire up webserver:
 
-	 npm start
-	 
-Go to [home page](http://localhost:8000)
+`npm start`
 
+Go to [home page](http://localhost:8000)
 
 Inspect `app/index.html' and include angular library. Best place to get it from is [Google directly](https://developers.google.com/speed/libraries):
 
-The latest release is 1.3.2:
+The latest (stable) release is 1.3.2:
 
 `<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>`
-
-
-		 
+ 
 ##Step 2 - data-binding & directives
 
 Directives teach HTML new tricks.
