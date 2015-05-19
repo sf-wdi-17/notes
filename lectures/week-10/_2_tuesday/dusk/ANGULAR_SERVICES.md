@@ -1,6 +1,5 @@
 #Angular Services
 
-
 > **Objective**: to be able to write AngularJS services to mock data,  dry up code, and connect to external or internal APIs.
 
 ## What is an AngularJS Service?
@@ -13,7 +12,11 @@ Angular is really good at helping you safely and rationally **separate concerns*
 
 Controllers in Angular (and other apps!) are for single use only and they don't communicate with each other. E.g. when you change routes you will lose the data you've loaded up into your present controller, or if you have two controllers running to mananage two suptemplates, they don't be able to share data. Unless. . . you use a service to get, store, and sycronize data!
 
+You could also have 2 or more controllers running at once in one view and you'll want to syncronize data across them. But **controllers can't talk to each other** or be injected into each other. But never fear, Angular gives us powerful methods called $broadcast, $emit, and $on to have controllers and services communicate to each other.
+
 > **Services** are for getting, storing, and syncronizing data across your apps controllers and views.
+
+> $emit dispatches an event upwards ... $broadcast dispatches an event downwards.
 
 Services can be used to. . .
 
@@ -41,12 +44,13 @@ There are native Angular services, angular-plugin services, and your own custom 
 * MapService (manage methods related to geolocation objects)
 * ...
 
+
 ## Challenge 1: Setup Mock API Data Service - 30 min
 
-1. Setup a basic angular app (index.html and app.js).
+1. Clone this [angular-basic](https://github.com/ajbraus/angular-basic) temtplate
 2. Implement a service (code below) to inject some mock movie test data into a view.
 3. Use ng-repeat to display a list or table of movies in a view
-4. If you get done, brainstorm a list of what else could you do.
+4. If you get done, brainstorm a list of what else could you do
 
 ```JS
 /*
@@ -102,16 +106,24 @@ angular.module('myApp', [])
 
 ## Challenge 2: Make an $http to call an API
 
-Take the following controller code and abstract it into a Movie service method called ```search()```. Can you see the OMDBapi data in your view? Can you extend the Movie service to take arguments and respond with the OMDBapi specifically? Can you display an error message if it fails with alert()? Can you do the same with ng-show?
+1. Start a new branch on the angular-basic basic template called '$http'
+2. Put the following HTML into your view and controller code into your MoviesCtrl. Can you search in your view?
+3. Abstract this searchMovies method into a Movie service method called ```search()```. 
+4. Can you see the OMDBapi data in your view? 
+5. **Extra Credit**: Can you display an error message if it fails with alert()? Can you do the same with ng-show?
 
-```html
+```HTML
+
 <form ng-submit="searchMovies">
   <input ng-model='search'>
   <button type="submit">
 </form>
+{{movies}}
+
 ```
 
 ```JS
+
 /*
  *  MOVIECtrl.js
  */
@@ -130,7 +142,15 @@ $scope.searchMovies = $http.get('http://www.omdbapi.com/?s=' + $scope.search)
 
 ```
 
-## Other Ways to Use Services
+## Challenge 3. Make a new $broadcast, $on function
+
+1. Make a new branch of angular-basic
+2. Look at how the current $broadcast, $on listeners are working, can you change it to add 2 points every time you click the button?
+3. Make a button that changes the color of the navbar using ng-style or ng-class.
+
+------------
+
+## Other Examples 
 
 #### Using Services to Dry Up Code
 
