@@ -1,8 +1,8 @@
 #Angular Services
 
-> **Objective**: to be able to write AngularJS services to mock data,  dry up code, and connect to external or internal APIs.
+> **Objective**: to be able to write AngularJS services to mock data, connect to external or internal APIs, and syncronize data across controllers.
 
-## What is an AngularJS Service?
+## What is an AngularJS Service? . . . a Factory!
 
 #### Separation of Concerns & Segregation of Duties
 
@@ -45,12 +45,12 @@ There are native Angular services, angular-plugin services, and your own custom 
 * ...
 
 
-## Challenge 1: Setup Mock API Data Service - 30 min
+## Challenge 1: Setup Mock API Data Service - 20 min
 
 1. Clone this [angular-basic](https://github.com/ajbraus/angular-basic) temtplate
-2. Implement a service (code below) to inject some mock movie test data into a view.
-3. Use ng-repeat to display a list or table of movies in a view
-4. If you get done, brainstorm a list of what else could you do
+2. Add this service (code below) to your app.js
+3. Inject the Movie service into your controller
+4. Use ng-repeat to display a list or table of movies in a view
 
 ```JS
 /*
@@ -104,13 +104,14 @@ angular.module('myApp', [])
 
 ```
 
-## Challenge 2: Make an $http to call an API
+## Challenge 2: Make an $http to call an API - 20 min
 
-1. Start a new branch on the angular-basic basic template called '$http'
-2. Put the following HTML into your view and controller code into your MoviesCtrl. Can you search in your view?
-3. Abstract this searchMovies method into a Movie service method called ```search()```. 
-4. Can you see the OMDBapi data in your view? 
-5. **Extra Credit**: Can you display an error message if it fails with alert()? Can you do the same with ng-show?
+1. Put the following HTML into your view and controller code into your MoviesCtrl. Can you search in your view?
+2. Comment out the mock data from the Movie service.
+3. Have the Movie service return the searchMovies method. 
+4. Display the OMDBapi data in your view.
+5. Use ng-repeat to make a list.
+6. **Extra Credit**: Can you display an error message if it finds no movies with an ```alert()```? Can you do the same with ```ng-show```?
 
 ```HTML
 
@@ -148,11 +149,9 @@ $scope.searchMovies = $http.get('http://www.omdbapi.com/?s=' + $scope.search)
 2. Look at how the current $broadcast, $on listeners are working, can you change it to add 2 points every time you click the button?
 3. Make a button that changes the color of the navbar using ng-style or ng-class.
 
-------------
+## Other Examples of Services
 
-## Other Examples 
-
-#### Using Services to Dry Up Code
+#### An Auth Service
 
 You can also abstract random methods and objects into your services to dry up your code. 
 
@@ -291,12 +290,12 @@ How would you make your data persistent?
 1. Find a teammate or work on your own.
 2. Decide how you want to enhance your search API and improve your OMDBAPI app. You could:
 * Display a search input and below it search results.
-* Display a filter input and below it your list of movies
-* Use a 'Movie' service that has a method 'search()' that lets you search omdbapi.com by movie title.
+* Display a filter input and below it your list of movies.
+* Make a "Want to See" button for each movie.
+* Track "Want to See" movies in a separate list
 * Use a 'List' service to have methods that add and remove movies to a list.
 
 ####Extra Credit
-1. For "Extra Credit":
-* Use "|filter" to filter your list of movies 
+* Use "ng-repeat='movie in movies | filter'" to filter your list of movies
 * Add another field to your search of omdbapi.com
 * Create a list of "favorited movies" - controller code getting fat? Need another service!
