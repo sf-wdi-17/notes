@@ -54,11 +54,9 @@ There are native Angular services, angular-plugin services, and your own custom 
 
 ```JS
 /*
- * SERVICES.JS
+ * Movie Service
  */
  
-angular.module('myApp', [])
-
 .factory('Movie', function() {
 
   // Some fake testing data
@@ -115,10 +113,14 @@ angular.module('myApp', [])
 
 ```HTML
 
-<form ng-submit="searchMovies">
-  <input ng-model='search'>
-  <button type="submit">
+<form ng-submit="searchMovies()">
+  <input ng-model='search' class="form-control" />
+  <button type="submit" class="btn btn-default">Search</button>
 </form>
+
+<div ng-repeat="movie in movies">
+  {{movie.Title}}
+</div>
 
 ```
 
