@@ -1,8 +1,9 @@
 # Protractor: AngularJS Integration Tests
 
-> Objective: Be able to design and deploy robust integration tests for an AngularJS project using the Protractor framework
+> Objective: Be able to design and deploy integration tests for an AngularJS project using the Protractor framework
 
 ## Review - Unit Tests and Integration Tests - 20 min
+
 #### What is Integration testing?
 
 To test only one model method or controller method or module method while ignoring, "stubbing" or "mocking" the rest of your application is called "unit testing." 
@@ -15,11 +16,11 @@ At the very minimum, it is good practice to have a few simple integration tests 
 
 **Start with your user narratives**. Even a non-technical person can design integration tests using the "Given-When-Then" model. 
 
-**Given** the scenario (e.g. wants to writes a new post, is on home page, is on new messages page, et)
+> **Given** the scenario (e.g. wants to writes a new post, is on home page, is on new messages page, et)
 
-**When** the trigger (e.g. clicks on something, submits form, etc)
+> **When** the trigger (e.g. clicks on something, submits form, etc)
 
-**Then** what you expect to happen (e.g. an element changes on the screen, an element is added to or removed from an array, words appear on the screen, etc)
+> **Then** what you expect to happen (e.g. an element changes on the screen, an element is added to or removed from an array, words appear on the screen, etc)
 
 **Activity: Translate one of your user narratives from last week's projects into integration tests using the Given-When-Then model. How many tests did one narrative break down into? 1? more?**
 
