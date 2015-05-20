@@ -119,7 +119,6 @@ angular.module('myApp', [])
   <input ng-model='search'>
   <button type="submit">
 </form>
-{{movies}}
 
 ```
 
@@ -131,14 +130,17 @@ angular.module('myApp', [])
 
 ...
 
-$scope.searchMovies = $http.get('http://www.omdbapi.com/?s=' + $scope.search)
-  .success(function(data) {
-    console.log(data);
-    // $scope.movies = data.Search
-  }).failure(function(data) {
-    $scope.movies = [];
-  })
-
+$scope.searchMovies = function() {
+  $http.get('http://www.omdbapi.com/?s=' + $scope.search)
+    .success(function(data) {
+      console.log("Succeeded : ) ");
+      console.log(data);
+      // $scope.movies = data.Search
+    }).failure(function(data) {
+      console.log("Failed : ( ");
+      $scope.movies = [];
+    })
+}
 ...
 
 ```
@@ -146,8 +148,10 @@ $scope.searchMovies = $http.get('http://www.omdbapi.com/?s=' + $scope.search)
 ## Challenge 3. Make a new $broadcast, $on function
 
 1. Make a new branch of angular-basic
-2. Look at how the current $broadcast, $on listeners are working, can you change it to add 2 points every time you click the button?
-3. Make a button that changes the color of the navbar using ng-style or ng-class.
+2. Look at how the current $broadcast, $on listeners are working.
+3. Change the function to add 2 points every time you click the button.
+4. Make a div appear when the current_user.points == 10.
+5. Make the input field change the website's name.
 
 ## Other Examples of Services
 
