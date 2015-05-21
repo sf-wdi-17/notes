@@ -3,26 +3,17 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Angular Example App</title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.min.js"></script>
-	<title>Simple Angular Example</title>
+	<script src="app.js"></script>
 </head>
-<body ng-app>
+<body ng-app="myApp" ng-controller="MainCtrl">
 	<h1>Angular Examples</h1>
 
-	<h2>This Demonstrates 2-Way Data Bindings with <pre>ng-model</pre> and <pre>ng-style</pre></h2>
-	<div style="margin-top:20px;">
-		Hello, <span ng-style="{ color: textColor }">{{name}}!</span>
+	<div ng-repeat="friend in friends | orderBy:'-votes'">
+		My friend is: {{friend.name}} and he got {{friend.votes}} votes.
 	</div>
-	<div style="margin-top:20px;">
-		Text color is: <span ng-style="{ color: textColor }">{{textColor}}</span>
-		
-	</div>
-	<div style="margin-top:20px;">
-		<form>
-			<input type="text" placeholder="Name" ng-model="name"></input>
-			<input type="text" placeholder="Text Color" ng-model="textColor"></input>
-		</form>
-		
-	</div>
+
+	
 </body>
 </html>
