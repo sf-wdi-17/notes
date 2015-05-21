@@ -7,7 +7,7 @@
 
 ##Errors are Signposts not "Mistakes"
 
-## Challenge Make a "Twitch Blog"
+## Challenge Make a "Quora"
 
 > **NOTE**: We're going to use an "Outside-In" methodology. With "Error Driven Development".
 
@@ -25,7 +25,7 @@ The goal here is to make a very simple, public, anonymous blog in rails and angu
 
 #### Step 1. Write a User Narrative
 
-"I'm Bob Law the Blogger and I want to write a blog post that is anonymous and public to the world. I land on funkyblogpost.com and I see recent posts. I can start a new post from the home page. I submit my post and see it on top of the recent posts."
+"I'm Quinton the Questioner and I want to ask questions that are anonymous and public to the world. I land on more-a-quora.com and I see recent questions. I can start a new post from the home page. I submit my post and see it on top of the recent posts."
 
 #### Step 2. Write Step-by-step a Plan in English starting with the views
 
@@ -55,7 +55,7 @@ Developers often start with a template or in an existing code base.
 Pull down this rails-angular seed I put together called [rangular](https://github.com/ajbraus/rangular) and change the name if you like.
 
 ```
-git clone
+git clone https://github.com/ajbraus/rangular.git <<YOUR APP NAME>>
 bundle install
 rake bower:install
 // Make sure Postgres is running
@@ -85,6 +85,7 @@ angular.module('quora', [
         });
     });
 ```
+
 > **Expected ERROR** - No template and no controller by those names
 
  
@@ -261,7 +262,7 @@ rake db:migrate
 > **Expected BEHAVIOR** - $scope.questions = [];!!! 
 
 
-##### Step 10. Create a question from the rails console
+#### Step 10. Create a question from the rails console
 
 ```
 rails c
@@ -270,8 +271,18 @@ Question.create(content:"What is the meaning of life?")
 
 > **BOOYA CASHA**
 
+#### Further Challenges
+
+1. Create a new question (from question-index.html) and save it (with a post method to the API)
+2. Show a single post page
+3. Deploy [ngResource](https://docs.angularjs.org/api/ngResource) to communicate with your rails API (remember to use bower_rails to add things to your asset pipeline)
+4. What if you put a link into your question.content, such as "www.google.com"? Would it be clickable? How would you solve this . . .?
+5. Can you add drag and drop to reorder questions?
+6. Can you add voting?
+7. What other features could you add?
+
 ## Solution
-The solution is on the solution branch of [rangular](https://github.com/ajbraus/rangular).
+The solution is on the "quora" branch of [rangular](https://github.com/ajbraus/rangular).
 
 ```
 git clone
