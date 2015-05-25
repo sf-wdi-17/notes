@@ -5,9 +5,9 @@
 ###Objective: Manipulate and Emulate an Ionic App
 Ionic is a hybrid app development framework. What is "Hybrid"? A hybrid app uses Phonegap to wrap HTLM, JS, and CSS files into a native web view.
 
+![ionic stack](ionic_stack.png)
+
 ![phonegap stack](https://www.ibm.com/developerworks/community/blogs/worklight/resource/BLOGS_UPLOADED_IMAGES/2.BasicCordovaAppViewStack.png)
-
-
 
 Why did they build it on Angular? - [Because Angular is the most Popular JS Framework](http://www.google.com/trends/explore?hl=en-US#q=angularjs,+ember.js,+knockoutjs,+backbonejs&cmpt=q)
 
