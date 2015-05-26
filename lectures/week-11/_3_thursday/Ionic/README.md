@@ -13,6 +13,54 @@ Ionic is a hybrid app development framework. What is "Hybrid"? A hybrid app uses
 
 Why did they build it on Angular? - [Because Angular is the most Popular JS Framework](http://www.google.com/trends/explore?hl=en-US#q=angularjs,+ember.js,+knockoutjs,+backbonejs&cmpt=q)
 
+##### Angular-ui-router
+
+Ionic choose to use angular-ui-router to do their routing. Let's look at the ```app.js``` file to understand more about this routing system. Instead of being based on URL, angular-ui-router is based on the concept of **state**. Each state has a URL attached to it, as well as various "views" that are made up of templates and controller pairs. This gives Ionic the flexibility to nest views (such as tab and sidemenu views) together to create an experience similar to common mobile UI. 
+
+```JS
+$stateProvider
+    .state('contacts', {
+        abstract: true,
+        url: '/contacts',
+        templateUrl: 'contacts.html',
+        controller: function($scope){
+            $scope.contacts = [{ id:0, name: "Alice" }, { id:1, name: "Bob" }];
+        }           
+    })
+    .state('contacts.list', {
+        url: '/list',
+        templateUrl: 'contacts.list.html'
+    })
+    .state('contacts.detail', {
+        url: '/:id',
+        templateUrl: 'contacts.detail.html',
+        controller: function($scope, $stateParams){
+          $scope.person = $scope.contacts[$stateParams.id];
+        }
+    })
+```
+
+```
+<!-- contacts.html -->
+<h1>Contacts Page</h1>
+<div ui-view></div>
+```
+
+```HTML
+<!-- contacts.list.html -->
+<ul>
+    <li ng-repeat="person in contacts">
+        <a ng-href="#/contacts/{{person.id}}">{{person.name}}</a>
+    </li>
+</ul>
+```
+
+```
+<!-- contacts.detail.html -->
+<h2>{{ person.name }}</h2>
+```
+
+Try this example in a [plunker](http://plnkr.co/edit/gmtcE2?p=preview)
 
 ###Native vs. Hybrid
 
