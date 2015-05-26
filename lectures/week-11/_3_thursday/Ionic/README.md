@@ -57,9 +57,39 @@ iOS requires a similar pipeline but with iOS tools:
 6. Submit binary to app market places
 7. Moonwalk all the way to the 7/11.
 
-##### Accessing Device APIs
+### Accessing Device APIs
 
-What if you want to access the GPS, Camera, or other APIs of the device using Cordova? Use [Cordova plugins](http://plugins.cordova.io/#/). These are now managed with [npm](http://cordova.apache.org/announcements/2015/04/21/plugins-release-and-move-to-npm.html). Here is a list of the most popular:
+What if you want to access the GPS, Camera, or other APIs of the device using Cordova? Use [Cordova plugins](http://plugins.cordova.io/#/). These are now managed with [npm](http://cordova.apache.org/announcements/2015/04/21/plugins-release-and-move-to-npm.html). 
+
+Here is an example of a basic implementation of the geolocation API:
+
+```
+// onSuccess Callback
+// This method accepts a Position object, which contains the
+// current GPS coordinates
+//
+var onSuccess = function(position) {
+    alert('Latitude: '          + position.coords.latitude          + '\n' +
+          'Longitude: '         + position.coords.longitude         + '\n' +
+          'Altitude: '          + position.coords.altitude          + '\n' +
+          'Accuracy: '          + position.coords.accuracy          + '\n' +
+          'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+          'Heading: '           + position.coords.heading           + '\n' +
+          'Speed: '             + position.coords.speed             + '\n' +
+          'Timestamp: '         + position.timestamp                + '\n');
+};
+
+// onError Callback receives a PositionError object
+//
+function onError(error) {
+    alert('code: '    + error.code    + '\n' +
+          'message: ' + error.message + '\n');
+}
+
+navigator.geolocation.getCurrentPosition(onSuccess, onError);
+```
+
+Here is a list of the most popular Cordova Plugins:
 
 * cordova-plugin-battery-status@1.0.0
 * cordova-plugin-camera@1.0.0
