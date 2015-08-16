@@ -1,11 +1,8 @@
-todo:
-test it
-
 #Angular Services
 
-> Objective: Students will be able to write AngularJS services to dry up code, mock data, and connect to external or internal APIs.
+> **Objective**: to be able to write AngularJS services to mock data, connect to external or internal APIs, and syncronize data across controllers.
 
-## What is an AngularJS Service? - 10 min
+## What is an AngularJS Service? . . . a Factory!
 
 #### Separation of Concerns & Segregation of Duties
 
@@ -15,7 +12,11 @@ Angular is really good at helping you safely and rationally **separate concerns*
 
 Controllers in Angular (and other apps!) are for single use only and they don't communicate with each other. E.g. when you change routes you will lose the data you've loaded up into your present controller, or if you have two controllers running to mananage two suptemplates, they don't be able to share data. Unless. . . you use a service to get, store, and sycronize data!
 
+You could also have 2 or more controllers running at once in one view and you'll want to syncronize data across them. But **controllers can't talk to each other** or be injected into each other. But never fear, Angular gives us powerful methods called $broadcast, $emit, and $on to have controllers and services communicate to each other.
+
 > **Services** are for getting, storing, and syncronizing data across your apps controllers and views.
+
+> $emit dispatches an event upwards ... $broadcast dispatches an event downwards.
 
 Services can be used to. . .
 
@@ -43,19 +44,19 @@ There are native Angular services, angular-plugin services, and your own custom 
 * MapService (manage methods related to geolocation objects)
 * ...
 
-## Challenge 1: Setup Mock API Data Service
 
-Let's setup a basic app and use a service to inject some mock movie test data into a view.
+## Challenge 1: Setup Mock API Data Service - 20 min
 
-**Create a view that displays the mock movie data from the Movie service.**
+1. Clone this [angular-basic](https://github.com/ajbraus/angular-basic) temtplate
+2. Add this service (code below) to your app.js
+3. Inject the Movie service into your controller
+4. Use ng-repeat to display a list or table of movies in a view
 
-```
+```JS
 /*
- * SERVICES.JS
+ * Movie Service
  */
  
-angular.module('myApp.services', [])
-
 .factory('Movie', function() {
 
   // Some fake testing data
@@ -101,43 +102,66 @@ angular.module('myApp.services', [])
 
 ```
 
-## Challenge 2: Make an $http to call an API
+## Challenge 2: Make an $http to call an API - 20 min
 
-Take the following controller code and abstract it into a Movie service method called ```search()```. Can you see the OMDBapi data in your view? Can you extend the Movie service to take arguments and respond with the OMDBapi specifically? Can you display an error message if it fails with alert()? Can you do the same with ng-show?
+1. Put the following HTML into your view and controller code into your MoviesCtrl. Can you search in your view?
+2. Comment out the mock data from the Movie service.
+3. Have the Movie service return the searchMovies method. 
+4. Display the OMDBapi data in your view.
+5. Use ng-repeat to make a list.
+6. **Extra Credit**: Can you display an error message if it finds no movies with an ```alert()```? Can you do the same with ```ng-show```?
 
-```
-<form ng-submit="searchMovies">
-  <input ng-model='search'>
-  <button type="submit">
+```HTML
+
+<form ng-submit="searchMovies()">
+  <input ng-model='search' class="form-control" />
+  <button type="submit" class="btn btn-default">Search</button>
 </form>
-```
+
+<div ng-repeat="movie in movies">
+  {{movie.Title}}
+</div>
 
 ```
+
+```JS
+
 /*
  *  MOVIECtrl.js
  */
 
 ...
 
-$scope.searchMovies = $http.get('http://www.omdbapi.com/?s=' + $scope.search)
-  .success(function(data) {
-    console.log(data);
-    // $scope.movies = data.Search
-  }).failure(function(data) {
-    $scope.movies = [];
-  })
-
+$scope.searchMovies = function() {
+  $http.get('http://www.omdbapi.com/?s=' + $scope.search)
+    .success(function(data) {
+      console.log("Succeeded : ) ");
+      console.log(data);
+      // $scope.movies = data.Search
+    }).failure(function(data) {
+      console.log("Failed : ( ");
+      $scope.movies = [];
+    })
+}
 ...
 
 ```
 
-## Other Ways to Use Services
+## Challenge 3. Make a new $broadcast, $on function
 
-#### Using Services to Dry Up Code
+1. Make a new branch of angular-basic
+2. Look at how the current $broadcast, $on listeners are working.
+3. Change the function to add 2 points every time you click the button.
+4. Make a div appear when the current_user.points == 10.
+5. Make the input field change the website's name.
+
+## Other Examples of Services
+
+#### An Auth Service
 
 You can also abstract random methods and objects into your services to dry up your code. 
 
-```
+```JS
 .factory('AuthService', function ($rootScope, User) {
     return {
       checkLogin: function() {
@@ -178,7 +202,7 @@ Most APIs and all that you build should be RESTful and respond to the basic
 
 And for this a nice bunch of Angular developers made **ngResource** which gives you the custom service **$resource** that exposes 5 routes.
 
-```
+```JS
 { 'get':    {method:'GET'},
   'save':   {method:'POST'},
   'query':  {method:'GET', isArray:true},
@@ -187,7 +211,7 @@ And for this a nice bunch of Angular developers made **ngResource** which gives 
 ```
 $resource can very quickly dry up lots of code and it forces you to be **very RESTful** in your API design.
 
-```
+```JS
 // services.js
 
   .factory('Post', function ($resource) {
@@ -197,7 +221,7 @@ $resource can very quickly dry up lots of code and it forces you to be **very RE
 
 So a long ```$http.get``` call can be reduced to one line:
 
-```
+```JS
 // controller.js
 
 $scope.post = Post.get($scope.postId)
@@ -235,11 +259,9 @@ Sample Angular folder structure
 
 These are just two flavors of services. Use service() when you want to return a function with methods. Use factory() when you want to return an object or array of objects.
 
-```
+```JS
 app.service('myService', function() {
-
-  // service is just a constructor function
-  // that will be called with 'new'
+  // service is just a constructor function that will be called with 'new'
 
   this.sayHello = function(name) {
      return "Hi " + name + "!";
@@ -247,9 +269,7 @@ app.service('myService', function() {
 });
 
 app.factory('myFactory', function() {
-
-  // factory returns an object
-  // you can run some code before
+  // factory returns an object you can run some code before
 
   return {
     sayHello : function(name) {
@@ -259,27 +279,29 @@ app.factory('myFactory', function() {
 });
 ```
 
-**Note: Services and Factories are built on Providers. Providers are insantiated before configuration meaning they can't recieve other injected services and you use providers if you want to instantiate something before the app runs**
+>**Note**: Services and Factories are built on Providers. Providers are instantiated before configuration meaning they can't receive other injected services and you use providers if you want to instantiate something before the app runs
 
 ### Q&A
 How would you make your data persistent? 
 
 * Parse
 * Firebase
-* localstorage
+* localStorage
 * Two way API
 * Your own server
 
-<br>
-#Lab
+#Lab Challenge
 
-###Requirements
+####Hack Onward!
+1. Find a teammate or work on your own.
+2. Decide how you want to enhance your search API and improve your OMDBAPI app. You could:
 * Display a search input and below it search results.
-* Display a filter input and below it your list of movies
-* Use a 'Movie' service that has a method 'search()' that lets you search omdbapi.com by movie title.
+* Display a filter input and below it your list of movies.
+* Make a "Want to See" button for each movie.
+* Track "Want to See" movies in a separate list
 * Use a 'List' service to have methods that add and remove movies to a list.
 
-Extra Credit
-
-* Use "|filter" to filter your list of movies 
+####Extra Credit
+* Use "ng-repeat='movie in movies | filter'" to filter your list of movies
 * Add another field to your search of omdbapi.com
+* Create a list of "favorited movies" - controller code getting fat? Need another service!

@@ -1,5 +1,5 @@
 
-```
+```JS
 /*
  * INDEX.html
  */
@@ -18,7 +18,7 @@
  </html>
 ```
 
-```
+```HTML
 /*
  * MOVIES-INDEX.html
  */
@@ -40,7 +40,7 @@
 ```
 
 
-```
+```JS
 /*
  * APP.JS
  */
@@ -58,9 +58,10 @@ angular.module('myApp', ['myApp.controllers', 'myApp.services'])
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/');
 });
-```
 
 ```
+
+```JS
 /*
  * CONTROLLERS.JS
  */

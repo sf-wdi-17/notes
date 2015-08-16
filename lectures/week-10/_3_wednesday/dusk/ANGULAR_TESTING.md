@@ -1,11 +1,12 @@
 # Protractor: AngularJS Integration Tests
 
-> Objective: Be able to design and deploy robust integration tests for an AngularJS project using the Protractor framework
+> Objective: Be able to design and deploy integration tests for an AngularJS project using the Protractor framework
 
-## Review - Unit Tests and Integration Tests - 20 min
+## Unit Tests and Integration Tests - 20 min
+
 #### What is Integration testing?
 
-To test only one model method or controller method or module method while ignoring, "stubbing" or "mocking" the rest of your application is called "unit testing." 
+To test only one model method or controller method or module method while ignoring the rest of your application is called "unit testing." 
 
 **Integration**, **UI**, **E2E** (**end-to-end**) means tests that automate a user's interaction with your app. An integration test tests the full functioning of both the server and the client through one workflow, hence they are called "End to End" or "integration" or "UI" tests. Since they test a lot of code, E2E tests provide more coverage, but as a trade off they are less precise and if you are not careful more 'brittle' - **they can break too easily**. 
 
@@ -15,13 +16,13 @@ At the very minimum, it is good practice to have a few simple integration tests 
 
 **Start with your user narratives**. Even a non-technical person can design integration tests using the "Given-When-Then" model. 
 
-**Given** the scenario (e.g. wants to writes a new post, is on home page, is on new messages page, et)
+> **Given** the scenario (e.g. wants to writes a new post, is on home page, is on new messages page, et)
 
-**When** the trigger (e.g. clicks on something, submits form, etc)
+> **When** the trigger (e.g. clicks on something, submits form, etc)
 
-**Then** what you expect to happen (e.g. an element changes on the screen, an element is added to or removed from an array, words appear on the screen, etc)
+> **Then** what you expect to happen (e.g. an element changes on the screen, an element is added to or removed from an array, words appear on the screen, etc)
 
-**Activity: Translate one of your user narratives from last week's projects into integration tests using the Given-When-Then model. How many tests did one narrative break down into? 1? more?**
+**Activity: Translate one of your user narratives from last week's projects into integration tests using the Given-When-Then model. How many tests did one narrative break down into? 1? more?** 10 min.
 
 * What's an example of a unit test?
 * What's an example of an integrated test?
@@ -42,8 +43,6 @@ To do integration tests on AngularJS, the AngularJS team recommends [Protractor]
 Protractor is the AngularJS-specific glue that connects [WebdriverJS](https://code.google.com/p/selenium/wiki/WebDriverJs) - agnostic javascript bindings for  [Selenium](http://en.wikipedia.org/wiki/Selenium_%28software%29) that commands your browser, and [Jasmine.js](http://jasmine.github.io/) which affords some nice behavior-driven test sugar.
 
 ![alt tag](http://engineering.wingify.com/images/2015/02/2.png)
-
-Protractor glues all these together into a cohesive AngularJS-specific Integration or E2E testing environment while giving us some nice abstraction and **AngularJS-specific sugar and selectors.**
 
 ## Protractor Setup - 30 min
 
@@ -66,19 +65,23 @@ Here are three strategies to avoid brittle tests:
 
 ## TDD - Smoke Test - 30 min 
 
-Create a test that opens your angular project and tests that the title is correct.
+Create a test that opens any of the angular projects you've built (or a fresh clone of [angular-basic](https://github.com/ajbraus/angular-basic)) test that the title is correct.
+
+1. Get a project (either one you've worked on or a fresh clone of angular-basic)
+2. add a spec.js and a conf.js files
+3. grab the ```element``` for title
+4. Get the text of the title by calling ```getText()``` on it
+5. Check if the value is equal to what you expect.
 
 #### Hints
 * You will need to setup a configuration file and your first "spec.js" file
-* You will use the getTitle() function on protractor element
-* You can run your tests with the command
-```
-protractor test/<<your_configuration_file.js>>
-```
+* Remember ```getText()``` returns a promise, so you'll need to call a ```.then(value)``` function on it to access the value
+* You can run your tests with the command ```protractor test/conf.js```
+* Make sure your server is running and ```webdriver-manager start``` in a tab of your terminal or Selenium won't work
 
 ## Challenge Questions
 
-* What are some of the testing frameworks for a javascript server?
+* What are some of the testing frameworks we've used so far? Ruby/Rails? Javascript/node?
 * Do you need a server running to run Protractor tests?
 * Could you use Protractor to test React.js a competitor client MVC framework to AngularJS?
 * If you have a server running, will protractor tests test that everything is working on the server too?
