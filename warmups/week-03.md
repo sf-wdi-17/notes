@@ -1,7 +1,7 @@
 #Week 3 Warmups
 
 ##Problem 1: Simple Search
-Write a function `simpleSearch` that takes a two parameters: `val` and `arr`, where arr = some array to search, and val = the value to search for. If the value is found in the array, your function should return the index of that value. If the value is not found, your function should return -1.
+Write a function called `simpleSearch` that takes a two parameters: `val` and `arr`, where `arr` is some array to search, and `val` is the value to search for. If the value is found in the array, your function should return the index of that value. If the value is not found, your function should return -1.
 
 ```js
 var arr = [1, 5, 19, 8, 41];
@@ -20,14 +20,14 @@ var simpleSearch = function(arr, val) {
 
 ##Problem 2: Implement a [Binary Search](http://en.wikipedia.org/wiki/Binary_search_algorithm) Function
 Write a function `binarySearch` that takes in two parameters:
-  1. arr (the array to search)
-  2. val (the value to search for)
+  1. `arr` (the array to search)
+  2. `val` (the value to search for)
 
 If the value is found in the array, the function returns true. Otherwise it returns false.
 
 There are a few key requirements for binary searching. But in essence, a binary search takes advantage of the fact that a sorted set of data can be subdivided into smaller problems over and over again. Because of this, a binary search can be extremely fast, but it also requires that a set of data be sorted before the search begins.
 
-Also, you'll probably want to implement your `binarySearch` function so that it uses recursion (you can do it without recursion, but it will be **much** more difficult.) 
+Also, you'll probably want to implement your `binarySearch` function so that it uses recursion. (You can do it without recursion, but it will be **much** more difficult.) 
 
 As a reminder, a recursive algorithm calls itself to complete its task.
 
@@ -46,7 +46,7 @@ var factorial = function(n) {
 }
 ```
 
-In the `factorial` function, the recursion condition states that as long as n is greater than 0, we continue to recurse and we reduce the value of n by 1 with each iteration. Once n == 0, we stop and return 1.
+In the `factorial` function, the recursion condition states that as long as `n` is greater than 0, we continue to recurse and we reduce the value of `n` by 1 with each iteration. Once `n` is 0, we stop and return 1.
 
 We can also illustrate recursion with the simple idea of spiraling down, and then back up again. We'll explain further.
 
